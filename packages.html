@@ -64,6 +64,7 @@
     }
 
     .container {
+      width: 100%;
       max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
@@ -86,7 +87,7 @@
     }
 
     .section-title h1 {
-      font-size: 3.2rem;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
       margin-bottom: 16px;
       line-height: 1.15;
     }
@@ -113,6 +114,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
       border: 1px solid transparent;
+      white-space: nowrap;
     }
 
     .btn-gold {
@@ -136,6 +138,7 @@
       width: 100%;
       text-align: center;
       transition: all 0.3s ease;
+      display: block;
     }
 
     .btn-card-outline:hover {
@@ -166,6 +169,8 @@
     header {
       background-color: var(--bg-cream);
       padding: 18px 0;
+      position: relative;
+      z-index: 1000;
     }
 
     nav {
@@ -192,6 +197,7 @@
       display: flex;
       gap: 28px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
@@ -221,11 +227,21 @@
       gap: 6px;
     }
 
+    .mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      padding: 5px;
+    }
+
     /* ==========================================
        PACKAGES SECTION
        ========================================== */
     .packages-wrapper {
-      padding: 50px 0 100px;
+      padding: 40px 0 80px;
       flex-grow: 1;
     }
 
@@ -233,7 +249,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
-      align-items: center;
+      align-items: stretch;
       max-width: 1100px;
       margin: 0 auto;
     }
@@ -380,7 +396,7 @@
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 2fr;
+      grid-template-columns: 2fr 1fr 1.5fr 1.8fr;
       gap: 40px;
       margin-bottom: 50px;
     }
@@ -405,15 +421,15 @@
     }
 
     .social-icon {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       border: 1px solid rgba(255,255,255,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #FFF;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       transition: all 0.3s;
     }
 
@@ -474,9 +490,9 @@
       gap: 8px;
       background-color: var(--whatsapp-green);
       color: #FFF;
-      padding: 8px 16px;
+      padding: 10px 18px;
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
       margin-top: 8px;
     }
@@ -498,21 +514,29 @@
       right: 25px;
       background-color: var(--whatsapp-green);
       color: #FFF;
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 26px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
       z-index: 999;
+      transition: transform 0.3s ease;
     }
 
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* ==========================================
+       RESPONSIVE DESIGN BREAKPOINTS
+       ========================================== */
     @media (max-width: 992px) {
       .packages-grid {
-        grid-template-columns: 1fr;
-        max-width: 450px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
       }
       .package-card.recommended {
         transform: none;
@@ -522,20 +546,81 @@
       }
       .footer-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-nav-toggle {
+        display: block;
+      }
+
+      .header-contact .header-phone {
+        display: none;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-cream);
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        border-top: 1px solid rgba(0,0,0,0.05);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .section-title {
+        margin-bottom: 35px;
       }
     }
 
     @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      .container {
+        padding: 0 16px;
+      }
+
+      .header-contact .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+      }
+
+      .packages-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .whatsapp-float {
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+        bottom: 18px;
+        right: 18px;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20inquire%20about%20packages" class="whatsapp-float" target="_blank">
+  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20inquire%20about%20packages" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
@@ -544,7 +629,8 @@
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Serenity <span>spa</span></a>
-        <ul class="nav-links">
+
+        <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="packages.html" class="active">Packages</a></li>
@@ -552,11 +638,15 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+
         <div class="header-contact">
           <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
           <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
             Book Now
           </a>
+          <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </nav>
     </div>
@@ -657,8 +747,8 @@
           <a href="index.html" class="logo">Serenity <span>spa</span></a>
           <p>Karachi's premier luxury massage and spa sanctuary. Certified therapists, premium products, unforgettable rituals.</p>
           <div class="social-links">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
 
@@ -668,9 +758,9 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="packages.html">Packages</a></li>
-            <li><a href="index.html#locations">Locations</a></li>
-            <li><a href="index.html#why-us">About Us</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
@@ -714,6 +804,24 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = navToggle.querySelector('i');
+      if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+  </script>
 
 </body>
 </html>
