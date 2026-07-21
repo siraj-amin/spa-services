@@ -49,6 +49,9 @@
       color: var(--text-dark);
       line-height: 1.6;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     h1, h2, h3, h4 {
@@ -63,6 +66,7 @@
     }
 
     .container {
+      width: 100%;
       max-width: 1140px;
       margin: 0 auto;
       padding: 0 24px;
@@ -105,6 +109,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
       border: 1px solid transparent;
+      white-space: nowrap;
     }
 
     .btn-gold {
@@ -156,6 +161,7 @@
       display: flex;
       gap: 26px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
@@ -186,16 +192,26 @@
       font-size: 0.82rem;
     }
 
+    .mobile-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      padding: 4px;
+    }
+
     /* ==========================================
        HERO HEADER SECTION
        ========================================== */
     .services-hero {
       text-align: center;
-      padding: 60px 0 45px;
+      padding: 50px 0 35px;
     }
 
     .services-hero h1 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3rem);
       margin-bottom: 12px;
       font-weight: 500;
     }
@@ -213,12 +229,14 @@
        ========================================== */
     .services-section {
       padding-bottom: 70px;
+      flex-grow: 1;
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 26px;
+      align-items: stretch;
     }
 
     .service-card {
@@ -320,15 +338,15 @@
     .cta-banner {
       background-color: var(--bg-dark-espresso);
       border-radius: 16px;
-      padding: 50px 30px;
+      padding: 45px 24px;
       text-align: center;
       color: #FFF;
-      margin-bottom: 70px;
+      margin-bottom: 60px;
     }
 
     .cta-banner h2 {
       color: #FFF;
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       margin-bottom: 10px;
       font-weight: 400;
     }
@@ -392,8 +410,8 @@
     }
 
     .social-icon {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       background: rgba(255,255,255,0.08);
       color: #FFF;
@@ -458,22 +476,80 @@
 
     /* RESPONSIVE BREAKPOINTS */
     @media (max-width: 992px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .services-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+      }
+      .footer-grid { 
+        grid-template-columns: 1fr 1fr; 
+        gap: 30px; 
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-nav-toggle {
+        display: block;
+      }
+
+      .header-contact .header-phone {
+        display: none;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-cream);
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
     }
 
     @media (max-width: 600px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 10px; }
+      .container {
+        padding: 0 16px;
+      }
+
+      .services-hero {
+        padding: 35px 0 25px;
+      }
+
+      .services-grid { 
+        grid-template-columns: 1fr; 
+      }
+
+      .footer-grid { 
+        grid-template-columns: 1fr; 
+      }
+
+      .footer-bottom { 
+        flex-direction: column; 
+        gap: 10px; 
+        text-align: center;
+      }
+
+      .whatsapp-float {
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+        bottom: 18px;
+        right: 18px;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20would%20like%20to%20book%20a%20service" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20would%20like%20to%20book%20a%20service" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
@@ -482,7 +558,8 @@
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Serenity <span>spa</span></a>
-        <ul class="nav-links">
+
+        <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html" class="active">Services</a></li>
           <li><a href="packages.html">Packages</a></li>
@@ -490,11 +567,15 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+
         <div class="header-contact">
           <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
           <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
             Book Now
           </a>
+          <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </nav>
     </div>
@@ -665,8 +746,8 @@
           <div class="logo" style="color: #FFF; margin-bottom: 12px;">Serenity <span>spa</span></div>
           <p style="color: var(--text-light-muted); font-size: 0.82rem; line-height: 1.55;">Karachi's premier luxury massage and spa sanctuary. Certified therapists, premium products, unforgettable rituals.</p>
           <div class="social-icons">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
 
@@ -722,6 +803,24 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Mobile navigation toggle logic
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = navToggle.querySelector('i');
+      if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+  </script>
 
 </body>
 </html>
