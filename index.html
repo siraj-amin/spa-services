@@ -22,6 +22,7 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html {
@@ -65,12 +66,12 @@
     .container {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 20px;
     }
 
     /* Subheadings with decorative line */
     .sub-heading {
-      font-size: 0.78rem;
+      font-size: clamp(0.7rem, 2vw, 0.78rem);
       text-transform: uppercase;
       letter-spacing: 2px;
       color: var(--gold-primary);
@@ -84,20 +85,20 @@
     .sub-heading::after {
       content: '';
       display: inline-block;
-      width: 20px;
+      width: 16px;
       height: 1px;
       background-color: var(--gold-primary);
       vertical-align: middle;
-      margin: 0 8px;
+      margin: 0 6px;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 35px;
     }
 
     .section-title h2 {
-      font-size: 2.7rem;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
       margin-bottom: 10px;
       line-height: 1.2;
     }
@@ -106,7 +107,7 @@
       color: var(--text-muted);
       max-width: 580px;
       margin: 0 auto;
-      font-size: 0.95rem;
+      font-size: clamp(0.85rem, 2vw, 0.95rem);
     }
 
     /* ==========================================
@@ -117,13 +118,14 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 12px 28px;
+      padding: 12px 24px;
       border-radius: 25px;
       font-weight: 500;
       font-size: 0.88rem;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       border: 1px solid transparent;
+      white-space: nowrap;
     }
 
     .btn-gold {
@@ -163,13 +165,13 @@
     }
 
     /* ==========================================
-       HEADER & NAVIGATION
+       HEADER & RESPONSIVE NAVIGATION
        ========================================== */
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(250, 246, 240, 0.95);
+      background-color: rgba(250, 246, 240, 0.98);
       backdrop-filter: blur(10px);
       z-index: 1000;
       border-bottom: 1px solid var(--border-subtle);
@@ -180,18 +182,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
+      padding: 12px 0;
     }
 
     .logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem;
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
       font-weight: 700;
       letter-spacing: 0.5px;
       color: var(--text-dark);
       display: flex;
       align-items: center;
       gap: 4px;
+      z-index: 1001;
     }
 
     .logo span {
@@ -202,7 +205,7 @@
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 20px;
       list-style: none;
     }
 
@@ -221,15 +224,75 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 0.85rem;
     }
 
-    .header-phone {
+    /* Mobile Menu Controls */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
       color: var(--text-dark);
-      font-weight: 600;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 4px;
+    }
+
+    .mobile-nav-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background-color: var(--bg-cream);
+      box-shadow: -5px 0 25px rgba(0,0,0,0.15);
       display: flex;
-      align-items: center;
-      gap: 6px;
+      flex-direction: column;
+      padding: 80px 24px 30px;
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+    }
+
+    .mobile-nav-drawer.open {
+      right: 0;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .mobile-nav-links a {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .mobile-nav-links a:hover {
+      color: var(--gold-primary);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 999;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     /* ==========================================
@@ -237,15 +300,14 @@
        ========================================== */
     .hero {
       position: relative;
-      height: 92vh;
-      min-height: 580px;
+      min-height: 100vh;
       background: linear-gradient(rgba(45, 30, 24, 0.65), rgba(45, 30, 24, 0.7)), 
                   url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding-top: 70px;
+      padding: 100px 0 50px;
     }
 
     .hero-content {
@@ -263,7 +325,7 @@
     }
 
     .hero-content h1 {
-      font-size: 3.8rem;
+      font-size: clamp(2.1rem, 5vw, 3.8rem);
       color: #FFF;
       line-height: 1.15;
       margin-bottom: 20px;
@@ -277,23 +339,24 @@
     }
 
     .hero-content p {
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 2vw, 1rem);
       color: rgba(255, 255, 255, 0.85);
-      margin: 0 auto 35px;
+      margin: 0 auto 30px;
       max-width: 620px;
     }
 
     .hero-btns {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     /* ==========================================
        SECTIONS GENERAL
        ========================================== */
     section {
-      padding: 85px 0;
+      padding: clamp(50px, 8vw, 85px) 0;
     }
 
     /* ==========================================
@@ -301,8 +364,8 @@
        ========================================== */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
     }
 
     .service-card {
@@ -317,7 +380,7 @@
     }
 
     .service-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: 0 14px 35px rgba(197, 160, 89, 0.15);
       border-color: var(--gold-primary);
     }
@@ -352,7 +415,7 @@
     }
 
     .card-content {
-      padding: 22px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -376,23 +439,25 @@
        ========================================== */
     .packages-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      align-items: stretch;
     }
 
     .package-card {
       background-color: var(--card-white);
       border-radius: 16px;
-      padding: 32px 26px;
+      padding: 30px 22px;
       border: 1px solid var(--border-subtle);
       transition: all 0.4s ease;
       position: relative;
       text-align: center;
+      display: flex;
+      flex-direction: column;
     }
 
     .package-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: 0 12px 30px rgba(0,0,0,0.06);
     }
 
@@ -400,12 +465,7 @@
       background-color: var(--bg-dark-espresso);
       color: #FFF;
       border: 2px solid var(--gold-primary);
-      transform: scale(1.03);
       box-shadow: 0 16px 40px rgba(45, 30, 24, 0.35);
-    }
-
-    .package-card.recommended:hover {
-      transform: scale(1.05) translateY(-6px);
     }
 
     .package-card.recommended h3, 
@@ -431,6 +491,7 @@
       letter-spacing: 1px;
       padding: 4px 16px;
       border-radius: 20px;
+      white-space: nowrap;
     }
 
     .package-price {
@@ -445,6 +506,7 @@
       list-style: none;
       margin: 22px 0 28px;
       text-align: left;
+      flex-grow: 1;
     }
 
     .package-card ul li {
@@ -466,9 +528,9 @@
        ========================================== */
     .vip-hotels-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 26px;
-      margin-bottom: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
     }
 
     .vip-card {
@@ -490,7 +552,7 @@
 
     .vip-card-img {
       position: relative;
-      height: 200px;
+      height: 180px;
       overflow: hidden;
     }
 
@@ -507,15 +569,15 @@
 
     .vip-badge {
       position: absolute;
-      top: 14px;
-      left: 14px;
+      top: 12px;
+      left: 12px;
       background: var(--gold-primary);
       color: #FFF;
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      padding: 5px 12px;
+      padding: 4px 10px;
       border-radius: 20px;
       display: flex;
       align-items: center;
@@ -524,7 +586,7 @@
     }
 
     .vip-card-body {
-      padding: 24px;
+      padding: 20px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -534,8 +596,8 @@
     }
 
     .vip-card-body h3 {
-      font-size: 1.45rem;
-      margin-bottom: 18px;
+      font-size: 1.35rem;
+      margin-bottom: 16px;
       color: var(--text-dark);
       font-family: 'Cormorant Garamond', serif;
     }
@@ -563,13 +625,13 @@
        ========================================== */
     .locations-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
     }
 
     .location-box {
       background: var(--card-white);
-      padding: 14px;
+      padding: 12px;
       border-radius: 8px;
       text-align: center;
       border: 1px solid var(--border-subtle);
@@ -585,7 +647,7 @@
     .location-box h4 {
       display: inline-block;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 500;
     }
 
@@ -606,36 +668,37 @@
     .why-us-wrapper {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
-      gap: 50px;
+      gap: 40px;
       align-items: center;
     }
 
     .why-us-left h2 {
       color: #FFF;
-      font-size: 2.9rem;
+      font-size: clamp(2rem, 4vw, 2.9rem);
       line-height: 1.15;
       margin-bottom: 18px;
     }
 
     .why-us-left p {
       color: var(--text-light-muted);
-      margin-bottom: 30px;
+      margin-bottom: 28px;
       font-size: 0.92rem;
     }
 
     .stats-row {
       display: flex;
-      gap: 30px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .stat-item h3 {
       color: var(--gold-light);
-      font-size: 2.2rem;
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
       line-height: 1;
     }
 
     .stat-item p {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--text-light-muted);
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -644,15 +707,15 @@
 
     .why-us-right {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
     }
 
     .why-card {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
-      padding: 22px;
+      padding: 20px;
       transition: all 0.3s ease;
     }
 
@@ -664,13 +727,13 @@
 
     .why-icon {
       color: var(--gold-primary);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin-bottom: 10px;
     }
 
     .why-card h4 {
       color: #FFF;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       margin-bottom: 6px;
     }
 
@@ -688,6 +751,7 @@
       max-width: 780px;
       margin: 0 auto;
       overflow: hidden;
+      padding: 0 10px;
     }
 
     .slider-track {
@@ -698,7 +762,7 @@
     .slide-card {
       min-width: 100%;
       background: var(--card-white);
-      padding: 40px;
+      padding: clamp(24px, 5vw, 40px);
       border-radius: 16px;
       text-align: center;
       border: 1px solid var(--border-subtle);
@@ -707,28 +771,28 @@
 
     .slide-card .quote-icon {
       color: var(--gold-primary);
-      font-size: 1.8rem;
-      margin-bottom: 15px;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
     }
 
     .stars {
       color: var(--gold-primary);
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       font-size: 0.85rem;
     }
 
     .slide-card p {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
       font-style: italic;
       color: var(--text-dark);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       line-height: 1.4;
     }
 
     .slide-card h4 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--text-dark);
     }
@@ -737,8 +801,8 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: #FFF;
       border: 1px solid var(--border-subtle);
@@ -757,8 +821,8 @@
       border-color: var(--gold-primary);
     }
 
-    .slider-nav-btn.prev { left: 10px; }
-    .slider-nav-btn.next { right: 10px; }
+    .slider-nav-btn.prev { left: 0; }
+    .slider-nav-btn.next { right: 0; }
 
     /* ==========================================
        CTA BANNER SECTION
@@ -766,15 +830,15 @@
     .cta-banner {
       background-color: var(--bg-dark-espresso);
       border-radius: 18px;
-      padding: 55px 30px;
+      padding: clamp(35px, 6vw, 55px) 20px;
       text-align: center;
       color: #FFF;
-      margin-bottom: 70px;
+      margin-bottom: 40px;
     }
 
     .cta-banner h2 {
       color: var(--gold-light);
-      font-size: 2.7rem;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
       margin-bottom: 12px;
     }
 
@@ -782,7 +846,7 @@
       color: var(--text-light-muted);
       max-width: 520px;
       margin: 0 auto 28px;
-      font-size: 0.92rem;
+      font-size: clamp(0.85rem, 2vw, 0.92rem);
     }
 
     /* ==========================================
@@ -791,21 +855,21 @@
     footer {
       background: var(--bg-dark-espresso);
       color: #FFF;
-      padding: 65px 0 25px;
+      padding: 50px 0 25px;
       border-top: 1px solid rgba(255,255,255,0.05);
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 35px;
-      margin-bottom: 45px;
+      gap: 30px;
+      margin-bottom: 40px;
     }
 
     .footer-col h4 {
       color: var(--gold-light);
-      margin-bottom: 18px;
-      font-size: 1.15rem;
+      margin-bottom: 16px;
+      font-size: 1.1rem;
     }
 
     .footer-links {
@@ -813,7 +877,7 @@
     }
 
     .footer-links li {
-      margin-bottom: 9px;
+      margin-bottom: 8px;
     }
 
     .footer-links a {
@@ -828,7 +892,7 @@
 
     .footer-bottom {
       text-align: center;
-      padding-top: 22px;
+      padding-top: 20px;
       border-top: 1px solid rgba(255,255,255,0.08);
       color: var(--text-light-muted);
       font-size: 0.8rem;
@@ -839,17 +903,17 @@
        ========================================== */
     .whatsapp-float {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
+      bottom: 20px;
+      right: 20px;
       background-color: var(--whatsapp-green);
       color: #fff;
-      width: 56px;
-      height: 56px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: 26px;
       box-shadow: 0 4px 18px rgba(0,0,0,0.2);
       z-index: 9999;
       animation: pulse-ring 2s infinite;
@@ -861,16 +925,53 @@
       100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
+    /* ==========================================
+       MEDIA QUERIES FOR MOBILE OPTIMIZATION
+       ========================================== */
     @media (max-width: 900px) {
-      .why-us-wrapper { grid-template-columns: 1fr; gap: 30px; }
-      .why-us-right { grid-template-columns: 1fr; }
-      .hero-content h1 { font-size: 2.7rem; }
-      .nav-links { display: none; }
-      .package-card.recommended { transform: none; }
+      .why-us-wrapper { 
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+      }
+      .why-us-right { 
+        grid-template-columns: 1fr; 
+      }
+      .nav-links { 
+        display: none; 
+      }
+      .mobile-toggle { 
+        display: block; 
+      }
+    }
+
+    @media (max-width: 576px) {
+      .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .header-contact .btn {
+        padding: 6px 14px;
+        font-size: 0.78rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- MOBILE OVERLAY & DRAWER MENU -->
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+      <li><a href="services.html" onclick="toggleMenu()">Services</a></li>
+      <li><a href="packages.html" onclick="toggleMenu()">Packages</a></li>
+      <li><a href="locations.html" onclick="toggleMenu()">Locations</a></li>
+      <li><a href="about.html" onclick="toggleMenu()">About Us</a></li>
+      <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/923350246669?text=Hello%20I%20want%20to%20book%20Escort/private%20massage%20Services" target="_blank" class="btn btn-gold" style="width: 100%;">
+      Book Now
+    </a>
+  </aside>
 
   <!-- FLOATING ANIMATED WHATSAPP BUTTON -->
   <a href="https://wa.me/923350246669?text=Hello%20I%20want%20to%20book%20Escort/private%20massage%20Services" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
@@ -882,6 +983,7 @@
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Karachi Fun<span>Escort</span></a>
+        
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
@@ -890,11 +992,14 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+
         <div class="header-contact">
-          <!-- <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a> -->
-          <a href="https://wa.me/923350246669?text=Hello%20I%20want%20to%20book%20Escort/private%20massage%20Services" target="_blank" class="btn btn-gold" style="padding: 8px 18px; font-size: 0.82rem;">
+          <a href="https://wa.me/923350246669?text=Hello%20I%20want%20to%20book%20Escort/private%20massage%20Services" target="_blank" class="btn btn-gold">
             Book Now
           </a>
+          <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle Navigation Menu">
+            <i class="fas fa-bars" id="menuIcon"></i>
+          </button>
         </div>
       </nav>
     </div>
@@ -967,7 +1072,7 @@
       </div>
 
       <!-- AREA COVERAGE SUB-SECTION -->
-      <div class="section-title" style="margin-top: 60px;">
+      <div class="section-title" style="margin-top: 50px;">
         <span class="sub-heading">COVERAGE AREAS</span>
         <h2>Serving All of Karachi</h2>
         <p>Doorstep home/hotel services and center sessions available across all major neighborhoods.</p>
@@ -1078,7 +1183,7 @@
   </section>
 
   <!-- CTA BANNER SECTION -->
-  <section id="contact" style="background-color: var(--bg-soft-cream); padding-bottom: 85px;">
+  <section id="contact" style="background-color: var(--bg-soft-cream); padding-bottom: 60px;">
     <div class="container">
       <div class="cta-banner">
         <div style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 12px;"><i class="fas fa-gem"></i></div>
@@ -1136,6 +1241,24 @@
 
   <!-- JAVASCRIPT -->
   <script>
+    // MOBILE NAVIGATION TOGGLE
+    function toggleMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('overlay');
+      const icon = document.getElementById('menuIcon');
+
+      drawer.classList.toggle('open');
+      overlay.classList.toggle('active');
+
+      if (drawer.classList.contains('open')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    }
+
     // DATA: SERVICES FOR HOMEPAGE PREVIEW
     const servicesData = [
       { name: "Swedish Relaxation Massage", tag: "PKR 6,500", desc: "Gentle long strokes to melt away stress and boost circulation.", img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" },
