@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locations — Serenity Spa Karachi</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       RESET & PRECISE COLOR PALETTE
+       ========================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg-cream: #FAF6F0;
+      --bg-dark-footer: #2B1C16;
+      --gold-primary: #C5A059;
+      --gold-hover: #B08D46;
+      --gold-icon-bg: #EAD9B8;
+      --text-dark: #221814;
+      --text-muted: #7A6E67;
+      --text-light-muted: #BFAEA4;
+      --card-white: #FFFFFF;
+      --whatsapp-green: #25D366;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Subheadings */
+    .sub-heading {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--gold-primary);
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h1 {
+      font-size: 3.2rem;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-gold {
+      background-color: var(--gold-primary);
+      color: #FFFFFF;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--gold-hover);
+      box-shadow: 0 6px 18px rgba(197, 160, 89, 0.3);
+    }
+
+    /* ==========================================
+       HEADER & NAVIGATION
+       ========================================== */
+    header {
+      background-color: var(--bg-cream);
+      padding: 18px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--text-dark);
+    }
+
+    .logo span {
+      color: var(--gold-primary);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold-primary);
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.88rem;
+    }
+
+    .header-phone {
+      color: var(--text-dark);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ==========================================
+       LOCATIONS GRID SECTION
+       ========================================== */
+    .locations-wrapper {
+      padding: 50px 0 100px;
+      flex-grow: 1;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .location-card {
+      background-color: var(--card-white);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+    }
+
+    .location-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .location-icon {
+      width: 42px;
+      height: 42px;
+      background-color: var(--gold-icon-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--bg-dark-footer);
+      font-size: 1rem;
+    }
+
+    .location-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .location-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================
+       FOOTER SECTION
+       ========================================== */
+    footer {
+      background-color: var(--bg-dark-footer);
+      color: #FFF;
+      padding: 60px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .logo {
+      color: #FFF;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .footer-brand p {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      line-height: 1.6;
+      max-width: 260px;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 0.8rem;
+      transition: all 0.3s;
+    }
+
+    .social-icon:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+    }
+
+    .footer-col h4 {
+      color: var(--gold-primary);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #FFF;
+    }
+
+    .footer-contact-info {
+      list-style: none;
+    }
+
+    .footer-contact-info li {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .footer-contact-info li i {
+      color: var(--gold-primary);
+      margin-top: 3px;
+    }
+
+    .btn-whatsapp-footer {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--whatsapp-green);
+      color: #FFF;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-light-muted);
+    }
+
+    /* Floating WhatsApp Icon */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--whatsapp-green);
+      color: #FFF;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .locations-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20have%20a%20location%20query" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Serenity <span>spa</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="locations.html" class="active">Locations</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="header-contact">
+          <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
+          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
+            Book Now
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN LOCATIONS CONTENT -->
+  <main class="locations-wrapper">
+    <div class="container">
+      <div class="section-title">
+        <span class="sub-heading">WHERE TO FIND US</span>
+        <h1>Serving Every Corner of<br>Karachi</h1>
+        <p>Visit one of our studios or invite our mobile spa team to your home or hotel.</p>
+      </div>
+
+      <div class="locations-grid">
+        
+        <!-- LOCATION 1 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>DHA Defence</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 2 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Clifton</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 3 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Teen Talwar</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 4 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Shahrah-e-Faisal</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 5 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Bahria Town</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 6 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Civil Lines</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 7 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Federal B Area</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 8 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Nazimabad</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 9 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Gulshan-e-Iqbal</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 10 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Bahadurabad</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 11 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Korangi</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 12 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Orangi Town</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+        <!-- LOCATION 13 -->
+        <div class="location-card">
+          <div class="location-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Scheme 33</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Serenity <span>spa</span></a>
+          <p>Karachi's premier luxury massage and spa sanctuary. Certified therapists, premium products, unforgettable rituals.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>SERVICES</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Swedish Relaxation Massage</a></li>
+            <li><a href="services.html">Deep Tissue Therapy</a></li>
+            <li><a href="services.html">Hot Stone Massage</a></li>
+            <li><a href="services.html">Aromatherapy Ritual</a></li>
+            <li><a href="services.html">Traditional Thai Massage</a></li>
+            <li><a href="services.html">Foot Reflexology</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>GET IN TOUCH</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Multiple Locations Across Karachi, Pakistan</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>+92 335 0246669</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@serenityspa.pk</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" target="_blank" class="btn-whatsapp-footer">
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Serenity Spa Karachi. All rights reserved.</p>
+        <p>DHA Defence · Clifton · Teen Talwar · Shahrah-e-Faisal · Bahria Town · Civil Lines</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

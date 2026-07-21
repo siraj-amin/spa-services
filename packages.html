@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Packages — Serenity Spa Karachi</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       RESET & PRECISE COLOR PALETTE
+       ========================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg-cream: #FAF6F0;
+      --bg-dark-espresso: #38251D;
+      --bg-dark-footer: #2B1C16;
+      --gold-primary: #C5A059;
+      --gold-hover: #B08D46;
+      --text-dark: #221814;
+      --text-muted: #7A6E67;
+      --text-light-muted: #BFAEA4;
+      --card-white: #FFFFFF;
+      --whatsapp-green: #25D366;
+      --border-subtle: #EAE1D4;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Subheadings with decorative line */
+    .sub-heading {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--gold-primary);
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h1 {
+      font-size: 3.2rem;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================
+       BUTTONS & HOVER EFFECTS
+       ========================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-gold {
+      background-color: var(--gold-primary);
+      color: #FFFFFF;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--gold-hover);
+      box-shadow: 0 6px 18px rgba(197, 160, 89, 0.3);
+    }
+
+    .btn-card-outline {
+      border: 1px solid #7A6E67;
+      color: var(--text-dark);
+      background: transparent;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .btn-card-outline:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+    }
+
+    .btn-card-gold {
+      background-color: var(--gold-primary);
+      color: #FFFFFF;
+      border-radius: 25px;
+      padding: 12px 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .btn-card-gold:hover {
+      background-color: var(--gold-hover);
+    }
+
+    /* ==========================================
+       HEADER & NAVIGATION
+       ========================================== */
+    header {
+      background-color: var(--bg-cream);
+      padding: 18px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--text-dark);
+    }
+
+    .logo span {
+      color: var(--gold-primary);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold-primary);
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.88rem;
+    }
+
+    .header-phone {
+      color: var(--text-dark);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ==========================================
+       PACKAGES SECTION
+       ========================================== */
+    .packages-wrapper {
+      padding: 50px 0 100px;
+      flex-grow: 1;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .package-card {
+      background-color: var(--card-white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .package-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+    }
+
+    .package-card-img {
+      height: 220px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .package-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .package-card-body {
+      padding: 30px 26px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .package-card-body h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .package-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+
+    .package-price {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--gold-primary);
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .package-duration {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .package-features {
+      list-style: none;
+      margin-bottom: 30px;
+      flex-grow: 1;
+    }
+
+    .package-features li {
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .package-features li i {
+      color: var(--gold-primary);
+      font-size: 0.75rem;
+    }
+
+    /* RECOMMENDED CENTER CARD */
+    .package-card.recommended {
+      background-color: var(--bg-dark-espresso);
+      color: #FFF;
+      transform: scale(1.03);
+      box-shadow: 0 20px 40px rgba(43, 28, 22, 0.25);
+    }
+
+    .package-card.recommended:hover {
+      transform: scale(1.05);
+    }
+
+    .package-card.recommended .package-card-img {
+      height: 240px;
+      position: relative;
+    }
+
+    .recommended-badge {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--gold-primary);
+      color: #FFF;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 12px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .package-card.recommended h3 {
+      color: #FFF;
+    }
+
+    .package-card.recommended .package-price {
+      color: var(--gold-primary);
+    }
+
+    .package-card.recommended .package-duration {
+      color: var(--text-light-muted);
+    }
+
+    .package-card.recommended .package-features li {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ==========================================
+       FOOTER SECTION
+       ========================================== */
+    footer {
+      background-color: var(--bg-dark-footer);
+      color: #FFF;
+      padding: 60px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .logo {
+      color: #FFF;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .footer-brand p {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      line-height: 1.6;
+      max-width: 260px;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 0.8rem;
+      transition: all 0.3s;
+    }
+
+    .social-icon:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+    }
+
+    .footer-col h4 {
+      color: var(--gold-primary);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #FFF;
+    }
+
+    .footer-contact-info {
+      list-style: none;
+    }
+
+    .footer-contact-info li {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .footer-contact-info li i {
+      color: var(--gold-primary);
+      margin-top: 3px;
+    }
+
+    .btn-whatsapp-footer {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--whatsapp-green);
+      color: #FFF;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-light-muted);
+    }
+
+    /* Floating WhatsApp Icon */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--whatsapp-green);
+      color: #FFF;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    @media (max-width: 992px) {
+      .packages-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+      }
+      .package-card.recommended {
+        transform: none;
+      }
+      .package-card.recommended:hover {
+        transform: translateY(-5px);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20inquire%20about%20packages" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Serenity <span>spa</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="packages.html" class="active">Packages</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="header-contact">
+          <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
+          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
+            Book Now
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN PACKAGES CONTENT -->
+  <main class="packages-wrapper">
+    <div class="container">
+      <div class="section-title">
+        <span class="sub-heading">SPECIAL PACKAGES</span>
+        <h1>Escapes Worth the Getaway</h1>
+        <p>Multi-treatment packages designed for full-day surrender. Perfect for gifting, celebrations or a long-overdue reset.</p>
+      </div>
+
+      <div class="packages-grid">
+        
+        <!-- PACKAGE 1 -->
+        <div class="package-card">
+          <div class="package-card-img">
+            <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=600&q=80" alt="The Essential Escape">
+          </div>
+          <div class="package-card-body">
+            <h3>The Essential Escape</h3>
+            <div class="package-price-row">
+              <span class="package-price">PKR 9,500</span>
+              <span class="package-duration">/ 90 min</span>
+            </div>
+            <ul class="package-features">
+              <li><i class="fas fa-check"></i> 60-min Swedish Massage</li>
+              <li><i class="fas fa-check"></i> 20-min Foot Reflexology</li>
+              <li><i class="fas fa-check"></i> Herbal Welcome Tea</li>
+              <li><i class="fas fa-check"></i> Aromatherapy Oil</li>
+            </ul>
+            <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book%20The%20Essential%20Escape%20Package" target="_blank" class="btn-card-outline">
+              Book This Package
+            </a>
+          </div>
+        </div>
+
+        <!-- PACKAGE 2 (RECOMMENDED) -->
+        <div class="package-card recommended">
+          <div class="package-card-img">
+            <span class="recommended-badge"><i class="fas fa-star"></i> RECOMMENDED</span>
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" alt="The Signature Ritual">
+          </div>
+          <div class="package-card-body">
+            <h3>The Signature Ritual</h3>
+            <div class="package-price-row">
+              <span class="package-price">PKR 14,500</span>
+              <span class="package-duration">/ 150 min</span>
+            </div>
+            <ul class="package-features">
+              <li><i class="fas fa-check"></i> 75-min Hot Stone Massage</li>
+              <li><i class="fas fa-check"></i> 60-min Signature Facial</li>
+              <li><i class="fas fa-check"></i> Scalp & Head Massage</li>
+              <li><i class="fas fa-check"></i> Complimentary Refreshments</li>
+              <li><i class="fas fa-check"></i> Private Suite Access</li>
+            </ul>
+            <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book%20The%20Signature%20Ritual%20Package" target="_blank" class="btn-card-gold">
+              Book This Package
+            </a>
+          </div>
+        </div>
+
+        <!-- PACKAGE 3 -->
+        <div class="package-card">
+          <div class="package-card-img">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="The Royal Indulgence">
+          </div>
+          <div class="package-card-body">
+            <h3>The Royal Indulgence</h3>
+            <div class="package-price-row">
+              <span class="package-price">PKR 22,000</span>
+              <span class="package-duration">/ 210 min</span>
+            </div>
+            <ul class="package-features">
+              <li><i class="fas fa-check"></i> 90-min Deep Tissue Therapy</li>
+              <li><i class="fas fa-check"></i> Full-Body Aromatherapy Ritual</li>
+              <li><i class="fas fa-check"></i> Signature Glow Facial</li>
+              <li><i class="fas fa-check"></i> Foot Reflexology</li>
+              <li><i class="fas fa-check"></i> Champagne & Dessert Service</li>
+            </ul>
+            <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book%20The%20Royal%20Indulgence%20Package" target="_blank" class="btn-card-outline">
+              Book This Package
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Serenity <span>spa</span></a>
+          <p>Karachi's premier luxury massage and spa sanctuary. Certified therapists, premium products, unforgettable rituals.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="index.html#locations">Locations</a></li>
+            <li><a href="index.html#why-us">About Us</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>SERVICES</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Swedish Relaxation Massage</a></li>
+            <li><a href="services.html">Deep Tissue Therapy</a></li>
+            <li><a href="services.html">Hot Stone Massage</a></li>
+            <li><a href="services.html">Aromatherapy Ritual</a></li>
+            <li><a href="services.html">Traditional Thai Massage</a></li>
+            <li><a href="services.html">Foot Reflexology</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>GET IN TOUCH</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Multiple Locations Across Karachi, Pakistan</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>+92 335 0246669</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@serenityspa.pk</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" target="_blank" class="btn-whatsapp-footer">
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Serenity Spa Karachi. All rights reserved.</p>
+        <p>DHA Defence · Clifton · Teen Talwar · Shahrah-e-Faisal · Bahria Town · Civil Lines</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

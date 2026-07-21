@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Serenity Spa Karachi</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       RESET & COLOR PALETTE
+       ========================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg-cream: #FAF6F0;
+      --bg-dark-espresso: #3E2920;
+      --bg-dark-footer: #2B1C16;
+      --gold-primary: #C5A059;
+      --gold-hover: #B08D46;
+      --text-dark: #221814;
+      --text-muted: #7A6E67;
+      --text-light-muted: #BFAEA4;
+      --card-white: #FFFFFF;
+      --whatsapp-green: #25D366;
+      --whatsapp-green-hover: #1EBE5A;
+      --input-bg: #FAF7F2;
+      --input-border: #EAE1D4;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Subheadings */
+    .sub-heading {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--gold-primary);
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h1 {
+      font-size: 3.2rem;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-gold {
+      background-color: var(--gold-primary);
+      color: #FFFFFF;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--gold-hover);
+      box-shadow: 0 6px 18px rgba(197, 160, 89, 0.3);
+    }
+
+    /* ==========================================
+       HEADER & NAVIGATION
+       ========================================== */
+    header {
+      background-color: var(--bg-cream);
+      padding: 18px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--text-dark);
+    }
+
+    .logo span {
+      color: var(--gold-primary);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold-primary);
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.88rem;
+    }
+
+    .header-phone {
+      color: var(--text-dark);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ==========================================
+       CONTACT SECTION
+       ========================================== */
+    .contact-wrapper {
+      padding: 40px 0 90px;
+      flex-grow: 1;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 32px;
+      align-items: start;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    /* DIRECT CONTACT CARD */
+    .direct-contact-card {
+      background-color: var(--bg-dark-espresso);
+      color: #FFF;
+      border-radius: 20px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .direct-contact-card h2 {
+      color: #FFF;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+    }
+
+    .info-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .info-group i {
+      color: var(--gold-primary);
+      font-size: 1.1rem;
+      margin-top: 3px;
+    }
+
+    .info-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-light-muted);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .info-val {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #FFF;
+    }
+
+    .btn-card-whatsapp {
+      background-color: var(--whatsapp-green);
+      color: #FFF;
+      border-radius: 25px;
+      padding: 12px 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+
+    .btn-card-whatsapp:hover {
+      background-color: var(--whatsapp-green-hover);
+    }
+
+    /* FORM CARD */
+    .contact-form-card {
+      background-color: var(--card-white);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      background-color: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+
+    .form-control::placeholder {
+      color: #B5ACA5;
+    }
+
+    .form-control:focus {
+      border-color: var(--gold-primary);
+      background-color: #FFF;
+    }
+
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%207A6E67' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 14px;
+      cursor: pointer;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit-gold {
+      background-color: var(--gold-primary);
+      color: #FFF;
+      border: none;
+      border-radius: 25px;
+      padding: 14px 28px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn-submit-gold:hover {
+      background-color: var(--gold-hover);
+      box-shadow: 0 6px 18px rgba(197, 160, 89, 0.3);
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 14px;
+    }
+
+    /* ==========================================
+       FOOTER SECTION
+       ========================================== */
+    footer {
+      background-color: var(--bg-dark-footer);
+      color: #FFF;
+      padding: 60px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 2fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .logo {
+      color: #FFF;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .footer-brand p {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      line-height: 1.6;
+      max-width: 260px;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 0.8rem;
+      transition: all 0.3s;
+    }
+
+    .social-icon:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+    }
+
+    .footer-col h4 {
+      color: var(--gold-primary);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #FFF;
+    }
+
+    .footer-contact-info {
+      list-style: none;
+    }
+
+    .footer-contact-info li {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .footer-contact-info li i {
+      color: var(--gold-primary);
+      margin-top: 3px;
+    }
+
+    .btn-whatsapp-footer {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--whatsapp-green);
+      color: #FFF;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-light-muted);
+    }
+
+    /* Floating WhatsApp Icon */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: var(--whatsapp-green);
+      color: #FFF;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full-width { grid-column: span 1; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20have%20an%20inquiry" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Serenity <span>spa</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="header-contact">
+          <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
+          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
+            Book Now
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTACT CONTENT -->
+  <main class="contact-wrapper">
+    <div class="container">
+      <div class="section-title">
+        <span class="sub-heading">CONTACT US</span>
+        <h1>Let's Plan Your Perfect Ritual</h1>
+        <p>Reach out via WhatsApp, phone, email — or fill in the form and we'll get right back to you.</p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- LEFT: DIRECT CONTACT CARD -->
+        <div class="direct-contact-card">
+          <h2>Direct Contact</h2>
+
+          <div class="info-group">
+            <i class="fas fa-phone-alt"></i>
+            <div class="info-content">
+              <span class="info-label">CALL</span>
+              <span class="info-val">+92 335 0246669</span>
+            </div>
+          </div>
+
+          <div class="info-group">
+            <i class="far fa-envelope"></i>
+            <div class="info-content">
+              <span class="info-label">EMAIL</span>
+              <span class="info-val">info@serenityspa.pk</span>
+            </div>
+          </div>
+
+          <div class="info-group">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="info-content">
+              <span class="info-label">LOCATIONS</span>
+              <span class="info-val">Multiple Locations Across Karachi, Pakistan</span>
+            </div>
+          </div>
+
+          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" target="_blank" class="btn-card-whatsapp">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </div>
+
+        <!-- RIGHT: CONTACT FORM CARD -->
+        <div class="contact-form-card">
+          <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-grid">
+              
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" class="form-control" placeholder="Your name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" class="form-control" placeholder="+92 300 0000000" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="email">Email (optional)</label>
+                <input type="email" id="email" class="form-control" placeholder="you@email.com">
+              </div>
+
+              <div class="form-group">
+                <label for="preferredService">Preferred Service</label>
+                <select id="preferredService" class="form-control">
+                  <option value="No preference">No preference</option>
+                  <option value="Swedish Relaxation Massage">Swedish Relaxation Massage</option>
+                  <option value="Deep Tissue Therapy">Deep Tissue Therapy</option>
+                  <option value="Hot Stone Massage">Hot Stone Massage</option>
+                  <option value="Aromatherapy Ritual">Aromatherapy Ritual</option>
+                  <option value="Traditional Thai Massage">Traditional Thai Massage</option>
+                  <option value="Foot Reflexology">Foot Reflexology</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="preferredLocation">Preferred Location</label>
+                <select id="preferredLocation" class="form-control">
+                  <option value="Studio visit">Studio visit</option>
+                  <option value="DHA Defence">DHA Defence</option>
+                  <option value="Clifton">Clifton</option>
+                  <option value="Teen Talwar">Teen Talwar</option>
+                  <option value="Shahrah-e-Faisal">Shahrah-e-Faisal</option>
+                  <option value="Bahria Town">Bahria Town</option>
+                  <option value="Civil Lines">Civil Lines</option>
+                  <option value="Home/Hotel Service">Home/Hotel Service</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="message">Message</label>
+                <textarea id="message" class="form-control" placeholder="Tell us about your preferred date, time or any special requests..."></textarea>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn-submit-gold">Send & Open WhatsApp</button>
+            <p class="form-note">Submitting opens WhatsApp with your details pre-filled for fastest booking.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Serenity <span>spa</span></a>
+          <p>Karachi's premier luxury massage and spa sanctuary. Certified therapists, premium products, unforgettable rituals.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>SERVICES</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Swedish Relaxation Massage</a></li>
+            <li><a href="services.html">Deep Tissue Therapy</a></li>
+            <li><a href="services.html">Hot Stone Massage</a></li>
+            <li><a href="services.html">Aromatherapy Ritual</a></li>
+            <li><a href="services.html">Traditional Thai Massage</a></li>
+            <li><a href="services.html">Foot Reflexology</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>GET IN TOUCH</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Multiple Locations Across Karachi, Pakistan</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>+92 335 0246669</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@serenityspa.pk</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" target="_blank" class="btn-whatsapp-footer">
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Serenity Spa Karachi. All rights reserved.</p>
+        <p>DHA Defence · Clifton · Teen Talwar · Shahrah-e-Faisal · Bahria Town · Civil Lines</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('fullName').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const service = document.getElementById('preferredService').value;
+      const location = document.getElementById('preferredLocation').value;
+      const message = document.getElementById('message').value;
+
+      let text = `Hello Serenity Spa,%0A%0A*New Booking Inquiry:*%0A`;
+      text += `• *Name:* ${encodeURIComponent(name)}%0A`;
+      text += `• *Phone:* ${encodeURIComponent(phone)}%0A`;
+      if(email) text += `• *Email:* ${encodeURIComponent(email)}%0A`;
+      text += `• *Service:* ${encodeURIComponent(service)}%0A`;
+      text += `• *Location:* ${encodeURIComponent(location)}%0A`;
+      if(message) text += `• *Message:* ${encodeURIComponent(message)}%0A`;
+
+      window.open(`https://wa.me/923350246669?text=${text}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>

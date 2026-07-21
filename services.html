@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Serenity Spa Karachi</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       RESET & COLOR PALETTE
+       ========================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg-cream: #FAF6F0;
+      --bg-soft-cream: #F3ECE1;
+      --bg-dark-espresso: #2D1E18;
+      --gold-primary: #C5A059;
+      --gold-hover: #B08D46;
+      --gold-light: #E8D8B8;
+      --gold-badge: #C69214;
+      --text-dark: #221814;
+      --text-muted: #7A6E67;
+      --text-light-muted: #BFAEA4;
+      --card-white: #FFFFFF;
+      --whatsapp-green: #25D366;
+      --border-subtle: #EAE1D4;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Subheadings with decorative line */
+    .sub-heading {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold-primary);
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .sub-heading::before,
+    .sub-heading::after {
+      content: '';
+      display: inline-block;
+      width: 22px;
+      height: 1px;
+      background-color: var(--gold-primary);
+      vertical-align: middle;
+      margin: 0 10px;
+    }
+
+    /* ==========================================
+       BUTTONS
+       ========================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-gold {
+      background-color: var(--gold-primary);
+      color: #FFFFFF;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(197, 160, 89, 0.3);
+    }
+
+    /* ==========================================
+       HEADER & NAVIGATION
+       ========================================== */
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: rgba(250, 246, 240, 0.96);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text-dark);
+    }
+
+    .logo span {
+      color: var(--gold-primary);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold-primary);
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.85rem;
+    }
+
+    .header-phone {
+      color: var(--text-dark);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+    }
+
+    /* ==========================================
+       HERO HEADER SECTION
+       ========================================== */
+    .services-hero {
+      text-align: center;
+      padding: 60px 0 45px;
+    }
+
+    .services-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .services-hero p {
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================
+       SERVICES GRID SECTION
+       ========================================== */
+    .services-section {
+      padding-bottom: 70px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .service-card {
+      background-color: var(--card-white);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      border-color: var(--gold-primary);
+    }
+
+    .card-img-wrapper {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .service-card:hover .card-img-wrapper img {
+      transform: scale(1.06);
+    }
+
+    /* Gold badge at top-right of image */
+    .price-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(197, 160, 89, 0.9);
+      color: #FFF;
+      font-weight: 600;
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .card-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .duration {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-content h3 {
+      font-size: 1.38rem;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .card-content p {
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      margin-bottom: 18px;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+
+    .whatsapp-link {
+      color: var(--gold-primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: gap 0.2s;
+    }
+
+    .whatsapp-link:hover {
+      color: var(--gold-hover);
+      gap: 8px;
+    }
+
+    /* ==========================================
+       CTA BANNER
+       ========================================== */
+    .cta-banner {
+      background-color: var(--bg-dark-espresso);
+      border-radius: 16px;
+      padding: 50px 30px;
+      text-align: center;
+      color: #FFF;
+      margin-bottom: 70px;
+    }
+
+    .cta-banner h2 {
+      color: #FFF;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .cta-banner p {
+      color: var(--text-light-muted);
+      max-width: 500px;
+      margin: 0 auto 24px;
+      font-size: 0.88rem;
+    }
+
+    /* ==========================================
+       FOOTER SECTION
+       ========================================== */
+    footer {
+      background: var(--bg-dark-espresso);
+      color: #FFF;
+      padding: 55px 0 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.8fr 1.2fr 1.2fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-primary);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      transition: background 0.3s;
+    }
+
+    .social-icon:hover {
+      background: var(--gold-primary);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-contact-item i {
+      color: var(--gold-primary);
+      margin-top: 3px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--text-light-muted);
+      font-size: 0.78rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--whatsapp-green);
+      color: #fff;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 9999;
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 992px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20would%20like%20to%20book%20a%20service" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- NAVIGATION BAR -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Serenity <span>spa</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="header-contact">
+          <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
+          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
+            Book Now
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="services-hero">
+    <div class="container">
+      <span class="sub-heading">OUR FULL MENU</span>
+      <h1>Every Ritual, Perfectly Crafted</h1>
+      <p>Choose from our complete collection of massages, facials and spa therapies. Every treatment can be enjoyed at our studio or in your home.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES MENU SECTION -->
+  <section class="services-section">
+    <div class="container">
+      <div class="services-grid">
+
+        <!-- Card 1 -->
+        <div class="service-card">
+          <div class="card-img-wrapper">
+            <span class="price-badge">PKR 6,500</span>
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" alt="Swedish Relaxation Massage">
+          </div>
+          <div class="card-content">
+            <div class="duration"><i class="far fa-clock"></i> 60 min</div>
+            <h3>Swedish Relaxation Massage</h3>
+            <p>Gentle long strokes to melt away stress and boost circulation.</p>
+            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Swedish%20Relaxation%20Massage" target="_blank" class="whatsapp-link">
+              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card">
+          <div class="card-img-wrapper">
+            <span class="price-badge">PKR 8,000</span>
+            <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80" alt="Deep Tissue Therapy">
+          </div>
+          <div class="card-content">
+            <div class="duration"><i class="far fa-clock"></i> 75 min</div>
+            <h3>Deep Tissue Therapy</h3>
+            <p>Focused pressure to unlock chronic knots and muscle tension.</p>
+            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Deep%20Tissue%20Therapy" target="_blank" class="whatsapp-link">
+              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card">
+          <div class="card-img-wrapper">
+            <span class="price-badge">PKR 9,000</span>
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="Hot Stone Massage">
+          </div>
+          <div class="card-content">
+            <div class="duration"><i class="far fa-clock"></i> 75 min</div>
+            <h3>Hot Stone Massage</h3>
+            <p>Warm basalt stones glide over the body for deep relaxation.</p>
+            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Hot%20Stone%20Massage" target="_blank" class="whatsapp-link">
+              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card">
+          <div class="card-img-wrapper">
+            <span class="price-badge">PKR 7,500</span>
+            <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=600&q=80" alt="Aromatherapy Ritual">
+          </div>
+          <div class="card-content">
+            <div class="duration"><i class="far fa-clock"></i> 60 min</div>
+            <h3>Aromatherapy Ritual</h3>
+            <p>Custom essential oil blend for body and mind harmony.</p>
+            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Aromatherapy%20Ritual" target="_blank" class="whatsapp-link">
+              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card">
+          <div class="card-img-wrapper">
+            <span class="price-badge">PKR 8,500</span>
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" alt="Traditional Thai Massage">
+          </div>
+          <div class="card-content">
+            <div class="duration"><i class="far fa-clock"></i> 60 min</div>
+            <h3>Traditional Thai Massage</h3>
+            <p>Assisted stretching and pressure points to energize the body.</p>
+            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Traditional%20Thai%20Massage" target="_blank" class="whatsapp-link">
+              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card">
+          <div class="card-img-wrapper">
+            <span class="price-badge">PKR 4,500</span>
+            <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80" alt="Foot Reflexology">
+          </div>
+          <div class="card-content">
+            <div class="duration"><i class="far fa-clock"></i> 45 min</div>
+            <h3>Foot Reflexology</h3>
+            <p>Targeted pressure on the feet to balance the entire body.</p>
+            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Foot%20Reflexology" target="_blank" class="whatsapp-link">
+              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="service-card">
+          <div class="card-img-wrapper">
+            <span class="price-badge">PKR 8,000</span>
+            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Signature Glow Facial">
+          </div>
+          <div class="card-content">
+            <div class="duration"><i class="far fa-clock"></i> 60 min</div>
+            <h3>Signature Glow Facial</h3>
+            <p>Cleansing, exfoliation and hydration for radiant skin.</p>
+            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Signature%20Glow%20Facial" target="_blank" class="whatsapp-link">
+              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="service-card">
+          <div class="card-img-wrapper">
+            <span class="price-badge">PKR 18,000</span>
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="Couples Retreat">
+          </div>
+          <div class="card-content">
+            <div class="duration"><i class="far fa-clock"></i> 90 min</div>
+            <h3>Couples Retreat</h3>
+            <p>Side-by-side massage in a private candlelight suite.</p>
+            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Couples%20Retreat" target="_blank" class="whatsapp-link">
+              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION BANNER -->
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Not sure what to pick?</h2>
+      <p>Message us on WhatsApp and our team will craft the perfect ritual for you.</p>
+      <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20need%20help%20choosing%20a%20treatment" target="_blank" class="btn btn-gold">
+        Chat with a Therapist
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="color: #FFF; margin-bottom: 12px;">Serenity <span>spa</span></div>
+          <p style="color: var(--text-light-muted); font-size: 0.82rem; line-height: 1.55;">Karachi's premier luxury massage and spa sanctuary. Certified therapists, premium products, unforgettable rituals.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>SERVICES</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Swedish Relaxation Massage</a></li>
+            <li><a href="services.html">Deep Tissue Therapy</a></li>
+            <li><a href="services.html">Hot Stone Massage</a></li>
+            <li><a href="services.html">Aromatherapy Ritual</a></li>
+            <li><a href="services.html">Traditional Thai Massage</a></li>
+            <li><a href="services.html">Foot Reflexology</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>GET IN TOUCH</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Multiple Locations Across Karachi, Pakistan</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+92 335 0246669</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>info@serenityspa.pk</span>
+          </div>
+          <div style="margin-top: 14px;">
+            <a href="https://wa.me/923350246669" target="_blank" class="btn" style="background-color: var(--whatsapp-green); color: #FFF; font-size: 0.78rem; padding: 6px 16px;">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Serenity Spa Karachi. All rights reserved.</p>
+        <p style="font-size: 0.75rem;">DHA Defence | Clifton | Teen Talwar | Shahrah-e-Faisal | Bahria Town | Civil Lines</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
