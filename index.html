@@ -32,8 +32,8 @@
     :root {
       --bg-cream: #FAF6F0;
       --bg-soft-cream: #F3ECE1;
-      --bg-dark-espresso: #2D1E18;
-      --bg-card-dark: #3B2A22;
+      --bg-dark-espresso: #3E2A24;
+      --bg-card-dark: #3E2A24;
       --gold-primary: #C5A059;
       --gold-hover: #B08D46;
       --gold-light: #E8D8B8;
@@ -437,7 +437,7 @@
     /* ==========================================
        PACKAGES SECTION
        ========================================== */
-    .packages-grid {
+    /* .packages-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
@@ -521,7 +521,123 @@
     .package-card ul li i {
       color: var(--gold-primary);
       font-size: 0.75rem;
-    }
+    } */
+
+    /* ==========================================
+   PACKAGES SECTION (UPDATED FOR IMAGE HEADER)
+   ========================================== */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.package-card {
+  background-color: var(--card-white);
+  border-radius: 16px;
+  overflow: hidden; /* Ensures image zoom stays within card bounds */
+  border: 1px solid var(--border-subtle);
+  transition: all 0.4s ease;
+  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.package-card.recommended {
+  background-color: var(--bg-dark-espresso);
+  color: #FFF;
+  border: 2px solid var(--gold-primary);
+  box-shadow: 0 16px 40px rgba(45, 30, 24, 0.35);
+}
+
+/* IMAGE CONTAINER & ZOOM EFFECT */
+.package-img-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.package-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Smooth zoom transition when hovering over the card image ONLY */
+.package-img-wrapper:hover img {
+  transform: scale(1.08);
+}
+
+.package-body {
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.package-card.recommended h3, 
+.package-card.recommended .package-price {
+  color: var(--gold-light);
+}
+
+.package-card.recommended p,
+.package-card.recommended ul li {
+  color: rgba(255,255,255,0.85);
+}
+
+.package-badge {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold-primary);
+  color: #FFF;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.package-price {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  margin: 12px 0 4px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.package-card ul {
+  list-style: none;
+  margin: 22px 0 28px;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.package-card ul li {
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.package-card ul li i {
+  color: var(--gold-primary);
+  font-size: 0.75rem;
+}
 
     /* ==========================================
        VIP HOTEL PARTNERS SECTION
@@ -535,8 +651,8 @@
 
     /* Container for alignment and clean spacing */
     .text-container {
-      max-width: 800px;
-      text-align: center;
+      max-width: 2000px;
+      /* text-align: center; */
       line-height: 1.6;
       font-family: sans-serif;
       color: #333333; /* Standard dark color for the main text */
@@ -1109,13 +1225,29 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
       <div class="section-title" style="margin-top: 50px;">
         <span class="sub-heading">COVERAGE AREAS</span>
         <h2>Serving All over Karachi</h2>
-        <p>Doorstep home/hotel services and center sessions available across all major neighborhoods.</p>
+        <p>Karachi Fun Escorts proudly offers premium, discreet, and luxury escort services across all major areas of Karachi. Our elite companionship services are available in the following locations.</p>
+        <!-- <p>Doorstep home/hotel services and center sessions available across all major neighborhoods.</p> -->
       </div>
 
       <div class="locations-grid" id="locations-container">
         <!-- Rendered dynamically -->
       </div>
+
+      <p>&nbsp;</p>
+
+      <div class="text-container">
+        <p>
+          Our escort services in Karachi are actively available in DHA Defence, Clifton, Bahria Town, Shahrah-e-Faisal, Teen Talwar, Nazimabad, Federal B Area, Gulshan-e-Iqbal and other premium residential and commercial locations.
+        </p>
+        <p>
+          Whether you are searching for luxury companions, discreet escort services or elite-class companionship in Karachi, our services cover all major areas with complete privacy and professionalism.
+        </p>
+      </div>
+
+
+
     </div>
+
   </section>
 
   <!-- WHY CHOOSE US (DARK SECTION) -->
@@ -1123,9 +1255,9 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
     <div class="container">
       <div class="why-us-wrapper">
         <div class="why-us-left">
-          <span class="sub-heading" style="color: var(--gold-light);">UNMATCHED STANDARDS</span>
-          <h2>Elevated care,<br>Unforgettable results.</h2>
-          <p>Every therapist on our roster undergoes strict background verification and international wellness certification to ensure safety, privacy, and exceptional service.</p>
+          <span class="sub-heading" style="color: var(--gold-light);">Premium Escorts in Karachi</span>
+          <h2>Elite Call Girls,<br>VIP Escorts</h2>
+          <p>We bring you Karachi’s most elite and luxurious call girls, available 24/7 for premium companionship and discreet pleasure. Whether you are a local resident, traveler, businessman, or someone seeking passionate company for a private evening, our handpicked Karachi escorts ensure every moment is unforgettable.</p>
           
           <div class="stats-row">
             <div class="stat-item">
@@ -1133,8 +1265,8 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
               <p>Happy Clients</p>
             </div>
             <div class="stat-item">
-              <h3>12+</h3>
-              <p>Therapists</p>
+              <h3>25+</h3>
+              <p>Elite Call Girls</p>
             </div>
             <div class="stat-item">
               <h3>4.9★</h3>
@@ -1145,34 +1277,35 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
 
         <div class="why-us-right">
           <div class="why-card">
-            <div class="why-icon"><i class="fas fa-certificate"></i></div>
-            <h4>Certified Specialists</h4>
-            <p>Rigorously trained professionals delivering true therapeutic recovery.</p>
+            <div class="why-icon"><i class="fas fa-trophy"></i></div>
+            <h4>Why We Are the Best Escort Agency in Karachi</h4>
+            <p>✅ 24/7 Availability<br>✅ Verified and Attractive Models.<br>✅ Discreet and Safe Services<br>✅ Tailored, Premium Experiences<br>✅  Easy Booking via WhatsApp or Call</p>
           </div>
           <div class="why-card">
             <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
             <h4>Absolute Privacy</h4>
-            <p>Discrete, secure, and dignified services at all partner locations or your home.</p>
+            <p>Your privacy is guaranteed. All bookings are 100% confidential, and client information is never shared. Whether for a few hours or an entire weekend, your identity and preferences remain secure.</p>
+            <!-- <p>Discrete, secure, and dignified services at all partner locations or your home.</p> -->
           </div>
           <div class="why-card">
-            <div class="why-icon"><i class="fas fa-pump-medical"></i></div>
-            <h4>Hygienic Rituals</h4>
-            <p>Fresh single-use linens, sanitized equipment, and organic cold-pressed oils.</p>
+            <div class="why-icon"><i class="fas fa-user-friends"></i></div>
+            <h4>Fashion Model Escorts in Karachi</h4>
+            <p>Spend time with fashion model escorts in Karachi—stunning, stylish, and skilled in seduction. Available for travel, VIP parties, or exclusive events, they create unforgettable experiences.</p>
           </div>
           <div class="why-card">
-            <div class="why-icon"><i class="fas fa-spa"></i></div>
-            <h4>Bespoke Aromas</h4>
-            <p>Custom essential oil blends tailored to your stress levels and mood.</p>
+            <div class="why-icon"><i class="fas fa-moon"></i></div>
+            <h4>Full-Night Escorts in Karachi</h4>
+            <p>Enjoy company from dusk till dawn with our full-night escorts in Karachi. Ideal for travelers or anyone seeking undivided attention, these escorts provide conversation, cuddles, meals, and steamy fun throughout the night.</p>
           </div>
           <div class="why-card">
             <div class="why-icon"><i class="fas fa-clock"></i></div>
             <h4>Punctual Delivery</h4>
-            <p>Timely arrival for all home and hotel service appointments.</p>
+            <p>Timely arrival for all home and hotel service bookings.</p>
           </div>
           <div class="why-card">
             <div class="why-icon"><i class="fas fa-headset"></i></div>
             <h4>Seamless Booking</h4>
-            <p>Instant confirmation directly via WhatsApp within minutes.</p>
+            <p>Instant confirmation directly via WhatsApp or call within minutes.</p>
           </div>
         </div>
       </div>
@@ -1183,9 +1316,9 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
   <section id="reviews">
     <div class="container">
       <div class="section-title">
-        <span class="sub-heading">GUEST REVIEWS</span>
-        <h2>What Our Guests Say</h2>
-        <p>Real feedback from guests who experienced our relaxation therapies.</p>
+        <span class="sub-heading">Customer REVIEWS</span>
+        <h2>What Our Customers Say</h2>
+        <p>We provide elite escort services in Karachi, offering luxury, privacy, and satisfaction with every encounter. Discreet, professional, and unforgettable experiences await.</p>
       </div>
 
       <div class="slider-container">
@@ -1195,21 +1328,21 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
         <div class="slider-track" id="slider-track">
           <div class="slide-card">
             <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-            <p>"Absolutely the best spa experience in Karachi. The deep tissue therapy was exceptionally soothing and the staff was so polite!"</p>
+            <p>"Perfect for private dinners and elite events, highly satisfied."</p>
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             <h4>AHMED R. (CLIFTON)</h4>
           </div>
           <div class="slide-card">
             <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-            <p>"Punctual, professional, and hygienic home service in DHA. Booking via WhatsApp was extremely fast and easy."</p>
+            <p>“Professional, elite companions and full discretion.”</p>
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
             <h4>KASHIF M. (DHA PHASE 6)</h4>
           </div>
           <div class="slide-card">
             <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-            <p>"Booked the Signature Ritual package. Highly worth every rupee for the complete body relaxation."</p>
+            <p>"Booked the Premium package.VIP experience as promised. will definitely book again."</p>
             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <h4>SARA K. (KARACHI GUEST)</h4>
+            <h4>Ghulam R. (KARACHI GUEST)</h4>
           </div>
         </div>
       </div>
@@ -1220,9 +1353,9 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
   <section id="contact" style="background-color: var(--bg-soft-cream); padding-bottom: 60px;">
     <div class="container">
       <div class="cta-banner">
-        <div style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 12px;"><i class="fas fa-gem"></i></div>
-        <h2>Give yourself the gift of stillness.</h2>
-        <p>Book your restorative session today and experience Karachi's finest wellness treatment.</p>
+        <div style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 12px;"><i class="fas fa-heart"></i></div>
+        <h2>Still confused which package to choose ?</h2>
+        <p>Discover  why Karachi Fun Escorts stands out. Our elite, professional, and discreet services are designed to offer privacy, class, and unforgettable experiences. Choose the service that suits your preference and book with confidence.</p>
         <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
           Book on WhatsApp
         </a>
@@ -1245,25 +1378,30 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
             <li><a href="services.html">Services</a></li>
             <li><a href="packages.html">Packages</a></li>
             <li><a href="locations.html">Locations</a></li>
-            <li><a href="about.html">Why Choose Us</a></li>
+            <li><a href="about.html">About Us</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Treatments</h4>
+          <h4>Services & Packages</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Swedish Relaxation</a></li>
-            <li><a href="services.html">Deep Tissue Therapy</a></li>
-            <li><a href="services.html">Hot Stone Massage</a></li>
-            <li><a href="services.html">Aromatherapy Ritual</a></li>
+            <li><a href="services.html">Elite Hot Model</a></li>
+            <li><a href="services.html">Young Hot Model</a></li>
+            <li><a href="services.html">VIP Escorts</a></li>
+            <li><a href="services.html">Student Girls</a></li>
+            <li><a href="packages.html">Basic Package</a></li>
+            <li><a href="packages.html">Premium Package</a></li>
+            <li><a href="packages.html">Elite Package</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Top Locations</h4>
           <ul class="footer-links">
-            <li><a href="#locations">DHA Defence</a></li>
-            <li><a href="#locations">Clifton</a></li>
-            <li><a href="#locations">Bahria Town</a></li>
-            <li><a href="#locations">Gulshan-e-Iqbal</a></li>
+            <li><a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" target="_blank">DHA Defence</a></li>
+            <li><a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" target="_blank">Clifton</a></li>
+            <li><a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" target="_blank">Bahria Town</a></li>
+            <li><a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" target="_blank">Gulshan-e-Iqbal</a></li>
+            <li><a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" target="_blank">Federal B Area</a></li>
+            <li><a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" target="_blank">Gulshan-e-Iqbal</a></li>
           </ul>
         </div>
       </div>
@@ -1302,38 +1440,69 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
     ];
 
     // DATA: PACKAGES
-    const packagesData = [
-      {
-        title: "Premium Package",
-        price: "PKR 50,000",
-        desc: "Ideal for weekend rejuvenation.",
-        features: ["2 hours premium private escort", "VIP companion experience."],
-        recommended: false
-      },
-      {
-        title: "Luxury Package",
-        price: "PKR 100,000",
-        desc: "Our most popular full-body session.",
-        features: ["4 hours luxury experience", "VIP escort."],
-        recommended: true
-      },
-      {
-        title: "Elite Package",
-        price: "PKR 300,000",
-        desc: "The ultimate luxury transformation.",
-        features: ["Full day elite companionship", "professional escort."],
-        recommended: false
-      }
-    ];
+    // const packagesData = [
+    //   {
+    //     title: "Premium Package",
+    //     price: "PKR 50,000",
+    //     desc: "Ideal for weekend rejuvenation.",
+    //     features: ["2 hours premium private escort", "VIP companion experience."],
+    //     recommended: false
+    //   },
+    //   {
+    //     title: "Luxury Package",
+    //     price: "PKR 100,000",
+    //     desc: "Our most popular full-body session.",
+    //     features: ["4 hours luxury experience", "VIP escort."],
+    //     recommended: true
+    //   },
+    //   {
+    //     title: "Elite Package",
+    //     price: "PKR 300,000",
+    //     desc: "The ultimate luxury transformation.",
+    //     features: ["Full day elite companionship", "professional escort."],
+    //     recommended: false
+    //   }
+    // ];
+
+    // DATA: PACKAGES WITH IMAGES
+const packagesData = [
+  {
+    title: "Premium Package",
+    price: "PKR 50,000",
+    desc: "Ideal for weekend rejuvenation.",
+    img: "https://i.postimg.cc/zv80jfwG/hero.jpg",
+    alt: "Escorts Services Karachi",
+    features: ["2 hours premium private escort", "VIP companion experience."],
+    recommended: false
+  },
+  {
+    title: "Luxury Package",
+    price: "PKR 100,000",
+    desc: "Our most popular full-body session.",
+    img: "https://i.postimg.cc/x8kzv3r2/hero3.jpg",
+    alt: "The Signature Ritual",
+    features: ["4 hours luxury experience", "VIP escort."],
+    recommended: true
+  },
+  {
+    title: "Elite Package",
+    price: "PKR 300,000",
+    desc: "The ultimate luxury transformation.",
+    img: "https://i.postimg.cc/SxLzfKPn/hero2.jpg",
+    alt: "The Royal Indulgence",
+    features: ["Full day elite companionship", "professional escort."],
+    recommended: false
+  }
+];
 
     // DATA: VIP HOTEL PARTNERS
     const vipHotelsData = [
-      { name: "Pearl Continental Hotel", img: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=600&q=80" },
-      { name: "Marriott Karachi", img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80" },
-      { name: "Beach Luxury Hotel", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" },
-      { name: "Hotel Ramada", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" },
-      { name: "Mehran Hotel", img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80" },
-      { name: "Sea Shell Hotel", img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" }
+      { name: "Pearl Continental Hotel", img: "https://i.postimg.cc/wjDHQZTv/pc.jpg" },
+      { name: "Marriott Karachi", img: "https://i.postimg.cc/bw189WNw/marriot.jpg" },
+      { name: "Beach Luxury Hotel", img: "https://i.postimg.cc/t4FyNwCg/beachluxury.jpg" },
+      { name: "Hotel Ramada", img: "https://i.postimg.cc/13DPr258/ramada.jpg" },
+      { name: "Mehran Hotel", img: "https://i.postimg.cc/3x27FVJN/mehran.jpg" },
+      { name: "Sea Shell Hotel", img: "https://i.postimg.cc/g23dHQkw/seashell.jpg" }
     ];
 
     // DATA: LOCATIONS
@@ -1373,16 +1542,21 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
         const encodedMsg = encodeURIComponent(`Hello Karachi Fun Escorts, I want to book ${pkg.title} Package`);
         return `
           <div class="package-card ${pkg.recommended ? 'recommended' : ''}">
-            ${pkg.recommended ? '<span class="package-badge">★ MOST POPULAR ★</span>' : ''}
-            <h3>${pkg.title}</h3>
-            <div class="package-price">${pkg.price} <span style="font-size: 0.85rem; font-weight: normal;">/ package</span></div>
-            <p style="font-size: 0.85rem;">${pkg.desc}</p>
-            <ul>
-              ${pkg.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
-            </ul>
-            <a href="https://wa.me/923350246669?text=${encodedMsg}" target="_blank" class="btn ${pkg.recommended ? 'btn-gold' : 'btn-outline-dark'}" style="width: 100%;">
-              Book This Package
-            </a>
+            <div class="package-img-wrapper">
+              ${pkg.recommended ? '<span class="package-badge">★ RECOMMENDED ★</span>' : ''}
+              <img src="${pkg.img}" alt="${pkg.title}">
+            </div>
+            <div class="package-body">
+              <h3>${pkg.title}</h3>
+              <div class="package-price">${pkg.price} <span style="font-size: 0.85rem; font-weight: normal;">/ package</span></div>
+              <p style="font-size: 0.85rem;">${pkg.desc}</p>
+              <ul>
+                ${pkg.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
+              </ul>
+              <a href="https://wa.me/923350246669?text=${encodedMsg}" target="_blank" class="btn ${pkg.recommended ? 'btn-gold' : 'btn-outline-dark'}" style="width: 100%;">
+                Book This Package
+              </a>
+            </div>
           </div>
         `;
       }).join('');
@@ -1399,7 +1573,7 @@ Explore our <a href="services.html" class="gold-link" target="_blank" rel="noope
             <div class="vip-card-body">
               <h3>${hotel.name}</h3>
               <a href="https://wa.me/923350246669?text=${encodedMsg}" target="_blank" class="btn-vip">
-                Book VIP Session
+                Book Now
               </a>
             </div>
           </div>
