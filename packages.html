@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services — Karachi Escort Services</title>
+  <title>Special Packages — Karachi Escort Services</title>
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,7 +15,7 @@
 
   <style>
     /* ==========================================
-       RESET & COLOR PALETTE
+       RESET & PRECISE COLOR PALETTE
        ========================================== */
     * {
       margin: 0;
@@ -30,12 +30,10 @@
 
     :root {
       --bg-cream: #FAF6F0;
-      --bg-soft-cream: #F3ECE1;
       --bg-dark-espresso: #3E2A24;
+      --bg-dark-footer: #3E2A24;
       --gold-primary: #C5A059;
       --gold-hover: #B08D46;
-      --gold-light: #E8D8B8;
-      --gold-badge: #C69214;
       --text-dark: #221814;
       --text-muted: #7A6E67;
       --text-light-muted: #BFAEA4;
@@ -56,7 +54,7 @@
 
     h1, h2, h3, h4 {
       font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--text-dark);
     }
 
@@ -67,7 +65,7 @@
 
     .container {
       width: 100%;
-      max-width: 1140px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -76,32 +74,39 @@
     .sub-heading {
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       color: var(--gold-primary);
       font-weight: 700;
       display: inline-block;
       margin-bottom: 12px;
     }
 
-    .sub-heading::before,
-    .sub-heading::after {
-      content: '';
-      display: inline-block;
-      width: 22px;
-      height: 1px;
-      background-color: var(--gold-primary);
-      vertical-align: middle;
-      margin: 0 10px;
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     /* ==========================================
-       BUTTONS
+       BUTTONS & HOVER EFFECTS
        ========================================== */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       padding: 10px 24px;
       border-radius: 25px;
       font-weight: 500;
@@ -119,34 +124,75 @@
 
     .btn-gold:hover {
       background-color: var(--gold-hover);
-      transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(197, 160, 89, 0.3);
     }
 
+    .btn-card-outline {
+      border: 1px solid #7A6E67;
+      color: var(--text-dark);
+      background: transparent;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .btn-card-outline:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+    }
+
+    .btn-card-gold {
+      background-color: var(--gold-primary);
+      color: #FFFFFF;
+      border-radius: 25px;
+      padding: 12px 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .btn-card-gold:hover {
+      background-color: var(--gold-hover);
+    }
+
     /* ==========================================
-       HEADER & NAVIGATION
+       LOCKED/STICKY HEADER & NAVIGATION
        ========================================== */
     header {
+      background-color: rgba(250, 246, 240, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 16px 0;
       position: sticky;
       top: 0;
-      width: 100%;
-      background-color: rgba(250, 246, 240, 0.96);
-      backdrop-filter: blur(8px);
       z-index: 1000;
-      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    header.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 12px 0;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 0;
     }
 
     .logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.8rem;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.5px;
       color: var(--text-dark);
     }
@@ -159,16 +205,33 @@
 
     .nav-links {
       display: flex;
-      gap: 26px;
+      gap: 28px;
       list-style: none;
       align-items: center;
     }
 
     .nav-links a {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 500;
       color: var(--text-dark);
       transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--gold-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
     }
 
     .nav-links a:hover,
@@ -179,8 +242,8 @@
     .header-contact {
       display: flex;
       align-items: center;
-      gap: 16px;
-      font-size: 0.85rem;
+      gap: 20px;
+      font-size: 0.88rem;
     }
 
     .header-phone {
@@ -189,200 +252,213 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.82rem;
+      transition: color 0.3s ease;
+    }
+
+    .header-phone:hover {
+      color: var(--gold-primary);
     }
 
     .mobile-nav-toggle {
       display: none;
       background: none;
       border: none;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--text-dark);
       cursor: pointer;
-      padding: 4px;
+      padding: 5px;
+      z-index: 1001;
     }
 
     /* ==========================================
-       HERO HEADER SECTION
+       PACKAGES SECTION
        ========================================== */
-    .services-hero {
-      text-align: center;
-      padding: 50px 0 35px;
-    }
-
-    .services-hero h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 12px;
-      font-weight: 500;
-    }
-
-    .services-hero p {
-      color: var(--text-muted);
-      max-width: 620px;
-      margin: 0 auto;
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-
-    /* ==========================================
-       SERVICES GRID SECTION
-       ========================================== */
-    .services-section {
-      padding-bottom: 70px;
+    .packages-wrapper {
+      padding: 50px 0 80px;
       flex-grow: 1;
     }
 
-    .services-grid {
+    .packages-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
+      gap: 28px;
       align-items: stretch;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .service-card {
+    .package-card {
       background-color: var(--card-white);
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
-      border: 1px solid var(--border-subtle);
-      transition: all 0.35s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
-      position: relative;
     }
 
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-      border-color: var(--gold-primary);
+    .package-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
     }
 
-    .card-img-wrapper {
+    .package-card-img {
+      height: 220px;
+      width: 100%;
       position: relative;
-      height: 200px;
       overflow: hidden;
     }
 
-    .card-img-wrapper img {
+    .package-card-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
     }
 
-    .service-card:hover .card-img-wrapper img {
-      transform: scale(1.06);
-    }
-
-    /* Gold badge at top-right of image */
-    .price-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(197, 160, 89, 0.9);
-      color: #FFF;
-      font-weight: 600;
-      font-size: 0.72rem;
-      padding: 4px 10px;
-      border-radius: 6px;
-      letter-spacing: 0.3px;
-    }
-
-    .card-content {
-      padding: 22px;
+    .package-card-body {
+      padding: 30px 26px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
-    .duration {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+    .package-card-body h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .package-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+
+    .package-features {
+      list-style: none;
+      margin-bottom: 30px;
+      flex-grow: 1;
+    }
+
+    .package-features li {
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .package-features li i {
+      color: var(--gold-primary);
+      font-size: 0.75rem;
+    }
+
+    /* RECOMMENDED CENTER CARD */
+    .package-card.recommended {
+      background-color: var(--bg-dark-espresso);
+      color: #FFF;
+      transform: scale(1.03);
+      box-shadow: 0 20px 40px rgba(43, 28, 22, 0.25);
+    }
+
+    .package-card.recommended:hover {
+      transform: scale(1.05);
+    }
+
+    .package-card.recommended .package-card-img {
+      height: 240px;
+      position: relative;
+    }
+
+    .recommended-badge {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--gold-primary);
+      color: #FFF;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 12px;
+      z-index: 2;
       display: flex;
       align-items: center;
       gap: 5px;
     }
 
-    .card-content h3 {
-      font-size: 1.38rem;
-      margin-bottom: 8px;
-      line-height: 1.25;
-    }
-
-    .card-content p {
-      color: var(--text-muted);
-      font-size: 0.84rem;
-      margin-bottom: 18px;
-      flex-grow: 1;
-      line-height: 1.5;
-    }
-
-    .whatsapp-link {
-      color: var(--gold-primary);
-      font-size: 0.82rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: gap 0.2s;
-    }
-
-    .whatsapp-link:hover {
-      color: var(--gold-hover);
-      gap: 8px;
-    }
-
-    /* ==========================================
-       CTA BANNER
-       ========================================== */
-    .cta-banner {
-      background-color: var(--bg-dark-espresso);
-      border-radius: 16px;
-      padding: 45px 24px;
-      text-align: center;
+    .package-card.recommended h3 {
       color: #FFF;
-      margin-bottom: 60px;
     }
 
-    .cta-banner h2 {
-      color: #FFF;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      margin-bottom: 10px;
-      font-weight: 400;
-    }
-
-    .cta-banner p {
-      color: var(--text-light-muted);
-      max-width: 500px;
-      margin: 0 auto 24px;
-      font-size: 0.88rem;
+    .package-card.recommended .package-features li {
+      color: rgba(255, 255, 255, 0.9);
     }
 
     /* ==========================================
        FOOTER SECTION
        ========================================== */
     footer {
-      background: var(--bg-dark-espresso);
+      background-color: var(--bg-dark-footer);
       color: #FFF;
-      padding: 55px 0 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 60px 0 20px;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.8fr 1.2fr 1.2fr;
-      gap: 30px;
-      margin-bottom: 40px;
+      grid-template-columns: 2fr 1fr 1.5fr 1.8fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .logo {
+      color: #FFF;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .footer-brand p {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      line-height: 1.6;
+      max-width: 260px;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+
+    .social-icon:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
     }
 
     .footer-col h4 {
-      color: var(--gold-light);
-      margin-bottom: 16px;
-      font-size: 0.85rem;
+      color: var(--gold-primary);
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .footer-links {
@@ -390,7 +466,7 @@
     }
 
     .footer-links li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .footer-links a {
@@ -400,64 +476,57 @@
     }
 
     .footer-links a:hover {
-      color: var(--gold-primary);
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .social-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.08);
       color: #FFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      transition: background 0.3s;
     }
 
-    .social-icon:hover {
-      background: var(--gold-primary);
+    .footer-contact-info {
+      list-style: none;
     }
 
-    .footer-contact-item {
+    .footer-contact-info li {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      margin-bottom: 12px;
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      color: var(--text-light-muted);
-      font-size: 0.82rem;
-      margin-bottom: 10px;
     }
 
-    .footer-contact-item i {
+    .footer-contact-info li i {
       color: var(--gold-primary);
       margin-top: 3px;
     }
 
+    .btn-whatsapp-footer {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--whatsapp-green);
+      color: #FFF;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
     .footer-bottom {
-      text-align: center;
-      padding-top: 20px;
       border-top: 1px solid rgba(255,255,255,0.08);
-      color: var(--text-light-muted);
-      font-size: 0.78rem;
+      padding-top: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-light-muted);
     }
 
-    /* FLOATING WHATSAPP BUTTON */
+    /* Floating WhatsApp Icon */
     .whatsapp-float {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: 25px;
+      right: 25px;
       background-color: var(--whatsapp-green);
-      color: #fff;
+      color: #FFF;
       width: 52px;
       height: 52px;
       border-radius: 50%;
@@ -465,24 +534,38 @@
       align-items: center;
       justify-content: center;
       font-size: 26px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      z-index: 9999;
-      transition: transform 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      z-index: 999;
+      transition: transform 0.3s ease;
     }
 
     .whatsapp-float:hover {
       transform: scale(1.08);
     }
 
-    /* RESPONSIVE BREAKPOINTS */
-    @media (max-width: 992px) {
-      .services-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 20px;
+    /* ==========================================
+       RESPONSIVE DESIGN BREAKPOINTS
+       ========================================== */
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 18px;
       }
-      .footer-grid { 
-        grid-template-columns: 1fr 1fr; 
-        gap: 30px; 
+    }
+
+    @media (max-width: 992px) {
+      .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .package-card.recommended {
+        transform: none;
+      }
+      .package-card.recommended:hover {
+        transform: translateY(-5px);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
       }
     }
 
@@ -496,20 +579,31 @@
       }
 
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
         background-color: var(--bg-cream);
         flex-direction: column;
-        padding: 20px 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        border-top: 1px solid var(--border-subtle);
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+        transition: right 0.35s ease-in-out;
+        z-index: 1000;
       }
 
       .nav-links.active {
-        display: flex;
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        margin-bottom: 35px;
       }
     }
 
@@ -518,21 +612,28 @@
         padding: 0 16px;
       }
 
-      .services-hero {
-        padding: 35px 0 25px;
+      .logo {
+        font-size: 1.5rem;
       }
 
-      .services-grid { 
-        grid-template-columns: 1fr; 
+      .header-contact .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
       }
 
-      .footer-grid { 
-        grid-template-columns: 1fr; 
+      .packages-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
       }
 
-      .footer-bottom { 
-        flex-direction: column; 
-        gap: 10px; 
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
         text-align: center;
       }
 
@@ -549,20 +650,20 @@
 <body>
 
   <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20would%20like%20to%20book%20a%20service" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20inquire%20about%20packages" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- NAVIGATION BAR -->
-  <header>
+  <!-- HEADER -->
+  <header id="mainHeader">
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
 
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html" class="active">Services</a></li>
-          <li><a href="packages.html">Packages</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="packages.html" class="active">Packages</a></li>
           <li><a href="locations.html">Locations</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -570,7 +671,7 @@
 
         <div class="header-contact">
           <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
-          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
             Book Now
           </a>
           <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -581,175 +682,101 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="services-hero">
+  <!-- MAIN PACKAGES CONTENT -->
+  <main class="packages-wrapper">
     <div class="container">
-      <span class="sub-heading">OUR FULL MENU</span>
-      <h1>Wide Range of Call Girls & Escorts in Karachi</h1>
-      <p>At Karachi Fun Escorts, we bring you Karachi’s most elite and luxurious call girls & escorts, available 24/7 for premium companionship and discreet pleasure. Whether you are a local resident, traveler, businessman, or someone seeking passionate company for a private evening, our handpicked Karachi escorts ensure every moment is unforgettable.</p>
-    </div>
-  </section>
+      <div class="section-title">
+        <span class="sub-heading">SPECIAL PACKAGES</span>
+        <h1> Exclusive Escort Pricing Plans</h1>
+        <p>Choose from our tailored packages designed for unforgettable pleasure.</p>
+        <p>Whether you want a quick escape or a luxurious night with a celebrity, we have the perfect option for every desire.</p>
+      </div>
 
-  <!-- SERVICES MENU SECTION -->
-  <section class="services-section">
-    <div class="container">
-      <div class="services-grid">
-
-        <!-- Card 1 -->
-        <div class="service-card">
-          <div class="card-img-wrapper">
-            <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/9QsyJSmb/img1.jpg" alt="Elite Hot Model">
+      <div class="packages-grid">
+        
+        <!-- PACKAGE 1 -->
+        <div class="package-card">
+          <div class="package-card-img">
+            <img src="https://i.postimg.cc/zv80jfwG/hero.jpg" alt="Escorts Services Karachi">
           </div>
-          <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 60 min</div> -->
-            <h3>Elite Hot Models</h3>
-            <p>Experience the ultimate in luxury with our elite hot model service.</p>
-            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Elite%20Hot%20Models" target="_blank" class="whatsapp-link">
-              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+          <div class="package-card-body">
+            <h3>Basic Package</h3>
+            <div class="package-price-row"></div>
+            <ul class="package-features">
+              <li><i class="fas fa-check"></i> 1 Independent Call Girl</li>
+              <li><i class="fas fa-check"></i> 3 Hours Duration</li>
+              <li><i class="fas fa-check"></i> Hotel or Apartment Service</li>
+              <li><i class="fas fa-check"></i> Privacy Guaranteed</li>
+              <li><i class="fas fa-check"></i> Light Massage Included</li>
+              <li><i class="fas fa-check"></i> Girl Selection Available</li>
+              <li><i class="fas fa-check"></i> 24/7 Booking Support</li>
+            </ul>
+            <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book%20The%20Essential%20Escape%20Package" target="_blank" class="btn-card-outline">
+              Book This Package
             </a>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="service-card">
-          <div class="card-img-wrapper">
-            <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/dVgG4XsB/images.jpg" alt="VIP Hot Model">
+        <!-- PACKAGE 2 (RECOMMENDED) -->
+        <div class="package-card recommended">
+          <div class="package-card-img">
+            <span class="recommended-badge"><i class="fas fa-star"></i> RECOMMENDED</span>
+            <img src="https://i.postimg.cc/x8kzv3r2/hero3.jpg" alt="The Signature Ritual">
           </div>
-          <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 75 min</div> -->
-            <h3>VIP Hot Models</h3>
-            <p>Experience the ultimate in luxury with our VIP hot model service.</p>
-            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20VIP%20Hot%20Models" target="_blank" class="whatsapp-link">
-              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+          <div class="package-card-body">
+            <h3>Premium Package</h3>
+            <div class="package-price-row"></div>
+            <ul class="package-features">
+              <li><i class="fas fa-check"></i> 1 VIP Model Escort</li>
+              <li><i class="fas fa-check"></i> 4 Hours Duration</li>
+              <li><i class="fas fa-check"></i> 3-5 Star Hotel Visits</li>
+              <li><i class="fas fa-check"></i> Full Karachi Coverage</li>
+              <li><i class="fas fa-check"></i> Co-operative girls</li>
+              <li><i class="fas fa-check"></i> Full Satisfaction </li>
+              <li><i class="fas fa-check"></i> Models/Escorts</li>
+              <li><i class="fas fa-check"></i> Neat & Clean Staff</li>
+            </ul>
+            <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book%20The%20Signature%20Ritual%20Package" target="_blank" class="btn-card-gold">
+              Book This Package
             </a>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="service-card">
-          <div class="card-img-wrapper">
-            <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/YCTQbVr8/img2.jpg" alt="Young Hot Model">
+        <!-- PACKAGE 3 -->
+        <div class="package-card">
+          <div class="package-card-img">
+            <img src="https://i.postimg.cc/SxLzfKPn/hero2.jpg" alt="The Royal Indulgence">
           </div>
-          <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 75 min</div> -->
-            <h3>Young Hot Models</h3>
-            <p>Experience the ultimate in luxury with our young hot model service.</p>
-            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Young%20Hot%20Models" target="_blank" class="whatsapp-link">
-              Book on WhatsApp <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="service-card">
-          <div class="card-img-wrapper">
-            <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/htNVpwDp/img3.jpg" alt="Student Girl">
-          </div>
-          <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 60 min</div> -->
-            <h3>Student Girls</h3>
-            <p>Our youthful college girls in Karachi are adventurous, charming, and open to longer bookings. Perfect for clients seeking playful yet intimate experiences, these escorts bring energy, curiosity, and unforgettable companionship.</p>
-            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Student%20Girls" target="_blank" class="whatsapp-link">
-              Book on WhatsApp <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="service-card">
-          <div class="card-img-wrapper">
-            <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/9MkLP6tm/img6.jpg" alt="Fashion Model Girls">
-          </div>
-          <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 60 min</div> -->
-            <h3>Fashion Model Girls</h3>
-            <p>Spend time with fashion model escorts in Karachi—stunning, stylish, and skilled in seduction. Available for travel, VIP parties, or exclusive events, they create unforgettable experiences.
-             </p>
-            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Fashion%20Model%20Girls" target="_blank" class="whatsapp-link">
-              Book on WhatsApp <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="service-card">
-          <div class="card-img-wrapper">
-            <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/4d0WvDbd/img5.jpg" alt="Foot Reflexology">
-          </div>
-          <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 45 min</div> -->
-            <h3>Celebrity Call Girls</h3>
-            <p>Experience fame with our celebrity escorts in Karachi—influencers, models, and media personalities. Discreet and high-class, they provide glamour, conversation, and exceptional intimacy.
-              </p>
-            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Celebrity%20Call%20Girls" target="_blank" class="whatsapp-link">
-              Book on WhatsApp <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 7 -->
-        <div class="service-card">
-          <div class="card-img-wrapper">
-            <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/1tdv0kcX/img8.jpg" alt="Desi Premium Escorts">
-          </div>
-          <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 60 min</div> -->
-            <h3>Desi Premium Escorts</h3>
-            <p>For a traditional yet sensual experience, our Desi call girls in Karachi combine cultural charm with modern allure. Fluent in Urdu and socially aware, they provide personalized and unforgettable companionship.
-              </p>
-            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Desi%20Premium%20Escorts" target="_blank" class="whatsapp-link">
-              Book on WhatsApp <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 8 -->
-        <div class="service-card">
-          <div class="card-img-wrapper">
-            <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/zBQxwsSD/img4.jpg" alt="Outcall Escorts">
-          </div>
-          <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 90 min</div> -->
-            <h3>Outcall Escorts</h3>
-            <p>Stay home or at your hotel—our outcall escorts in Karachi will arrive discreetly at your location. From private villas to resorts, these escorts maintain secrecy while providing high-end companionship.
-              </p>
-            <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Outcall%20Escorts" target="_blank" class="whatsapp-link">
-              Book on WhatsApp <i class="fas fa-arrow-right"></i>
+          <div class="package-card-body">
+            <h3>Elite Overnight</h3>
+            <div class="package-price-row"></div>
+            <ul class="package-features">
+              <li><i class="fas fa-check"></i> Celebrity-Level Escort</li>
+              <li><i class="fas fa-check"></i> Up to 12 Hours Stay</li>
+              <li><i class="fas fa-check"></i> Romantic GFE</li>
+              <li><i class="fas fa-check"></i> Token Money Compulsory</li>
+              <li><i class="fas fa-check"></i> TV Drama / Stage Drama Girls</li>
+              <li><i class="fas fa-check"></i> Tiktokers/ Models</li>
+              <li><i class="fas fa-check"></i> Full High Class Girls Escorts</li>
+            </ul>
+            <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book%20The%20Royal%20Indulgence%20Package" target="_blank" class="btn-card-outline">
+              Book This Package
             </a>
           </div>
         </div>
 
       </div>
     </div>
-  </section>
-
-  <!-- CALL TO ACTION BANNER -->
-  <div class="container">
-    <div class="cta-banner">
-      <h2>Not sure what to pick?</h2>
-      <p>Message us on WhatsApp and our team will craft the perfect ritual for you.</p>
-      <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20need%20help%20choosing%20a%20package" target="_blank" class="btn btn-gold">
-        Chat with Staff on WhatsApp
-      </a>
-    </div>
-  </div>
+  </main>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-col">
-          <div class="logo" style="color: #FFF; margin-bottom: 12px;">Karachi Fun <span>Escort</span></div>
-          <p style="color: var(--text-light-muted); font-size: 0.82rem; line-height: 1.55;">If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice. We continuously strive to deliver premium quality services that exceed expectations.</p>
-          <div class="social-icons">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
+          <p>If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice. We continuously strive to deliver premium quality services that exceed expectations.</p>
+          <div class="social-links">
             <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
@@ -782,35 +809,45 @@
 
         <div class="footer-col">
           <h4>GET IN TOUCH</h4>
-          <div class="footer-contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Multiple Locations Across Karachi, Pakistan</span>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fas fa-phone-alt"></i>
-            <span>+92 335 0246669</span>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>info@karachifunescorts.pk</span>
-          </div>
-          <div style="margin-top: 14px;">
-            <a href="https://wa.me/923350246669" target="_blank" class="btn" style="background-color: var(--whatsapp-green); color: #FFF; font-size: 0.78rem; padding: 6px 16px;">
-              Chat on WhatsApp
-            </a>
-          </div>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Multiple Locations Across Karachi, Pakistan</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>+92 335 0246669</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@karachifunescorts.pk</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20inquire%20about%20packages" target="_blank" class="btn-whatsapp-footer">
+            Chat on WhatsApp
+          </a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Karachi Escort Services. All rights reserved.</p>
-        <p style="font-size: 0.75rem;">DHA Defence | Clifton | Teen Talwar | Shahrah-e-Faisal | Bahria Town | Civil Lines</p>
+        <p>&copy; 2026 Karachi Fun Escorts. All rights reserved.</p>
+        <p>DHA Defence · Clifton · Teen Talwar · Shahrah-e-Faisal · Bahria Town · Civil Lines</p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Mobile navigation toggle logic
+    // Header shadow on scroll
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile navigation toggle
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
 
@@ -821,6 +858,16 @@
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-times');
       } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        const icon = navToggle.querySelector('i');
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
       }
