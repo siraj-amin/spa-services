@@ -104,13 +104,23 @@
     }
 
     /* ==========================================
-       HEADER & NAVIGATION
+       LOCKED/STICKY HEADER & NAVIGATION
        ========================================== */
     header {
-      background-color: var(--bg-cream);
-      padding: 22px 0;
-      position: relative;
+      background-color: rgba(250, 246, 240, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
       z-index: 1000;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    header.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 12px 0;
     }
 
     nav {
@@ -144,6 +154,23 @@
       font-weight: 500;
       color: var(--text-dark);
       transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--gold-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
     }
 
     .nav-links a:hover,
@@ -164,6 +191,11 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .header-phone:hover {
+      color: var(--gold-primary);
     }
 
     .mobile-nav-toggle {
@@ -174,11 +206,16 @@
       color: var(--text-dark);
       cursor: pointer;
       padding: 5px;
+      z-index: 1001;
     }
 
     /* ==========================================
        HERO / OUR STORY SECTION
        ========================================== */
+    main {
+      flex-grow: 1;
+    }
+
     .story-section {
       padding: 70px 0 100px;
     }
@@ -216,7 +253,7 @@
 
     .story-image-wrapper img {
       width: 100%;
-      height: 360px;
+      height: 380px;
       object-fit: cover;
       border-radius: 20px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
@@ -253,16 +290,18 @@
       padding: 45px 30px;
       text-align: center;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.02);
     }
 
     .value-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
     .value-icon {
       color: var(--gold-primary);
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       margin-bottom: 20px;
     }
 
@@ -426,6 +465,12 @@
     /* ==========================================
        RESPONSIVE BREAKPOINTS
        ========================================== */
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 18px;
+      }
+    }
+
     @media (max-width: 992px) {
       .story-section {
         padding: 50px 0 70px;
@@ -456,20 +501,27 @@
       }
 
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
         background-color: var(--bg-cream);
         flex-direction: column;
-        padding: 20px 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        border-top: 1px solid rgba(0,0,0,0.05);
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+        transition: right 0.35s ease-in-out;
+        z-index: 1000;
       }
 
       .nav-links.active {
-        display: flex;
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
       }
 
       .values-grid { 
@@ -481,13 +533,17 @@
       }
 
       .story-image-wrapper img {
-        height: 280px;
+        height: 300px;
       }
     }
 
     @media (max-width: 576px) {
       .container {
         padding: 0 16px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
       }
 
       .header-contact .btn {
@@ -524,10 +580,10 @@
   </a>
 
   <!-- HEADER -->
-  <header>
+  <header id="mainHeader">
     <div class="container">
       <nav>
-        <a href="index.html" class="logo">Serenity <span>spa</span></a>
+        <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
         
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
@@ -558,12 +614,13 @@
         <div class="story-grid">
           <div class="story-content">
             <span class="sub-heading">OUR STORY</span>
-            <h1>A decade of dedicated<br><span>serenity</span>.</h1>
-            <p>Serenity Spa Karachi was born from a simple belief: Karachi deserves a world-class spa experience without compromise. What began as a single treatment room has grown into a trusted sanctuary with therapists, rituals and philosophies drawn from Thailand, Bali, Sweden and beyond.</p>
-            <p>Every product we use, every therapist we hire and every candle we light is chosen with one intention — your total surrender.</p>
+            <h1>Why Choose Karachi<br><span>Escort</span>.</h1>
+            <p>Welcome to Karachi Fun Escorts, the most trusted name in elite escort services across Karachi. We are proud to offer a premium experience with our carefully selected, high-profile call girls in Karachi, who are not only stunning in appearance but also intelligent, well-mannered, and discreet.
+                Whether you’re seeking companionship for a night out, a private date, or an exclusive event, our Karachi Fun Escort will turn every moment into an unforgettable memory.</p>
+            <p>We don’t just provide beautiful companions – we offer an experience that’s tailored to your desires. Our models know how to engage in meaningful conversation, adapt to your mood, and ensure your satisfaction, whether you’re looking for romance, fun, or intimacy.</p>
           </div>
           <div class="story-image-wrapper">
-            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Serenity Spa Atmosphere" loading="lazy">
+            <img src="https://i.postimg.cc/2SdXpXm4/banner.jpg" alt="Karachi Fun Escorts" loading="lazy">
           </div>
         </div>
       </div>
@@ -581,28 +638,28 @@
           <!-- EXCELLENCE -->
           <div class="value-card">
             <div class="value-icon">
-              <i class="fas fa-ribbon"></i>
+              <i class="fas fa-shield"></i>
             </div>
-            <h3>Excellence</h3>
-            <p>We hold ourselves to five-star standards in every detail.</p>
+            <h3>Complete Privacy & Confidentiality</h3>
+            <p>Your privacy is guaranteed. All bookings are 100% confidential, and client information is never shared. Whether for a few hours or an entire weekend, your identity and preferences remain secure.</p>
           </div>
 
           <!-- PURITY -->
           <div class="value-card">
             <div class="value-icon">
-              <i class="fas fa-leaf"></i>
+              <i class="fas fa-user-check"></i>
             </div>
-            <h3>Purity</h3>
-            <p>Ethically sourced, clean and natural products only.</p>
+            <h3>Elite Escorts & Verified Companions</h3>
+            <p>All our companions are carefully selected, verified, and meet the highest standards of professionalism and discretion.</p>
           </div>
 
           <!-- CARE -->
           <div class="value-card">
             <div class="value-icon">
-              <i class="far fa-heart"></i>
+              <i class="far fa-map"></i>
             </div>
-            <h3>Care</h3>
-            <p>Every guest is treated like family, every visit personalised.</p>
+            <h3>Coverage Across All Over Karachi</h3>
+            <p>From DHA, Clifton, and Shahrah-e-Faisal to Bahria Town and Central Karachi, our services are available city-wide.</p>
           </div>
         </div>
       </div>
@@ -614,8 +671,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">Serenity <span>spa</span></a>
-          <p>Karachi's premier luxury massage and spa sanctuary. Certified therapists, premium products, unforgettable rituals.</p>
+          <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
+          <p>If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice. We continuously strive to deliver premium quality services that exceed expectations.</p>
           <div class="social-links">
             <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -637,12 +694,13 @@
         <div class="footer-col">
           <h4>SERVICES</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Swedish Relaxation Massage</a></li>
-            <li><a href="services.html">Deep Tissue Therapy</a></li>
-            <li><a href="services.html">Hot Stone Massage</a></li>
-            <li><a href="services.html">Aromatherapy Ritual</a></li>
-            <li><a href="services.html">Traditional Thai Massage</a></li>
-            <li><a href="services.html">Foot Reflexology</a></li>
+            <li><a href="services.html">Elite Hot Model</a></li>
+            <li><a href="services.html">Young Hot Model</a></li>
+            <li><a href="services.html">VIP Escorts</a></li>
+            <li><a href="services.html">Student Girls</a></li>
+            <li><a href="packages.html">Basic Package</a></li>
+            <li><a href="packages.html">Premium Package</a></li>
+            <li><a href="packages.html">Elite Package</a></li>
           </ul>
         </div>
 
@@ -676,6 +734,16 @@
   </footer>
 
   <script>
+    // Header shadow on scroll
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
     // Navigation toggle functionality
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
@@ -687,6 +755,16 @@
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-times');
       } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        const icon = navToggle.querySelector('i');
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
       }
