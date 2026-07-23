@@ -68,8 +68,8 @@
     :root {
       --bg-cream: #FAF6F0;
       --bg-soft-cream: #F3ECE1;
-      --bg-dark-espresso: #3E2A24;
-      --bg-card-dark: #3E2A24;
+      --bg-dark-espresso: #5A3F36;
+      --bg-card-dark: #5A3F36;
       --gold-primary: #C5A059;
       --gold-hover: #B08D46;
       --gold-light: #E8D8B8;
@@ -154,14 +154,15 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 12px 24px;
+      padding: 10px 22px;
       border-radius: 25px;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 0.88rem;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       border: 1px solid transparent;
       white-space: nowrap;
+      line-height: 1.2;
     }
 
     .btn-gold {
@@ -206,19 +207,34 @@
     header {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
-      background-color: rgba(250, 246, 240, 0.98);
-      backdrop-filter: blur(10px);
       z-index: 1000;
+      background-color: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+      opacity: 0.98;
+    }
+
+    /* Modern revealed state on scroll */
+    header.scrolled {
+      background-color: rgba(250, 246, 240, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-subtle);
-      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(34, 24, 20, 0.08);
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 0;
+      padding: 14px 0;
+      transition: padding 0.3s ease;
+    }
+
+    header.scrolled nav {
+      padding: 10px 0;
     }
 
     .logo {
@@ -226,11 +242,16 @@
       font-size: clamp(1.4rem, 4vw, 1.9rem);
       font-weight: 700;
       letter-spacing: 0.5px;
-      color: var(--text-dark);
+      color: #FFF;
       display: flex;
       align-items: center;
       gap: 4px;
       z-index: 1001;
+      transition: color 0.3s ease;
+    }
+
+    header.scrolled .logo {
+      color: var(--text-dark);
     }
 
     .logo span {
@@ -241,25 +262,48 @@
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 22px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      transition: color 0.3s ease;
+    }
+
+    header.scrolled .nav-links a {
       color: var(--text-dark);
-      transition: color 0.3s;
     }
 
     .nav-links a:hover {
-      color: var(--gold-primary);
+      color: var(--gold-primary) !important;
     }
 
     .header-contact {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+    }
+
+    .header-phone {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.3s ease;
+    }
+
+    header.scrolled .header-phone {
+      color: var(--text-dark);
+    }
+
+    .header-phone:hover {
+      color: var(--gold-primary) !important;
     }
 
     .mobile-toggle {
@@ -267,10 +311,15 @@
       background: none;
       border: none;
       font-size: 1.4rem;
-      color: var(--text-dark);
+      color: #FFF;
       cursor: pointer;
       z-index: 1001;
       padding: 4px;
+      transition: color 0.3s ease;
+    }
+
+    header.scrolled .mobile-toggle {
+      color: var(--text-dark);
     }
 
     .mobile-nav-drawer {
@@ -331,7 +380,7 @@
     }
 
     /* ==========================================
-       HERO SECTION
+       HERO SECTION & ENHANCED PAGE-LOAD ANIMATIONS
        ========================================== */
     .hero {
       position: relative;
@@ -342,7 +391,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 100px 0 50px;
+      padding: 120px 0 60px;
     }
 
     .hero-content {
@@ -352,6 +401,8 @@
 
     .hero-content .sub-heading {
       color: var(--gold-light);
+      opacity: 0;
+      animation: fadeInDown 0.8s ease forwards 0.2s;
     }
 
     .hero-content .sub-heading::before,
@@ -365,6 +416,8 @@
       line-height: 1.15;
       margin-bottom: 20px;
       font-weight: 400;
+      opacity: 0;
+      animation: fadeInUp 0.9s ease forwards 0.4s;
     }
 
     .hero-content h1 i {
@@ -378,13 +431,81 @@
       color: rgba(255, 255, 255, 0.85);
       margin: 0 auto 30px;
       max-width: 620px;
+      opacity: 0;
+      animation: fadeInUp 0.9s ease forwards 0.6s;
     }
 
     .hero-btns {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      align-items: center;
+      gap: 14px;
       flex-wrap: wrap;
+      opacity: 0;
+      animation: zoomIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards 0.8s;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Scroll Reveal Dynamic Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal-left.active, .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
     }
 
     /* ==========================================
@@ -1007,6 +1128,12 @@
     /* ==========================================
        MEDIA QUERIES FOR MOBILE OPTIMIZATION
        ========================================== */
+    @media (max-width: 992px) {
+      .header-phone {
+        display: none;
+      }
+    }
+
     @media (max-width: 900px) {
       .why-us-wrapper { 
         grid-template-columns: 1fr; 
@@ -1028,8 +1155,11 @@
         grid-template-columns: repeat(2, 1fr);
       }
       .header-contact .btn {
-        padding: 6px 14px;
+        padding: 7px 14px;
         font-size: 0.78rem;
+      }
+      .hero-btns .btn {
+        width: 100%;
       }
     }
   </style>
@@ -1057,8 +1187,8 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- NAVIGATION -->
-  <header>
+  <!-- NAVIGATION HEADER -->
+  <header id="mainHeader">
     <div class="container">
       <nav aria-label="Main Navigation">
         <a href="index.html" class="logo">Karachi Fun<span>Escort</span></a>
@@ -1073,6 +1203,7 @@
         </ul>
 
         <div class="header-contact">
+          <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
           <a href="https://wa.me/923350246669?text=Hello%20I%20want%20to%20book%20Escort/private%20massage%20Services" target="_blank" rel="noopener" class="btn btn-gold">
             Book Now
           </a>
@@ -1103,7 +1234,7 @@
 
   <!-- SERVICES SECTION -->
   <section id="services">
-    <div class="container">
+    <div class="container reveal">
       <div class="section-title">
         <span class="sub-heading">OUR MODELS</span>
         <h2>Wide Range of Call Girls in Karachi</h2>
@@ -1122,7 +1253,7 @@
 
   <!-- PACKAGES SECTION -->
   <section id="packages" style="background-color: var(--bg-soft-cream);">
-    <div class="container">
+    <div class="container reveal">
       <div class="section-title">
         <span class="sub-heading">OUR PREMIUM PACKAGES</span>
         <h2>VIP Packages</h2>
@@ -1140,17 +1271,17 @@
     <div class="container">
       
       <!-- VIP HOTELS SUB-SECTION -->
-      <div class="section-title">
+      <div class="section-title reveal">
         <span class="sub-heading">EXCLUSIVE HOTEL ACCESS</span>
         <h2>Partner Hotels for VIP Members</h2>
         <p>We provide elite-class services at the top hotels of Karachi. Experience luxury, privacy, and premium companionship in the finest locations.</p>
       </div>
 
-      <div class="vip-hotels-grid" id="vip-hotels-container">
+      <div class="vip-hotels-grid reveal" id="vip-hotels-container">
         <!-- Rendered dynamically -->
       </div>
 
-      <div class="text-container">
+      <div class="text-container reveal">
         <p>Karachi Fun Escorts partners with top hotels like Pearl Continental Hotel, Marriott Karachi, Beach Luxury Hotel, Hotel Ramada, and Mehran Hotel to ensure our clients experience the highest level of privacy, comfort, and elite companionship.
           Every hotel provides discreet and professional settings for <a href="packages.html" class="gold-link" target="_blank" rel="noopener">VIP Packages</a>.
         </p>
@@ -1162,19 +1293,19 @@
       </div>
 
       <!-- AREA COVERAGE SUB-SECTION -->
-      <div class="section-title" style="margin-top: 50px;">
+      <div class="section-title reveal" style="margin-top: 50px;">
         <span class="sub-heading">COVERAGE AREAS</span>
         <h2>Serving All over Karachi</h2>
         <p>Karachi Fun Escorts proudly offers premium, discreet, and luxury escort services across all major areas of Karachi. Our elite companionship services are available in the following locations.</p>
       </div>
 
-      <div class="locations-grid" id="locations-container">
+      <div class="locations-grid reveal" id="locations-container">
         <!-- Rendered dynamically -->
       </div>
 
       <p>&nbsp;</p>
 
-      <div class="text-container">
+      <div class="text-container reveal">
         <p>
           Our escort services in Karachi are actively available in DHA Defence, Clifton, Bahria Town, Shahrah-e-Faisal, Teen Talwar, Nazimabad, Federal B Area, Gulshan-e-Iqbal and other premium residential and commercial locations.
         </p>
@@ -1190,7 +1321,7 @@
   <section id="why-us" class="why-us-section">
     <div class="container">
       <div class="why-us-wrapper">
-        <div class="why-us-left">
+        <div class="why-us-left reveal-left">
           <span class="sub-heading" style="color: var(--gold-light);">Premium Escorts in Karachi</span>
           <h2>Elite Call Girls,<br>VIP Escorts</h2>
           <p>We bring you Karachi’s most elite and luxurious call girls, available 24/7 for premium companionship and discreet pleasure. Whether you are a local resident, traveler, businessman, or someone seeking passionate company for a private evening, our handpicked Karachi escorts ensure every moment is unforgettable.</p>
@@ -1211,7 +1342,7 @@
           </div>
         </div>
 
-        <div class="why-us-right">
+        <div class="why-us-right reveal-right">
           <div class="why-card">
             <div class="why-icon"><i class="fas fa-trophy"></i></div>
             <h3>Why We Are the Best Escort Agency in Karachi</h3>
@@ -1249,7 +1380,7 @@
 
   <!-- REVIEWS SECTION -->
   <section id="reviews">
-    <div class="container">
+    <div class="container reveal">
       <div class="section-title">
         <span class="sub-heading">Customer REVIEWS</span>
         <h2>What Our Customers Say</h2>
@@ -1286,7 +1417,7 @@
 
   <!-- CTA BANNER SECTION -->
   <section id="contact" style="background-color: var(--bg-soft-cream); padding-bottom: 60px;">
-    <div class="container">
+    <div class="container reveal">
       <div class="cta-banner">
         <div style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 12px;"><i class="fas fa-heart"></i></div>
         <h2>Still confused which package to choose?</h2>
@@ -1304,10 +1435,10 @@
       <div class="footer-grid">
         <div class="footer-col">
           <div class="logo" style="color: #FFF; margin-bottom: 12px;">Karachi <span>Escorts</span></div>
-          <p style="color: var(--text-light-muted); font-size: 0.85rem; line-height: 1.5;">Karachi's sanctuary for authentic massage therapy, holistic relaxation, and body recovery.</p>
+          <p style="color: var(--text-light-muted); font-size: 0.85rem; line-height: 1.5;">If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice. We continuously strive to deliver premium quality services that exceed expectations.</p>
         </div>
         <div class="footer-col">
-          <h3>Navigation</h3>
+          <h3>EXPLORE</h3>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
@@ -1317,7 +1448,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h3>Services & Packages</h3>
+          <h3>SERVICES</h3>
           <ul class="footer-links">
             <li><a href="services.html">Elite Hot Model</a></li>
             <li><a href="services.html">Young Hot Model</a></li>
@@ -1349,6 +1480,28 @@
 
   <!-- JAVASCRIPT -->
   <script>
+    // NAVBAR SCROLL REVEAL EFFECT
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // SCROLL REVEAL ANIMATION OBSERVER
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
     // MOBILE NAVIGATION TOGGLE
     function toggleMenu() {
       const drawer = document.getElementById('mobileDrawer');
