@@ -310,16 +310,20 @@
       display: none;
       background: none;
       border: none;
-      font-size: 1.4rem;
-      color: #FFF;
       cursor: pointer;
-      z-index: 1001;
-      padding: 4px;
+      position: relative;
+      z-index: 1002; /* Sits above the drawer menu */
+      font-size: 1.6rem;
+      color: #FFF;
       transition: color 0.3s ease;
     }
 
     header.scrolled .mobile-toggle {
       color: var(--text-dark);
+    }
+
+    .mobile-toggle.active {
+      color: var(--text-dark) !important;
     }
 
     .mobile-nav-drawer {
@@ -1128,9 +1132,14 @@
     /* ==========================================
        MEDIA QUERIES FOR MOBILE OPTIMIZATION
        ========================================== */
-    @media (max-width: 992px) {
-      .header-phone {
+    @media (max-width: 768px) {
+      /* Hide phone and button in header on mobile to prevent overlapping */
+      .header-contact .header-phone,
+      .header-contact .btn-gold {
         display: none;
+      }
+      .mobile-toggle { 
+        display: block; 
       }
     }
 
@@ -1207,7 +1216,7 @@
           <a href="https://wa.me/923350246669?text=Hello%20I%20want%20to%20book%20Escort/private%20massage%20Services" target="_blank" rel="noopener" class="btn btn-gold">
             Book Now
           </a>
-          <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle Navigation Menu">
+          <button class="mobile-toggle" id="mobileToggle" onclick="toggleMenu()" aria-label="Toggle Navigation Menu">
             <i class="fas fa-bars" id="menuIcon"></i>
           </button>
         </div>
@@ -1507,9 +1516,11 @@
       const drawer = document.getElementById('mobileDrawer');
       const overlay = document.getElementById('overlay');
       const icon = document.getElementById('menuIcon');
+      const toggleBtn = document.getElementById('mobileToggle');
 
       drawer.classList.toggle('open');
       overlay.classList.toggle('active');
+      toggleBtn.classList.toggle('active');
 
       if (drawer.classList.contains('open')) {
         icon.classList.remove('fa-bars');
