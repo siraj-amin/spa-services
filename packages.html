@@ -30,8 +30,8 @@
 
     :root {
       --bg-cream: #FAF6F0;
-      --bg-dark-espresso: #38251D;
-      --bg-dark-footer: #2B1C16;
+      --bg-dark-espresso: #3E2A24;
+      --bg-dark-footer: #3E2A24;
       --gold-primary: #C5A059;
       --gold-hover: #B08D46;
       --text-dark: #221814;
@@ -164,13 +164,23 @@
     }
 
     /* ==========================================
-       HEADER & NAVIGATION
+       LOCKED/STICKY HEADER & NAVIGATION
        ========================================== */
     header {
-      background-color: var(--bg-cream);
-      padding: 18px 0;
-      position: relative;
+      background-color: rgba(250, 246, 240, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
       z-index: 1000;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    header.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 12px 0;
     }
 
     nav {
@@ -205,6 +215,23 @@
       font-weight: 500;
       color: var(--text-dark);
       transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--gold-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
     }
 
     .nav-links a:hover,
@@ -225,6 +252,11 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .header-phone:hover {
+      color: var(--gold-primary);
     }
 
     .mobile-nav-toggle {
@@ -235,13 +267,14 @@
       color: var(--text-dark);
       cursor: pointer;
       padding: 5px;
+      z-index: 1001;
     }
 
     /* ==========================================
        PACKAGES SECTION
        ========================================== */
     .packages-wrapper {
-      padding: 40px 0 80px;
+      padding: 50px 0 80px;
       flex-grow: 1;
     }
 
@@ -299,18 +332,6 @@
       align-items: baseline;
       gap: 6px;
       margin-bottom: 22px;
-    }
-
-    .package-price {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--gold-primary);
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    .package-duration {
-      font-size: 0.8rem;
-      color: var(--text-muted);
     }
 
     .package-features {
@@ -371,14 +392,6 @@
 
     .package-card.recommended h3 {
       color: #FFF;
-    }
-
-    .package-card.recommended .package-price {
-      color: var(--gold-primary);
-    }
-
-    .package-card.recommended .package-duration {
-      color: var(--text-light-muted);
     }
 
     .package-card.recommended .package-features li {
@@ -533,6 +546,12 @@
     /* ==========================================
        RESPONSIVE DESIGN BREAKPOINTS
        ========================================== */
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 18px;
+      }
+    }
+
     @media (max-width: 992px) {
       .packages-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -560,20 +579,27 @@
       }
 
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
         background-color: var(--bg-cream);
         flex-direction: column;
-        padding: 20px 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        border-top: 1px solid rgba(0,0,0,0.05);
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+        transition: right 0.35s ease-in-out;
+        z-index: 1000;
       }
 
       .nav-links.active {
-        display: flex;
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
       }
 
       .section-title {
@@ -584,6 +610,10 @@
     @media (max-width: 600px) {
       .container {
         padding: 0 16px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
       }
 
       .header-contact .btn {
@@ -625,7 +655,7 @@
   </a>
 
   <!-- HEADER -->
-  <header>
+  <header id="mainHeader">
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
@@ -640,7 +670,7 @@
         </ul>
 
         <div class="header-contact">
-          <!-- <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a> -->
+          <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
           <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
             Book Now
           </a>
@@ -667,14 +697,11 @@
         <!-- PACKAGE 1 -->
         <div class="package-card">
           <div class="package-card-img">
-            <img src="https://i.postimg.cc/zv80jfwG/hero.jpg" alt="The Essential Escape">
+            <img src="https://i.postimg.cc/zv80jfwG/hero.jpg" alt="Escorts Services Karachi">
           </div>
           <div class="package-card-body">
             <h3>Basic Package</h3>
-            <div class="package-price-row">
-              <!-- <span class="package-price">PKR 9,500</span>
-              <span class="package-duration">/ 90 min</span> -->
-            </div>
+            <div class="package-price-row"></div>
             <ul class="package-features">
               <li><i class="fas fa-check"></i> 1 Independent Call Girl</li>
               <li><i class="fas fa-check"></i> 3 Hours Duration</li>
@@ -698,10 +725,7 @@
           </div>
           <div class="package-card-body">
             <h3>Premium Package</h3>
-            <div class="package-price-row">
-              <!-- <span class="package-price">PKR 14,500</span>
-              <span class="package-duration">/ 150 min</span> -->
-            </div>
+            <div class="package-price-row"></div>
             <ul class="package-features">
               <li><i class="fas fa-check"></i> 1 VIP Model Escort</li>
               <li><i class="fas fa-check"></i> 4 Hours Duration</li>
@@ -725,10 +749,7 @@
           </div>
           <div class="package-card-body">
             <h3>Elite Overnight</h3>
-            <div class="package-price-row">
-              <!-- <span class="package-price">PKR 22,000</span>
-              <span class="package-duration">/ 210 min</span> -->
-            </div>
+            <div class="package-price-row"></div>
             <ul class="package-features">
               <li><i class="fas fa-check"></i> Celebrity-Level Escort</li>
               <li><i class="fas fa-check"></i> Up to 12 Hours Stay</li>
@@ -754,7 +775,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
-          <p>Karachi's premier luxury massage and spa sanctuary. Certified therapists, premium products, unforgettable rituals.</p>
+          <p>If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice. We continuously strive to deliver premium quality services that exceed expectations.</p>
           <div class="social-links">
             <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -776,12 +797,13 @@
         <div class="footer-col">
           <h4>SERVICES</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Swedish Relaxation Massage</a></li>
-            <li><a href="services.html">Deep Tissue Therapy</a></li>
-            <li><a href="services.html">Hot Stone Massage</a></li>
-            <li><a href="services.html">Aromatherapy Ritual</a></li>
-            <li><a href="services.html">Traditional Thai Massage</a></li>
-            <li><a href="services.html">Foot Reflexology</a></li>
+            <li><a href="services.html">Elite Hot Model</a></li>
+            <li><a href="services.html">Young Hot Model</a></li>
+            <li><a href="services.html">VIP Escorts</a></li>
+            <li><a href="services.html">Student Girls</a></li>
+            <li><a href="packages.html">Basic Package</a></li>
+            <li><a href="packages.html">Premium Package</a></li>
+            <li><a href="packages.html">Elite Package</a></li>
           </ul>
         </div>
 
@@ -798,23 +820,33 @@
             </li>
             <li>
               <i class="fas fa-envelope"></i>
-              <span>info@serenityspa.pk</span>
+              <span>info@karachifunescorts.pk</span>
             </li>
           </ul>
-          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20inquire%20about%20packages" target="_blank" class="btn-whatsapp-footer">
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20inquire%20about%20packages" target="_blank" class="btn-whatsapp-footer">
             Chat on WhatsApp
           </a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Serenity Spa Karachi. All rights reserved.</p>
+        <p>&copy; 2026 Karachi Fun Escorts. All rights reserved.</p>
         <p>DHA Defence · Clifton · Teen Talwar · Shahrah-e-Faisal · Bahria Town · Civil Lines</p>
       </div>
     </div>
   </footer>
 
   <script>
+    // Header shadow on scroll
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
     // Mobile navigation toggle
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
@@ -826,6 +858,16 @@
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-times');
       } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        const icon = navToggle.querySelector('i');
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
       }
