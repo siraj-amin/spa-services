@@ -128,13 +128,23 @@
     }
 
     /* ==========================================
-       HEADER & NAVIGATION
+       LOCKED/STICKY HEADER & NAVIGATION
        ========================================== */
     header {
-      background-color: var(--bg-cream);
+      background-color: rgba(250, 246, 240, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 18px 0;
-      position: relative;
+      position: sticky;
+      top: 0;
       z-index: 1000;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    header.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 12px 0;
     }
 
     nav {
@@ -169,6 +179,23 @@
       font-weight: 500;
       color: var(--text-dark);
       transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--gold-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
     }
 
     .nav-links a:hover,
@@ -189,6 +216,11 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .header-phone:hover {
+      color: var(--gold-primary);
     }
 
     .mobile-nav-toggle {
@@ -199,6 +231,7 @@
       color: var(--text-dark);
       cursor: pointer;
       padding: 5px;
+      z-index: 1001;
     }
 
     /* ==========================================
@@ -282,7 +315,7 @@
       justify-content: center;
       gap: 8px;
       margin-top: 10px;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s ease;
       width: 100%;
     }
 
@@ -296,6 +329,7 @@
       border-radius: 20px;
       padding: 40px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.02);
     }
 
     .form-grid {
@@ -329,7 +363,7 @@
       font-size: 0.88rem;
       color: var(--text-dark);
       outline: none;
-      transition: border-color 0.3s;
+      transition: border-color 0.3s, background-color 0.3s;
       width: 100%;
     }
 
@@ -530,6 +564,12 @@
     /* ==========================================
        RESPONSIVE DESIGN BREAKPOINTS
        ========================================== */
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 18px;
+      }
+    }
+
     @media (max-width: 992px) {
       .contact-grid {
         grid-template-columns: 1fr;
@@ -554,20 +594,27 @@
       }
 
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
         background-color: var(--bg-cream);
         flex-direction: column;
-        padding: 20px 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        border-top: 1px solid rgba(0,0,0,0.05);
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+        transition: right 0.35s ease-in-out;
+        z-index: 1000;
       }
 
       .nav-links.active {
-        display: flex;
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
       }
 
       .contact-form-card {
@@ -582,6 +629,10 @@
     @media (max-width: 576px) {
       .container {
         padding: 0 16px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
       }
 
       .header-contact .btn {
@@ -621,15 +672,15 @@
 <body>
 
   <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20have%20an%20inquiry" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escort,%20I%20have%20an%20inquiry" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <!-- HEADER -->
-  <header>
+  <header id="mainHeader">
     <div class="container">
       <nav>
-        <a href="index.html" class="logo">Serenity <span>spa</span></a>
+        <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
         
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
@@ -642,7 +693,7 @@
 
         <div class="header-contact">
           <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
-          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escort,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
             Book Now
           </a>
           <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -658,7 +709,7 @@
     <div class="container">
       <div class="section-title">
         <span class="sub-heading">CONTACT US</span>
-        <h1>Let's Plan Your Perfect Ritual</h1>
+        <h1>Let's Plan Your Night</h1>
         <p>Reach out via WhatsApp, phone, email — or fill in the form and we'll get right back to you.</p>
       </div>
 
@@ -680,7 +731,7 @@
             <i class="far fa-envelope"></i>
             <div class="info-content">
               <span class="info-label">EMAIL</span>
-              <span class="info-val">info@serenityspa.pk</span>
+              <span class="info-val">info@karachifunescort.pk</span>
             </div>
           </div>
 
@@ -692,7 +743,7 @@
             </div>
           </div>
 
-          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" target="_blank" class="btn-card-whatsapp">
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escort,%20I%20want%20to%20book" target="_blank" class="btn-card-whatsapp">
             <i class="fab fa-whatsapp"></i> Chat on WhatsApp
           </a>
         </div>
@@ -712,28 +763,33 @@
                 <input type="tel" id="phone" class="form-control" placeholder="+92 300 0000000" required>
               </div>
 
-              <div class="form-group full-width">
+              <!-- <div class="form-group full-width">
                 <label for="email">Email (optional)</label>
                 <input type="email" id="email" class="form-control" placeholder="you@email.com">
-              </div>
+              </div> -->
 
               <div class="form-group">
                 <label for="preferredService">Preferred Service</label>
                 <select id="preferredService" class="form-control">
                   <option value="No preference">No preference</option>
-                  <option value="Swedish Relaxation Massage">Swedish Relaxation Massage</option>
-                  <option value="Deep Tissue Therapy">Deep Tissue Therapy</option>
-                  <option value="Hot Stone Massage">Hot Stone Massage</option>
-                  <option value="Aromatherapy Ritual">Aromatherapy Ritual</option>
-                  <option value="Traditional Thai Massage">Traditional Thai Massage</option>
-                  <option value="Foot Reflexology">Foot Reflexology</option>
+                  <option value="VIP Escort">VIP Escort</option>
+                  <option value="Young Hot Model">Young Hot Model</option>
+                  <option value="Desi Premium Girls">Desi Premium Girls</option>
+                  <option value="Celebrity Model">Celebrity Model</option>
+                  <option value="Call-out Girls">Call-out Girls</option>
+                  <option value="Basic Package">Basic Package</option>
+                  <option value="Premium Package">Premium Package</option>
+                  <option value="Elite Package">Elite Package</option>
+                  <option value="Full-Night Service">Full-Night Service</option>
+                  <option value="Custom Package">Custom Package</option>
+
                 </select>
               </div>
 
               <div class="form-group">
                 <label for="preferredLocation">Preferred Location</label>
                 <select id="preferredLocation" class="form-control">
-                  <option value="Studio visit">Studio visit</option>
+                  <option value="Studio visit">Custom Place</option>
                   <option value="DHA Defence">DHA Defence</option>
                   <option value="Clifton">Clifton</option>
                   <option value="Teen Talwar">Teen Talwar</option>
@@ -765,8 +821,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">Serenity <span>spa</span></a>
-          <p>Karachi's premier luxury massage and spa sanctuary. Certified therapists, premium products, unforgettable rituals.</p>
+          <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
+          <p>If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice. We continuously strive to deliver premium quality services that exceed expectations.</p>
           <div class="social-links">
             <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -788,12 +844,13 @@
         <div class="footer-col">
           <h4>SERVICES</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Swedish Relaxation Massage</a></li>
-            <li><a href="services.html">Deep Tissue Therapy</a></li>
-            <li><a href="services.html">Hot Stone Massage</a></li>
-            <li><a href="services.html">Aromatherapy Ritual</a></li>
-            <li><a href="services.html">Traditional Thai Massage</a></li>
-            <li><a href="services.html">Foot Reflexology</a></li>
+            <li><a href="services.html">Elite Hot Model</a></li>
+            <li><a href="services.html">Young Hot Model</a></li>
+            <li><a href="services.html">VIP Escorts</a></li>
+            <li><a href="services.html">Student Girls</a></li>
+            <li><a href="packages.html">Basic Package</a></li>
+            <li><a href="packages.html">Premium Package</a></li>
+            <li><a href="packages.html">Elite Package</a></li>
           </ul>
         </div>
 
@@ -810,23 +867,33 @@
             </li>
             <li>
               <i class="fas fa-envelope"></i>
-              <span>info@serenityspa.pk</span>
+              <span>info@karachifunescort.pk</span>
             </li>
           </ul>
-          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" target="_blank" class="btn-whatsapp-footer">
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escort,%20I%20have%20an%20inquiry" target="_blank" class="btn-whatsapp-footer">
             Chat on WhatsApp
           </a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Serenity Spa Karachi. All rights reserved.</p>
+        <p>&copy; 2026 Karachi Fun Escort. All rights reserved.</p>
         <p>DHA Defence · Clifton · Teen Talwar · Shahrah-e-Faisal · Bahria Town · Civil Lines</p>
       </div>
     </div>
   </footer>
 
   <script>
+    // Header shadow on scroll
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
     // Navigation toggle functionality
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
@@ -843,6 +910,16 @@
       }
     });
 
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        const icon = navToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
     // Form submit handler
     function handleFormSubmit(e) {
       e.preventDefault();
@@ -854,7 +931,7 @@
       const location = document.getElementById('preferredLocation').value;
       const message = document.getElementById('message').value;
 
-      let text = `Hello Serenity Spa,%0A%0A*New Booking Inquiry:*%0A`;
+      let text = `Hello Karachi Fun Escort,%0A%0A*New Booking Inquiry:*%0A`;
       text += `• *Name:* ${encodeURIComponent(name)}%0A`;
       text += `• *Phone:* ${encodeURIComponent(phone)}%0A`;
       if(email) text += `• *Email:* ${encodeURIComponent(email)}%0A`;
