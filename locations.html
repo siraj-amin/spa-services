@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Locations — Serenity Spa Karachi</title>
+  <title>Locations — Karachi Escort Services</title>
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -30,7 +30,7 @@
 
     :root {
       --bg-cream: #FAF6F0;
-      --bg-dark-footer: #2B1C16;
+      --bg-dark-footer: #3E2A24;
       --gold-primary: #C5A059;
       --gold-hover: #B08D46;
       --gold-icon-bg: #EAD9B8;
@@ -39,6 +39,7 @@
       --text-light-muted: #BFAEA4;
       --card-white: #FFFFFF;
       --whatsapp-green: #25D366;
+      --border-subtle: #EAE1D4;
     }
 
     body {
@@ -125,13 +126,23 @@
     }
 
     /* ==========================================
-       HEADER & NAVIGATION
+       LOCKED/STICKY HEADER & NAVIGATION
        ========================================== */
     header {
-      background-color: var(--bg-cream);
-      padding: 18px 0;
-      position: relative;
+      background-color: rgba(250, 246, 240, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
       z-index: 1000;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    header.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 12px 0;
     }
 
     nav {
@@ -166,6 +177,23 @@
       font-weight: 500;
       color: var(--text-dark);
       transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--gold-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
     }
 
     .nav-links a:hover,
@@ -186,6 +214,11 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .header-phone:hover {
+      color: var(--gold-primary);
     }
 
     .mobile-nav-toggle {
@@ -196,13 +229,14 @@
       color: var(--text-dark);
       cursor: pointer;
       padding: 5px;
+      z-index: 1001;
     }
 
     /* ==========================================
        LOCATIONS GRID SECTION
        ========================================== */
     .locations-wrapper {
-      padding: 40px 0 80px;
+      padding: 50px 0 80px;
       flex-grow: 1;
     }
 
@@ -223,17 +257,18 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      border: 1px solid rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
     .location-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      border-color: var(--gold-primary);
     }
 
     .location-icon {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       background-color: var(--gold-icon-bg);
       border-radius: 50%;
       display: flex;
@@ -241,7 +276,14 @@
       justify-content: center;
       margin-bottom: 20px;
       color: var(--bg-dark-footer);
-      font-size: 1rem;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .location-card:hover .location-icon {
+      transform: scale(1.1);
+      background-color: var(--gold-primary);
+      color: #FFFFFF;
     }
 
     .location-card h3 {
@@ -403,10 +445,16 @@
     /* ==========================================
        RESPONSIVE DESIGN BREAKPOINTS
        ========================================== */
-    @media (max-width: 992px) {
+    @media (max-width: 1024px) {
       .locations-grid {
         grid-template-columns: repeat(3, 1fr);
       }
+      .nav-links {
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 992px) {
       .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 30px;
@@ -423,25 +471,32 @@
       }
 
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
         background-color: var(--bg-cream);
         flex-direction: column;
-        padding: 20px 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        border-top: 1px solid rgba(0,0,0,0.05);
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+        transition: right 0.35s ease-in-out;
+        z-index: 1000;
       }
 
       .nav-links.active {
-        display: flex;
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
       }
 
       .locations-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 18px;
       }
 
       .section-title {
@@ -449,9 +504,13 @@
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .container {
         padding: 0 16px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
       }
 
       .header-contact .btn {
@@ -487,15 +546,15 @@
 <body>
 
   <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20have%20a%20location%20query" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20have%20a%20location%20query" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <!-- HEADER -->
-  <header>
+  <header id="mainHeader">
     <div class="container">
       <nav>
-        <a href="index.html" class="logo">Serenity <span>spa</span></a>
+        <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
 
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
@@ -508,7 +567,7 @@
 
         <div class="header-contact">
           <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
-          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
             Book Now
           </a>
           <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -524,8 +583,8 @@
     <div class="container">
       <div class="section-title">
         <span class="sub-heading">WHERE TO FIND US</span>
-        <h1>Serving Every Corner of<br>Karachi</h1>
-        <p>Visit one of our studios or invite our mobile spa team to your home or hotel.</p>
+        <h1>Serving Every Corner of Karachi</h1>
+        <p>Karachi Fun Escorts proudly offers premium, discreet, and luxury escort services across all major areas of Karachi. Our elite companionship services are available in the following locations. Click any area to see detailed services.</p>
       </div>
 
       <div class="locations-grid">
@@ -656,8 +715,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">Serenity <span>spa</span></a>
-          <p>Karachi's premier luxury massage and spa sanctuary. Certified therapists, premium products, unforgettable rituals.</p>
+          <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
+          <p>If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice. We continuously strive to deliver premium quality services that exceed expectations.</p>
           <div class="social-links">
             <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -679,12 +738,13 @@
         <div class="footer-col">
           <h4>SERVICES</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Swedish Relaxation Massage</a></li>
-            <li><a href="services.html">Deep Tissue Therapy</a></li>
-            <li><a href="services.html">Hot Stone Massage</a></li>
-            <li><a href="services.html">Aromatherapy Ritual</a></li>
-            <li><a href="services.html">Traditional Thai Massage</a></li>
-            <li><a href="services.html">Foot Reflexology</a></li>
+            <li><a href="services.html">Elite Hot Model</a></li>
+            <li><a href="services.html">Young Hot Model</a></li>
+            <li><a href="services.html">VIP Escorts</a></li>
+            <li><a href="services.html">Student Girls</a></li>
+            <li><a href="packages.html">Basic Package</a></li>
+            <li><a href="packages.html">Premium Package</a></li>
+            <li><a href="packages.html">Elite Package</a></li>
           </ul>
         </div>
 
@@ -701,23 +761,33 @@
             </li>
             <li>
               <i class="fas fa-envelope"></i>
-              <span>info@serenityspa.pk</span>
+              <span>info@karachifunescorts.pk</span>
             </li>
           </ul>
-          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" target="_blank" class="btn-whatsapp-footer">
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20inquire%20about%20packages" target="_blank" class="btn-whatsapp-footer">
             Chat on WhatsApp
           </a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Serenity Spa Karachi. All rights reserved.</p>
+        <p>&copy; 2026 Karachi Fun Escorts. All rights reserved.</p>
         <p>DHA Defence · Clifton · Teen Talwar · Shahrah-e-Faisal · Bahria Town · Civil Lines</p>
       </div>
     </div>
   </footer>
 
   <script>
+    // Header shadow on scroll
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
     // Mobile navigation toggle
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
@@ -729,6 +799,16 @@
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-times');
       } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        const icon = navToggle.querySelector('i');
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
       }
