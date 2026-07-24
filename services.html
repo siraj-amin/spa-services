@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services — Karachi Escort Services</title>
   
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Google Fonts -->
+  <!-- Preconnect to external domains for faster DNS resolution & TLS handshake -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://i.postimg.cc">
+  
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://i.postimg.cc">
+
+  <!-- Optimized Google Fonts Loading with font-display: swap -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Non-render-blocking CSS loading for Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </noscript>
 
   <style>
     /* ==========================================
@@ -244,10 +255,12 @@
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--border-subtle);
-      transition: all 0.35s ease;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
       display: flex;
       flex-direction: column;
       position: relative;
+      content-visibility: auto;
+      contain-intrinsic-size: 380px;
     }
 
     .service-card:hover {
@@ -260,6 +273,7 @@
       position: relative;
       height: 200px;
       overflow: hidden;
+      background-color: var(--bg-soft-cream);
     }
 
     .card-img-wrapper img {
@@ -285,6 +299,7 @@
       padding: 4px 10px;
       border-radius: 6px;
       letter-spacing: 0.3px;
+      z-index: 1;
     }
 
     .card-content {
@@ -342,6 +357,8 @@
       text-align: center;
       color: #FFF;
       margin-bottom: 60px;
+      content-visibility: auto;
+      contain-intrinsic-size: 200px;
     }
 
     .cta-banner h2 {
@@ -366,6 +383,8 @@
       color: #FFF;
       padding: 55px 0 20px;
       border-top: 1px solid rgba(255,255,255,0.05);
+      content-visibility: auto;
+      contain-intrinsic-size: 300px;
     }
 
     .footer-grid {
@@ -599,10 +618,9 @@
         <div class="service-card">
           <div class="card-img-wrapper">
             <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/9QsyJSmb/img1.jpg" alt="Elite Hot Model">
+            <img src="https://i.postimg.cc/9QsyJSmb/img1.jpg" alt="Elite Hot Model" width="340" height="200" fetchpriority="high" decoding="async">
           </div>
           <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 60 min</div> -->
             <h3>Elite Hot Models</h3>
             <p>Experience the ultimate in luxury with our elite hot model service.</p>
             <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Elite%20Hot%20Models" target="_blank" class="whatsapp-link">
@@ -615,10 +633,9 @@
         <div class="service-card">
           <div class="card-img-wrapper">
             <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/dVgG4XsB/images.jpg" alt="VIP Hot Model">
+            <img src="https://i.postimg.cc/dVgG4XsB/images.jpg" alt="VIP Hot Model" width="340" height="200" loading="lazy" decoding="async">
           </div>
           <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 75 min</div> -->
             <h3>VIP Hot Models</h3>
             <p>Experience the ultimate in luxury with our VIP hot model service.</p>
             <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20VIP%20Hot%20Models" target="_blank" class="whatsapp-link">
@@ -631,10 +648,9 @@
         <div class="service-card">
           <div class="card-img-wrapper">
             <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/YCTQbVr8/img2.jpg" alt="Young Hot Model">
+            <img src="https://i.postimg.cc/YCTQbVr8/img2.jpg" alt="Young Hot Model" width="340" height="200" loading="lazy" decoding="async">
           </div>
           <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 75 min</div> -->
             <h3>Young Hot Models</h3>
             <p>Experience the ultimate in luxury with our young hot model service.</p>
             <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Young%20Hot%20Models" target="_blank" class="whatsapp-link">
@@ -647,10 +663,9 @@
         <div class="service-card">
           <div class="card-img-wrapper">
             <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/D0MThBXW/ii.jpg" alt="Student Girl">
+            <img src="https://i.postimg.cc/D0MThBXW/ii.jpg" alt="Student Girl" width="340" height="200" loading="lazy" decoding="async">
           </div>
           <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 60 min</div> -->
             <h3>Student Girls</h3>
             <p>Our youthful college girls in Karachi are adventurous, charming, and open to longer bookings. Perfect for clients seeking playful yet intimate experiences, these escorts bring energy, curiosity, and unforgettable companionship.</p>
             <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Student%20Girls" target="_blank" class="whatsapp-link">
@@ -663,13 +678,11 @@
         <div class="service-card">
           <div class="card-img-wrapper">
             <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/9MkLP6tm/img6.jpg" alt="Fashion Model Girls">
+            <img src="https://i.postimg.cc/9MkLP6tm/img6.jpg" alt="Fashion Model Girls" width="340" height="200" loading="lazy" decoding="async">
           </div>
           <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 60 min</div> -->
             <h3>Fashion Model Girls</h3>
-            <p>Spend time with fashion model escorts in Karachi—stunning, stylish, and skilled in seduction. Available for travel, VIP parties, or exclusive events, they create unforgettable experiences.
-             </p>
+            <p>Spend time with fashion model escorts in Karachi—stunning, stylish, and skilled in seduction. Available for travel, VIP parties, or exclusive events, they create unforgettable experiences.</p>
             <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Fashion%20Model%20Girls" target="_blank" class="whatsapp-link">
               Book on WhatsApp <i class="fas fa-arrow-right"></i>
             </a>
@@ -680,13 +693,11 @@
         <div class="service-card">
           <div class="card-img-wrapper">
             <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/4d0WvDbd/img5.jpg" alt="Foot Reflexology">
+            <img src="https://i.postimg.cc/4d0WvDbd/img5.jpg" alt="Celebrity Call Girls" width="340" height="200" loading="lazy" decoding="async">
           </div>
           <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 45 min</div> -->
             <h3>Celebrity Call Girls</h3>
-            <p>Experience fame with our celebrity escorts in Karachi—influencers, models, and media personalities. Discreet and high-class, they provide glamour, conversation, and exceptional intimacy.
-              </p>
+            <p>Experience fame with our celebrity escorts in Karachi—influencers, models, and media personalities. Discreet and high-class, they provide glamour, conversation, and exceptional intimacy.</p>
             <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Celebrity%20Call%20Girls" target="_blank" class="whatsapp-link">
               Book on WhatsApp <i class="fas fa-arrow-right"></i>
             </a>
@@ -697,13 +708,11 @@
         <div class="service-card">
           <div class="card-img-wrapper">
             <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/1tdv0kcX/img8.jpg" alt="Desi Premium Escorts">
+            <img src="https://i.postimg.cc/1tdv0kcX/img8.jpg" alt="Desi Premium Escorts" width="340" height="200" loading="lazy" decoding="async">
           </div>
           <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 60 min</div> -->
             <h3>Desi Premium Escorts</h3>
-            <p>For a traditional yet sensual experience, our Desi call girls in Karachi combine cultural charm with modern allure. Fluent in Urdu and socially aware, they provide personalized and unforgettable companionship.
-              </p>
+            <p>For a traditional yet sensual experience, our Desi call girls in Karachi combine cultural charm with modern allure. Fluent in Urdu and socially aware, they provide personalized and unforgettable companionship.</p>
             <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Desi%20Premium%20Escorts" target="_blank" class="whatsapp-link">
               Book on WhatsApp <i class="fas fa-arrow-right"></i>
             </a>
@@ -714,13 +723,11 @@
         <div class="service-card">
           <div class="card-img-wrapper">
             <span class="price-badge">Available</span>
-            <img src="https://i.postimg.cc/zBQxwsSD/img4.jpg" alt="Outcall Escorts">
+            <img src="https://i.postimg.cc/zBQxwsSD/img4.jpg" alt="Outcall Escorts" width="340" height="200" loading="lazy" decoding="async">
           </div>
           <div class="card-content">
-            <!-- <div class="duration"><i class="far fa-clock"></i> 90 min</div> -->
             <h3>Outcall Escorts</h3>
-            <p>Stay home or at your hotel—our outcall escorts in Karachi will arrive discreetly at your location. From private villas to resorts, these escorts maintain secrecy while providing high-end companionship.
-              </p>
+            <p>Stay home or at your hotel—our outcall escorts in Karachi will arrive discreetly at your location. From private villas to resorts, these escorts maintain secrecy while providing high-end companionship.</p>
             <a href="https://wa.me/923350246669?text=Hello,%20I%20want%20to%20book%20Outcall%20Escorts" target="_blank" class="whatsapp-link">
               Book on WhatsApp <i class="fas fa-arrow-right"></i>
             </a>
@@ -810,19 +817,25 @@
   </footer>
 
   <script>
-    // Mobile navigation toggle logic
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
+    document.addEventListener("DOMContentLoaded", function() {
+      // Mobile navigation toggle logic
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
 
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      const icon = navToggle.querySelector('i');
-      if (navLinks.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          const icon = navToggle.querySelector('i');
+          if (icon) {
+            if (navLinks.classList.contains('active')) {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            } else {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
       }
     });
   </script>
