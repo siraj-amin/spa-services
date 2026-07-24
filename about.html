@@ -5,13 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us — Serenity Spa Karachi</title>
   
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Preconnect to CDN for faster image connection -->
+  <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
 
   <style>
     /* ==========================================
@@ -21,7 +16,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     html {
@@ -52,7 +47,7 @@
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: Georgia, Cambria, "Times New Roman", Times, serif;
       font-weight: 500;
       color: var(--text-dark);
     }
@@ -88,7 +83,7 @@
       font-weight: 500;
       font-size: 0.85rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background-color 0.2s ease, transform 0.2s ease;
       border: 1px solid transparent;
       white-space: nowrap;
     }
@@ -100,7 +95,7 @@
 
     .btn-gold:hover {
       background-color: var(--gold-hover);
-      box-shadow: 0 6px 18px rgba(197, 160, 89, 0.3);
+      transform: translateY(-2px);
     }
 
     /* ==========================================
@@ -114,7 +109,6 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: all 0.3s ease;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
@@ -130,7 +124,7 @@
     }
 
     .logo {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: Georgia, Cambria, "Times New Roman", Times, serif;
       font-size: 1.8rem;
       font-weight: 600;
       color: var(--text-dark);
@@ -153,7 +147,7 @@
       font-size: 0.88rem;
       font-weight: 500;
       color: var(--text-dark);
-      transition: color 0.3s;
+      transition: color 0.2s;
       position: relative;
     }
 
@@ -165,7 +159,7 @@
       bottom: -4px;
       left: 0;
       background-color: var(--gold-primary);
-      transition: width 0.3s ease;
+      transition: width 0.2s ease;
     }
 
     .nav-links a:hover::after,
@@ -191,7 +185,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: color 0.3s ease;
+      transition: color 0.2s ease;
     }
 
     .header-phone:hover {
@@ -257,6 +251,7 @@
       object-fit: cover;
       border-radius: 20px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      display: block;
     }
 
     /* ==========================================
@@ -266,6 +261,8 @@
       background-color: var(--bg-soft-cream);
       padding: 90px 0 110px;
       text-align: center;
+      content-visibility: auto;
+      contain-intrinsic-size: 500px;
     }
 
     .values-header {
@@ -290,19 +287,23 @@
       padding: 45px 30px;
       text-align: center;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.015);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.25s ease;
       border: 1px solid rgba(0,0,0,0.02);
     }
 
     .value-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
     .value-icon {
       color: var(--gold-primary);
-      font-size: 1.6rem;
       margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .value-icon svg {
+      fill: var(--gold-primary);
     }
 
     .value-card h3 {
@@ -324,6 +325,8 @@
       background-color: var(--bg-dark-footer);
       color: #FFF;
       padding: 60px 0 20px;
+      content-visibility: auto;
+      contain-intrinsic-size: 300px;
     }
 
     .footer-grid {
@@ -362,7 +365,7 @@
       justify-content: center;
       color: #FFF;
       font-size: 0.85rem;
-      transition: all 0.3s;
+      transition: border-color 0.2s, color 0.2s;
     }
 
     .social-icon:hover {
@@ -376,7 +379,7 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       margin-bottom: 18px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 700;
     }
 
@@ -391,7 +394,7 @@
     .footer-links a {
       color: var(--text-light-muted);
       font-size: 0.82rem;
-      transition: color 0.3s;
+      transition: color 0.2s;
     }
 
     .footer-links a:hover {
@@ -411,8 +414,9 @@
       gap: 10px;
     }
 
-    .footer-contact-info li i {
-      color: var(--gold-primary);
+    .footer-contact-info li svg {
+      fill: var(--gold-primary);
+      flex-shrink: 0;
       margin-top: 3px;
     }
 
@@ -452,10 +456,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.25);
       z-index: 999;
-      transition: transform 0.3s ease;
+      transition: transform 0.2s ease;
     }
 
     .whatsapp-float:hover {
@@ -565,7 +568,6 @@
       .whatsapp-float {
         width: 46px;
         height: 46px;
-        font-size: 22px;
         bottom: 18px;
         right: 18px;
       }
@@ -575,8 +577,8 @@
 <body>
 
   <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
+  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
   <!-- HEADER -->
@@ -595,12 +597,15 @@
         </ul>
 
         <div class="header-contact">
-          <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
-          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
+          <a href="tel:+923350246669" class="header-phone">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.2-.6-2.4-.6-3.6 0-.6-.5-1-1-1H4c-.6 0-1 .5-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg>
+            +92 335 0246669
+          </a>
+          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" rel="noopener" class="btn btn-gold">
             Book Now
           </a>
           <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
           </button>
         </div>
       </nav>
@@ -620,7 +625,7 @@
             <p>We don’t just provide beautiful companions – we offer an experience that’s tailored to your desires. Our models know how to engage in meaningful conversation, adapt to your mood, and ensure your satisfaction, whether you’re looking for romance, fun, or intimacy.</p>
           </div>
           <div class="story-image-wrapper">
-            <img src="https://i.postimg.cc/2SdXpXm4/banner.jpg" alt="Karachi Fun Escorts" loading="lazy">
+            <img src="https://i.postimg.cc/2SdXpXm4/banner.jpg" alt="Karachi Fun Escorts" width="540" height="380" fetchpriority="high" decoding="async">
           </div>
         </div>
       </div>
@@ -638,7 +643,7 @@
           <!-- EXCELLENCE -->
           <div class="value-card">
             <div class="value-icon">
-              <i class="fas fa-shield"></i>
+              <svg width="28" height="28" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
             </div>
             <h3>Complete Privacy & Confidentiality</h3>
             <p>Your privacy is guaranteed. All bookings are 100% confidential, and client information is never shared. Whether for a few hours or an entire weekend, your identity and preferences remain secure.</p>
@@ -647,7 +652,7 @@
           <!-- PURITY -->
           <div class="value-card">
             <div class="value-icon">
-              <i class="fas fa-user-check"></i>
+              <svg width="28" height="28" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
             </div>
             <h3>Elite Escorts & Verified Companions</h3>
             <p>All our companions are carefully selected, verified, and meet the highest standards of professionalism and discretion.</p>
@@ -656,7 +661,7 @@
           <!-- CARE -->
           <div class="value-card">
             <div class="value-icon">
-              <i class="far fa-map"></i>
+              <svg width="28" height="28" viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
             </div>
             <h3>Coverage Across All Over Karachi</h3>
             <p>From DHA, Clifton, and Shahrah-e-Faisal to Bahria Town and Central Karachi, our services are available city-wide.</p>
@@ -674,8 +679,8 @@
           <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
           <p>If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice. We continuously strive to deliver premium quality services that exceed expectations.</p>
           <div class="social-links">
-            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           </div>
         </div>
 
@@ -708,19 +713,19 @@
           <h4>GET IN TOUCH</h4>
           <ul class="footer-contact-info">
             <li>
-              <i class="fas fa-map-marker-alt"></i>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
               <span>Multiple Locations Across Karachi, Pakistan</span>
             </li>
             <li>
-              <i class="fas fa-phone-alt"></i>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.2-.6-2.4-.6-3.6 0-.6-.5-1-1-1H4c-.6 0-1 .5-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg>
               <span>+92 335 0246669</span>
             </li>
             <li>
-              <i class="fas fa-envelope"></i>
-              <span>info@karachifunescort.pk</span>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span>info@serenityspa.pk</span>
             </li>
           </ul>
-          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" target="_blank" class="btn-whatsapp-footer">
+          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" target="_blank" rel="noopener" class="btn-whatsapp-footer">
             Chat on WhatsApp
           </a>
         </div>
@@ -734,39 +739,34 @@
   </footer>
 
   <script>
-    // Header shadow on scroll
-    const header = document.getElementById('mainHeader');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+    document.addEventListener("DOMContentLoaded", function() {
+      // Header shadow on scroll
+      const header = document.getElementById('mainHeader');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 20) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        }, { passive: true });
       }
-    });
 
-    // Navigation toggle functionality
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
+      // Mobile navigation toggle
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
 
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      const icon = navToggle.querySelector('i');
-      if (navLinks.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
 
-    // Close mobile nav when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!header.contains(e.target) && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        const icon = navToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!header.contains(e.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+          }
+        });
       }
     });
   </script>
