@@ -1,32 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z069DY0WLK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z069DY0WLK');
-</script>
-
-  <!-- Favicon Configuration -->
-<link rel="icon" type="image/jpeg" href="fav.jpg">
-<link rel="apple-touch-icon" href="fav.jpg">
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Karachi escort service locations across DHA Defence, Clifton, Bahria Town, Shahrah-e-Faisal, and more with complete discretion and luxury companionship.">
   <title>Locations — Karachi Escort Services</title>
   
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://www.karachifunescorts.online/locations">
+
+  <!-- Favicon Configuration -->
+  <link rel="icon" type="image/jpeg" href="fav.jpg">
+  <link rel="apple-touch-icon" href="fav.jpg">
 
   <style>
     /* ==========================================
@@ -36,7 +20,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     html {
@@ -68,8 +52,8 @@
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
+      font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      font-weight: 600;
       color: var(--text-dark);
     }
 
@@ -120,12 +104,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       padding: 10px 24px;
       border-radius: 25px;
       font-weight: 500;
       font-size: 0.85rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: transform 0.2s ease, background-color 0.2s ease;
       border: 1px solid transparent;
       white-space: nowrap;
     }
@@ -137,7 +122,7 @@
 
     .btn-gold:hover {
       background-color: var(--gold-hover);
-      box-shadow: 0 6px 18px rgba(197, 160, 89, 0.3);
+      transform: translateY(-2px);
     }
 
     /* ==========================================
@@ -151,7 +136,6 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: all 0.3s ease;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
@@ -167,7 +151,7 @@
     }
 
     .logo {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: Georgia, Cambria, "Times New Roman", Times, serif;
       font-size: 1.8rem;
       font-weight: 600;
       letter-spacing: 0.5px;
@@ -191,24 +175,8 @@
       font-size: 0.88rem;
       font-weight: 500;
       color: var(--text-dark);
-      transition: color 0.3s;
+      transition: color 0.2s;
       position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: var(--gold-primary);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
     }
 
     .nav-links a:hover,
@@ -229,7 +197,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: color 0.3s ease;
+      transition: color 0.2s ease;
     }
 
     .header-phone:hover {
@@ -268,11 +236,13 @@
       border-radius: 16px;
       padding: 28px 24px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-      transition: all 0.3s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       border: 1px solid rgba(0, 0, 0, 0.03);
+      content-visibility: auto;
+      contain-intrinsic-size: 150px;
     }
 
     .location-card:hover {
@@ -291,8 +261,11 @@
       justify-content: center;
       margin-bottom: 20px;
       color: var(--bg-dark-footer);
-      font-size: 1.1rem;
-      transition: transform 0.3s ease;
+      transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .location-icon svg {
+      fill: currentColor;
     }
 
     .location-card:hover .location-icon {
@@ -319,6 +292,8 @@
       background-color: var(--bg-dark-footer);
       color: #FFF;
       padding: 60px 0 20px;
+      content-visibility: auto;
+      contain-intrinsic-size: 300px;
     }
 
     .footer-grid {
@@ -357,7 +332,7 @@
       justify-content: center;
       color: #FFF;
       font-size: 0.85rem;
-      transition: all 0.3s;
+      transition: border-color 0.2s, color 0.2s;
     }
 
     .social-icon:hover {
@@ -371,7 +346,7 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       margin-bottom: 18px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 700;
     }
 
@@ -386,7 +361,7 @@
     .footer-links a {
       color: var(--text-light-muted);
       font-size: 0.82rem;
-      transition: color 0.3s;
+      transition: color 0.2s;
     }
 
     .footer-links a:hover {
@@ -406,8 +381,9 @@
       gap: 10px;
     }
 
-    .footer-contact-info li i {
-      color: var(--gold-primary);
+    .footer-contact-info li svg {
+      fill: var(--gold-primary);
+      flex-shrink: 0;
       margin-top: 3px;
     }
 
@@ -447,10 +423,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.25);
       z-index: 999;
-      transition: transform 0.3s ease;
+      transition: transform 0.2s ease;
     }
 
     .whatsapp-float:hover {
@@ -551,7 +526,6 @@
       .whatsapp-float {
         width: 46px;
         height: 46px;
-        font-size: 22px;
         bottom: 18px;
         right: 18px;
       }
@@ -561,32 +535,35 @@
 <body>
 
   <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20have%20a%20location%20query" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
+  <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20have%20a%20location%20query" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
   <!-- HEADER -->
   <header id="mainHeader">
     <div class="container">
       <nav>
-        <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
+        <a href="/" class="logo">Karachi Fun <span>Escort</span></a>
 
         <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="packages.html">Packages</a></li>
-          <li><a href="locations.html" class="active">Locations</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/packages">Packages</a></li>
+          <li><a href="/locations" class="active">Locations</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
 
         <div class="header-contact">
-          <a href="tel:+923350246669" class="header-phone"><i class="fas fa-phone-alt"></i> +92 335 0246669</a>
-          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book" target="_blank" class="btn btn-gold">
+          <a href="tel:+923350246669" class="header-phone">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.2-.6-2.4-.6-3.6 0-.6-.5-1-1-1H4c-.6 0-1 .5-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg>
+            +92 335 0246669
+          </a>
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book" target="_blank" rel="noopener" class="btn btn-gold">
             Book Now
           </a>
           <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
           </button>
         </div>
       </nav>
@@ -607,7 +584,7 @@
         <!-- LOCATION 1 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>DHA Defence</h3>
           <p>Karachi, Pakistan</p>
@@ -616,7 +593,7 @@
         <!-- LOCATION 2 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Clifton</h3>
           <p>Karachi, Pakistan</p>
@@ -625,7 +602,7 @@
         <!-- LOCATION 3 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Teen Talwar</h3>
           <p>Karachi, Pakistan</p>
@@ -634,7 +611,7 @@
         <!-- LOCATION 4 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Shahrah-e-Faisal</h3>
           <p>Karachi, Pakistan</p>
@@ -643,7 +620,7 @@
         <!-- LOCATION 5 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Bahria Town</h3>
           <p>Karachi, Pakistan</p>
@@ -652,7 +629,7 @@
         <!-- LOCATION 6 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Civil Lines</h3>
           <p>Karachi, Pakistan</p>
@@ -661,7 +638,7 @@
         <!-- LOCATION 7 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Federal B Area</h3>
           <p>Karachi, Pakistan</p>
@@ -670,7 +647,7 @@
         <!-- LOCATION 8 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Nazimabad</h3>
           <p>Karachi, Pakistan</p>
@@ -679,7 +656,7 @@
         <!-- LOCATION 9 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Gulshan-e-Iqbal</h3>
           <p>Karachi, Pakistan</p>
@@ -688,7 +665,7 @@
         <!-- LOCATION 10 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Bahadurabad</h3>
           <p>Karachi, Pakistan</p>
@@ -697,7 +674,7 @@
         <!-- LOCATION 11 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Korangi</h3>
           <p>Karachi, Pakistan</p>
@@ -706,7 +683,7 @@
         <!-- LOCATION 12 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Orangi Town</h3>
           <p>Karachi, Pakistan</p>
@@ -715,7 +692,7 @@
         <!-- LOCATION 13 -->
         <div class="location-card">
           <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
           <h3>Scheme 33</h3>
           <p>Karachi, Pakistan</p>
@@ -730,36 +707,36 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">Karachi Fun <span>Escort</span></a>
+          <a href="/" class="logo">Karachi Fun <span>Escort</span></a>
           <p>If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice. We continuously strive to deliver premium quality services that exceed expectations.</p>
           <div class="social-links">
-            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           </div>
         </div>
 
         <div class="footer-col">
           <h4>EXPLORE</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="packages.html">Packages</a></li>
-            <li><a href="locations.html">Locations</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/packages">Packages</a></li>
+            <li><a href="/locations">Locations</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>SERVICES</h4>
           <ul class="footer-links">
-            <li><a href="services.html">Elite Hot Model</a></li>
-            <li><a href="services.html">Young Hot Model</a></li>
-            <li><a href="services.html">VIP Escorts</a></li>
-            <li><a href="services.html">Student Girls</a></li>
-            <li><a href="packages.html">Basic Package</a></li>
-            <li><a href="packages.html">Premium Package</a></li>
-            <li><a href="packages.html">Elite Package</a></li>
+            <li><a href="/services">Elite Hot Model</a></li>
+            <li><a href="/services">Young Hot Model</a></li>
+            <li><a href="/services">VIP Escorts</a></li>
+            <li><a href="/services">Student Girls</a></li>
+            <li><a href="/packages">Basic Package</a></li>
+            <li><a href="/packages">Premium Package</a></li>
+            <li><a href="/packages">Elite Package</a></li>
           </ul>
         </div>
 
@@ -767,19 +744,19 @@
           <h4>GET IN TOUCH</h4>
           <ul class="footer-contact-info">
             <li>
-              <i class="fas fa-map-marker-alt"></i>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
               <span>Multiple Locations Across Karachi, Pakistan</span>
             </li>
             <li>
-              <i class="fas fa-phone-alt"></i>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.2-.6-2.4-.6-3.6 0-.6-.5-1-1-1H4c-.6 0-1 .5-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg>
               <span>+92 335 0246669</span>
             </li>
             <li>
-              <i class="fas fa-envelope"></i>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               <span>info@karachifunescorts.pk</span>
             </li>
           </ul>
-          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20inquire%20about%20packages" target="_blank" class="btn-whatsapp-footer">
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20inquire%20about%20packages" target="_blank" rel="noopener" class="btn-whatsapp-footer">
             Chat on WhatsApp
           </a>
         </div>
@@ -793,39 +770,34 @@
   </footer>
 
   <script>
-    // Header shadow on scroll
-    const header = document.getElementById('mainHeader');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+    document.addEventListener("DOMContentLoaded", function() {
+      // Header shadow on scroll
+      const header = document.getElementById('mainHeader');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 20) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        }, { passive: true });
       }
-    });
 
-    // Mobile navigation toggle
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
+      // Mobile navigation toggle
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
 
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      const icon = navToggle.querySelector('i');
-      if (navLinks.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
 
-    // Close mobile nav when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!header.contains(e.target) && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        const icon = navToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!header.contains(e.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+          }
+        });
       }
     });
   </script>
