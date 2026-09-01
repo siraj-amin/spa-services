@@ -42,10 +42,12 @@
 
     :root {
       --bg-cream: #FAF6F0;
+      --bg-soft-cream: #F3ECE1;
       --bg-dark-espresso: #3E2A24;
       --bg-dark-footer: #3E2A24;
       --gold-primary: #C5A059;
       --gold-hover: #B08D46;
+      --gold-light: #E8D8B8;
       --text-dark: #221814;
       --text-muted: #7A6E67;
       --text-light-muted: #BFAEA4;
@@ -91,6 +93,18 @@
       font-weight: 700;
       display: inline-block;
       margin-bottom: 12px;
+      position: relative;
+    }
+
+    .sub-heading::before,
+    .sub-heading::after {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 1px;
+      background-color: var(--gold-primary);
+      vertical-align: middle;
+      margin: 0 6px;
     }
 
     .section-title {
@@ -98,7 +112,7 @@
       margin-bottom: 50px;
     }
 
-    .section-title h1 {
+    .section-title h1, .section-title h2 {
       font-size: 2.5rem;
       margin-bottom: 16px;
       line-height: 1.15;
@@ -397,6 +411,156 @@
     }
 
     /* ==========================================
+       DETAILED COMPANIONSHIP & SEO GUIDE SECTION
+       ========================================== */
+    .seo-content-section {
+      background-color: var(--bg-cream);
+      padding: 70px 0 40px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .editorial-card {
+      background: var(--card-white);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .editorial-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-primary);
+    }
+
+    .editorial-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .editorial-card h3 svg {
+      fill: var(--gold-primary);
+      flex-shrink: 0;
+    }
+
+    .editorial-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .editorial-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-soft-cream);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .checklist-item svg {
+      fill: var(--gold-primary);
+      flex-shrink: 0;
+    }
+
+    .features-pill-list {
+      list-style: none;
+      margin: 16px 0 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .features-pill-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      background: var(--bg-soft-cream);
+      padding: 8px 14px;
+      border-radius: 8px;
+    }
+
+    .features-pill-list li svg {
+      fill: var(--gold-primary);
+      flex-shrink: 0;
+    }
+
+    /* FAQ Accordion */
+    .faq-accordion {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--card-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--gold-primary);
+    }
+
+    .faq-header {
+      padding: 18px 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .faq-header svg {
+      fill: var(--gold-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-body {
+      display: none;
+      padding: 0 24px 18px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================
        FOOTER SECTION
        ========================================== */
     footer {
@@ -606,8 +770,16 @@
         margin-bottom: 35px;
       }
 
-      .section-title h1 {
+      .section-title h1, .section-title h2 {
         font-size: 2rem;
+      }
+
+      .editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .checklist-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -693,7 +865,7 @@
     <div class="container">
       <div class="section-title">
         <span class="sub-heading">SPECIAL PACKAGES</span>
-        <h1> Exclusive Escort Pricing Plans</h1>
+        <h1>Exclusive Escort Pricing Plans</h1>
         <p>Choose from our tailored packages designed for unforgettable pleasure.</p>
         <p>Whether you want a quick escape or a luxurious night with a celebrity, we have the perfect option for every desire.</p>
       </div>
@@ -777,6 +949,243 @@
       </div>
     </div>
   </main>
+
+  <!-- ==========================================
+       DETAILED COMPANIONSHIP & SEO GUIDE SECTION (NEW CONTENT ADDED)
+       ========================================== -->
+  <section class="seo-content-section">
+    <div class="container">
+      
+      <div class="section-title">
+        <span class="sub-heading">PREMIUM ADULT COMPANIONSHIP</span>
+        <h2>Premium Companionship Packages in Karachi</h2>
+        <p>Finding a professional and reliable companion service in Karachi should be simple, private, and comfortable. Our carefully designed packages match your schedule and lifestyle requirements.</p>
+      </div>
+
+      <!-- Main Overview Cards -->
+      <div class="editorial-grid">
+        <div class="editorial-card">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Premium Companionship in Karachi
+          </h3>
+          <p>Finding a professional and reliable companion service in Karachi should be simple, private, and comfortable. Our carefully designed packages are created for clients looking for professional companionship, social company, dinner companions, event partners, and private lifestyle experiences in Karachi.</p>
+          <p>Whether you are visiting Karachi for business, attending a formal event, planning a private dinner, or simply looking for pleasant company, our flexible packages allow you to choose an option that matches your schedule and preferences.</p>
+        </div>
+
+        <div class="editorial-card">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+            Flexible Companion Packages
+          </h3>
+          <p>Every client has different requirements, which is why our Karachi companion packages are structured around different durations and levels of service. You can select a package according to your schedule and contact our team for availability and booking information.</p>
+          <p>Our services focus on professionalism, communication, punctuality, and discretion. We aim to make the booking process straightforward while ensuring that clients understand the service they are requesting before confirming.</p>
+        </div>
+      </div>
+
+      <!-- Tier Breakdown Cards -->
+      <div class="editorial-grid">
+        <div class="editorial-card">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            Premium Package
+          </h3>
+          <p>The Premium Companion Package in Karachi is suitable for clients who need professional company for a shorter period. It can be ideal for dinner plans, social gatherings, business-related occasions, or spending time with a professional companion in a comfortable setting.</p>
+          <p>This package is designed for clients who prefer flexibility without committing to an extended booking. Availability may vary depending on the date, location, and companion selected.</p>
+          
+          <ul class="features-pill-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Professional companionship</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Flexible booking duration</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Suitable for dinners & social occasions</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Discreet communication</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Convenient booking process</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Coverage in selected Karachi areas</li>
+          </ul>
+        </div>
+
+        <div class="editorial-card">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Luxury Package
+          </h3>
+          <p>Our Luxury Companion Package in Karachi is designed for clients looking for extended professional companionship. It provides additional flexibility for longer dinners, events, city outings, business occasions, and other social activities.</p>
+          <p>This option can be particularly convenient for visitors staying in Karachi who want a professional companion for part of their itinerary.</p>
+          
+          <ul class="features-pill-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Extended companionship</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Suitable for events and dinners</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Flexible scheduling</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Professional & respectful interaction</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Private booking coordination</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Selected Karachi locations available</li>
+          </ul>
+        </div>
+
+        <div class="editorial-card">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
+            Elite Package
+          </h3>
+          <p>The Elite Companion Package in Karachi is our extended premium option for clients who require companionship for a longer period. It can be suitable for special events, business functions, private dinners, social occasions, or planned activities around Karachi.</p>
+          <p>Clients can discuss their preferred date, duration, location, and requirements with our booking team before confirming availability.</p>
+          
+          <ul class="features-pill-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Extended professional companionship</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Event and dinner assistance</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Flexible scheduling</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Personalized arrangements</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Discreet booking process</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Selected locations throughout Karachi</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Coverage & Selection Guide -->
+      <div class="editorial-grid">
+        <div class="editorial-card">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Companion Services Across Karachi
+          </h3>
+          <p>Our service coverage includes several major areas of Karachi. Depending on availability, clients can inquire about companionship services in DHA Karachi, Clifton, Bahria Town Karachi, Gulshan-e-Iqbal, Shahrah-e-Faisal, Bahadurabad, Civil Lines, Federal B Area, Nazimabad, Scheme 33, and surrounding areas.</p>
+          <p>Location availability depends on the selected package and companion's schedule. We recommend contacting the booking team in advance, especially for evening events, weekends, and longer bookings.</p>
+        </div>
+
+        <div class="editorial-card">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            Private and Professional Booking
+          </h3>
+          <p>Privacy and professionalism are important when arranging any personal service. Our booking process is designed to keep communication straightforward and respectful.</p>
+          <p>Clients can contact the booking team to discuss package availability, timing, location, and general requirements. All arrangements should be confirmed in advance, and clients should respect the agreed schedule and personal boundaries of everyone involved.</p>
+        </div>
+      </div>
+
+      <!-- Checklist: How to choose the right package -->
+      <div class="editorial-card" style="margin-bottom: 40px;">
+        <h3 style="font-size: 1.5rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+          How to Choose the Right Package
+        </h3>
+        <p>Choosing the right Karachi companionship package depends primarily on your schedule and the type of occasion you have planned. For a short dinner or social meeting, the Premium Package may be appropriate. For longer events or extended social activities, the Luxury Package provides additional flexibility. Clients planning an extended itinerary can ask about the Elite Package.</p>
+        
+        <p style="font-weight: 600; color: var(--text-dark); margin-top: 15px;">Before booking, consider the following parameters:</p>
+        <div class="checklist-grid">
+          <div class="checklist-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Required duration</div>
+          <div class="checklist-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Preferred date</div>
+          <div class="checklist-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Preferred Karachi location</div>
+          <div class="checklist-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Type of social occasion</div>
+          <div class="checklist-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Number of people attending</div>
+          <div class="checklist-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Companion preferences</div>
+          <div class="checklist-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Current availability</div>
+        </div>
+        <p>Our team can provide additional information so you can select the most suitable option.</p>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="section-title" style="margin-bottom: 25px;">
+        <span class="sub-heading">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Helpful answers regarding our companion pricing plans, coverage, and reservations.</p>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>What companionship packages are available in Karachi?</span>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="faq-body">
+            Premium, Luxury, and Elite options can be offered depending on availability, duration, and the type of social occasion.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Which areas of Karachi are covered?</span>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="faq-body">
+            Availability may include DHA, Clifton, Bahria Town, Gulshan-e-Iqbal, Shahrah-e-Faisal, Bahadurabad, Civil Lines, Nazimabad, and other major areas.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Can I request a specific date?</span>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="faq-body">
+            Yes. You can contact the booking team with your preferred date and duration to check availability.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Can I book companionship for an event?</span>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="faq-body">
+            Professional companions may be available for appropriate social events, dinners, gatherings, and business occasions, subject to prior confirmation.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>How far in advance should I book?</span>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="faq-body">
+            Advance booking is recommended for weekends, holidays, special events, and longer-duration arrangements.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Can package details be customized?</span>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="faq-body">
+            You can discuss your scheduling and event requirements with the booking team before confirming your reservation.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Are services available throughout Karachi?</span>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="faq-body">
+            Coverage depends on the companion's availability and the selected location. Contact the team to confirm your preferred area.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>How do I confirm a booking?</span>
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="faq-body">
+            Provide your preferred date, time, location, and package to the booking team and wait for confirmation before making arrangements.
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Contact Box -->
+      <div class="editorial-card" style="text-align: center; background-color: var(--bg-soft-cream); border: 2px solid var(--gold-primary);">
+        <h3 style="justify-content: center; font-size: 1.6rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Book a Companion Package in Karachi
+        </h3>
+        <p style="max-width: 800px; margin: 0 auto 12px;">If you are searching for professional companionship in Karachi, review the available packages and select the option that best matches your schedule. Contact our team to confirm current availability, pricing, location, and booking requirements.</p>
+        <p style="max-width: 800px; margin: 0 auto 22px;">For the best experience, advance booking is recommended, particularly during weekends, holidays, and busy event periods.</p>
+        <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20inquire%20about%20packages" target="_blank" rel="noopener" class="btn btn-gold">
+          Inquire on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -875,6 +1284,24 @@
           }
         });
       }
+
+      // FAQ Accordion Toggle Interaction
+      const faqHeaders = document.querySelectorAll('.faq-header');
+      faqHeaders.forEach(headerEl => {
+        headerEl.addEventListener('click', () => {
+          const body = headerEl.nextElementSibling;
+          const svg = headerEl.querySelector('svg');
+          const isOpen = body.style.display === 'block';
+          
+          document.querySelectorAll('.faq-body').forEach(b => b.style.display = 'none');
+          document.querySelectorAll('.faq-header svg').forEach(s => s.style.transform = 'rotate(0deg)');
+          
+          if (!isOpen) {
+            body.style.display = 'block';
+            svg.style.transform = 'rotate(180deg)';
+          }
+        });
+      });
     });
   </script>
 
