@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="description" content="Read our comprehensive 2026 luxury guide to adult companionship in Karachi. Discover premier 5-star hotel visits, fine dining in DHA & Clifton, outcall etiquette, and discreet VIP services.">
+  <meta name="description" content="Complete 2026 luxury guide to elite adult companionship in Karachi. 5-star hotel visits, fine dining in DHA & Clifton, outcall etiquette, and verified VIP services.">
   <meta name="keywords" content="Karachi escort guide, luxury companionship Karachi, VIP dating Karachi, DHA Clifton call girls, 5-star hotel outcall Karachi, Karachi adult companions">
   <title>Ultimate Guide to Luxury Companionship & VIP Dating in Karachi (2026)</title>
 
   <link rel="canonical" href="https://www.karachifunescorts.online/karachi-luxury-guide">
 
-  <!-- Open Graph / Social Meta -->
+  <!-- Open Graph Meta Tags -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="Ultimate Guide to Luxury Companionship & VIP Dating in Karachi (2026)">
   <meta property="og:description" content="Discover top hotel outcalls, dining etiquette, safety protocols, and discreet adult companionship across DHA, Clifton, and all major areas in Karachi.">
   <meta property="og:image" content="https://i.postimg.cc/zv80jfwG/hero.jpg">
   <meta property="og:url" content="https://www.karachifunescorts.online/karachi-luxury-guide">
 
-  <!-- Structured Data: BlogPosting Schema for Google Rich Snippets -->
+  <!-- Schema Markup -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -60,12 +60,12 @@
   <link rel="icon" type="image/jpeg" href="fav.jpg">
   <link rel="apple-touch-icon" href="fav.jpg">
 
-  <!-- Preconnect to image CDN -->
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
 
   <style>
     /* ==========================================
-       RESET & COLOR PALETTE
+       RESET & BASE STYLING
        ========================================== */
     * {
       margin: 0;
@@ -101,6 +101,7 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, h4 {
@@ -118,41 +119,37 @@
       width: 100%;
       max-width: 1140px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 20px;
     }
 
     /* ==========================================
-       HEADER & NAVIGATION
+       HEADER & NAVIGATION FIX
        ========================================== */
     header {
       position: sticky;
       top: 0;
+      left: 0;
       width: 100%;
-      background-color: rgba(250, 246, 240, 0.96);
-      backdrop-filter: blur(8px);
+      background-color: #FAF6F0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       z-index: 1000;
       border-bottom: 1px solid var(--border-subtle);
-      transition: padding 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    header.scrolled {
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      padding: 10px 0;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 0;
+      padding: 14px 0;
+      min-height: 65px;
     }
 
     .logo {
-      font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-      font-size: 1.8rem;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
       font-weight: 700;
       letter-spacing: 0.5px;
       color: var(--text-dark);
+      white-space: nowrap;
     }
 
     .logo span {
@@ -163,7 +160,7 @@
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 22px;
       list-style: none;
       align-items: center;
     }
@@ -183,8 +180,7 @@
     .header-contact {
       display: flex;
       align-items: center;
-      gap: 16px;
-      font-size: 0.85rem;
+      gap: 14px;
     }
 
     .header-phone {
@@ -194,6 +190,7 @@
       align-items: center;
       gap: 6px;
       font-size: 0.82rem;
+      white-space: nowrap;
     }
 
     .header-phone:hover {
@@ -203,15 +200,18 @@
     .btn-gold {
       background-color: var(--gold-primary);
       color: #FFFFFF;
-      padding: 10px 22px;
+      padding: 9px 20px;
       border-radius: 25px;
       font-size: 0.85rem;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       transition: background-color 0.2s ease, transform 0.2s ease;
       white-space: nowrap;
+      border: 1px solid transparent;
+      cursor: pointer;
     }
 
     .btn-gold:hover {
@@ -223,26 +223,85 @@
       display: none;
       background: none;
       border: none;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--text-dark);
       cursor: pointer;
       padding: 4px;
     }
 
+    /* Mobile Drawer */
+    .mobile-nav-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background-color: var(--bg-cream);
+      box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      padding: 70px 24px 30px;
+      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+    }
+
+    .mobile-nav-drawer.open {
+      right: 0;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .mobile-nav-links a {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      display: block;
+    }
+
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active {
+      color: var(--gold-primary);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 999;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
     /* ==========================================
-       ARTICLE CONTENT LAYOUT
+       ARTICLE PAGE CONTENT
        ========================================== */
     .article-container {
       max-width: 860px;
       margin: 0 auto;
-      padding: 45px 20px 80px;
+      padding: 35px 20px 70px;
       flex-grow: 1;
+      width: 100%;
     }
 
     .breadcrumb {
       font-size: 0.82rem;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .breadcrumb a {
@@ -256,71 +315,76 @@
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 4px 12px;
+      letter-spacing: 1.2px;
+      padding: 5px 14px;
       border-radius: 6px;
       display: inline-block;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .article-header {
+      margin-bottom: 25px;
     }
 
     .article-header h1 {
-      font-size: clamp(2rem, 4.5vw, 3rem);
-      line-height: 1.2;
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      line-height: 1.25;
       margin-bottom: 16px;
+      color: var(--text-dark);
     }
 
     .article-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
-      font-size: 0.85rem;
+      gap: 16px;
+      font-size: 0.84rem;
       color: var(--text-muted);
       border-bottom: 1px solid var(--border-subtle);
-      padding-bottom: 20px;
-      margin-bottom: 30px;
+      padding-bottom: 18px;
     }
 
     .featured-img-wrapper {
       width: 100%;
       height: 420px;
-      border-radius: 18px;
+      border-radius: 16px;
       overflow: hidden;
-      margin-bottom: 35px;
+      margin: 25px 0 35px;
       background-color: var(--bg-soft-cream);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
     }
 
     .featured-img-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .article-content {
       background: var(--card-white);
-      padding: 45px 40px;
-      border-radius: 20px;
+      padding: 40px 36px;
+      border-radius: 18px;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 6px 25px rgba(0,0,0,0.02);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
     }
 
     .article-content h2 {
-      font-size: 1.7rem;
-      margin: 35px 0 14px;
+      font-size: 1.55rem;
+      margin: 32px 0 14px;
       line-height: 1.3;
       color: var(--text-dark);
     }
 
     .article-content h3 {
-      font-size: 1.3rem;
-      margin: 24px 0 10px;
+      font-size: 1.22rem;
+      margin: 22px 0 10px;
       color: var(--text-dark);
     }
 
     .article-content p {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       color: var(--text-muted);
-      font-size: 0.96rem;
+      font-size: 0.95rem;
       line-height: 1.8;
     }
 
@@ -331,13 +395,13 @@
     .highlight-box {
       background: var(--bg-soft-cream);
       border-left: 4px solid var(--gold-primary);
-      padding: 22px 26px;
+      padding: 20px 24px;
       border-radius: 0 12px 12px 0;
-      margin: 28px 0;
+      margin: 26px 0;
       font-style: italic;
       color: var(--text-dark);
-      font-size: 0.98rem;
-      line-height: 1.6;
+      font-size: 0.96rem;
+      line-height: 1.65;
     }
 
     .article-content ul {
@@ -346,9 +410,8 @@
     }
 
     .article-content ul li {
-      margin-bottom: 12px;
-      font-size: 0.94rem;
-      line-height: 1.65;
+      margin-bottom: 10px;
+      font-size: 0.93rem;
     }
 
     .table-container {
@@ -360,11 +423,11 @@
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     table th, table td {
-      padding: 12px 16px;
+      padding: 12px 14px;
       border: 1px solid var(--border-subtle);
     }
 
@@ -378,37 +441,36 @@
       background-color: var(--bg-cream);
     }
 
-    /* IN-ARTICLE CTA */
     .article-cta {
       background: var(--bg-dark-espresso);
       color: #FFF;
-      padding: 40px 24px;
+      padding: 38px 24px;
       border-radius: 16px;
       text-align: center;
-      margin: 45px 0 25px;
+      margin: 40px 0 25px;
     }
 
     .article-cta h3 {
       color: var(--gold-light);
-      font-size: 1.7rem;
-      margin-bottom: 12px;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
     }
 
     .article-cta p {
       color: var(--text-light-muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       max-width: 580px;
-      margin: 0 auto 24px;
+      margin: 0 auto 22px;
       line-height: 1.6;
     }
 
     /* ==========================================
-       FOOTER SECTION
+       FOOTER
        ========================================== */
     footer {
       background: var(--bg-dark-espresso);
       color: #FFF;
-      padding: 60px 0 20px;
+      padding: 55px 0 20px;
       border-top: 1px solid rgba(255,255,255,0.05);
       margin-top: auto;
     }
@@ -525,7 +587,7 @@
       align-items: center;
     }
 
-    /* Floating WhatsApp Icon */
+    /* Floating WhatsApp */
     .whatsapp-float {
       position: fixed;
       bottom: 24px;
@@ -547,7 +609,9 @@
       transform: scale(1.08);
     }
 
-    /* RESPONSIVE BREAKPOINTS */
+    /* ==========================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================== */
     @media (max-width: 992px) {
       .footer-grid {
         grid-template-columns: 1fr 1fr;
@@ -555,56 +619,43 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
+      .nav-links {
+        display: none;
+      }
       .mobile-nav-toggle {
         display: block;
       }
-
       .header-contact .header-phone {
         display: none;
       }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--bg-cream);
-        flex-direction: column;
-        padding: 20px 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        border-top: 1px solid var(--border-subtle);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .article-content {
-        padding: 26px 20px;
-      }
-
       .featured-img-wrapper {
-        height: 260px;
+        height: 280px;
+      }
+      .article-content {
+        padding: 28px 20px;
       }
     }
 
     @media (max-width: 600px) {
       .container {
-        padding: 0 16px;
+        padding: 0 14px;
       }
-
+      .article-container {
+        padding: 22px 10px 50px;
+      }
+      .featured-img-wrapper {
+        height: 210px;
+        margin: 18px 0 25px;
+      }
       .footer-grid {
         grid-template-columns: 1fr;
       }
-
       .footer-bottom {
         flex-direction: column;
         gap: 10px;
         text-align: center;
       }
-
       .whatsapp-float {
         width: 46px;
         height: 46px;
@@ -615,6 +666,23 @@
   </style>
 </head>
 <body>
+
+  <!-- MOBILE OVERLAY & DRAWER -->
+  <div class="overlay" id="overlay" onclick="toggleMenu()" aria-hidden="true"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-links">
+      <li><a href="/" onclick="toggleMenu()">Home</a></li>
+      <li><a href="/services" onclick="toggleMenu()">Services</a></li>
+      <li><a href="/packages" onclick="toggleMenu()">Packages</a></li>
+      <li><a href="/locations" onclick="toggleMenu()">Locations</a></li>
+      <li><a href="/about" onclick="toggleMenu()">About Us</a></li>
+      <li><a href="/blog" class="active" onclick="toggleMenu()">Blog</a></li>
+      <li><a href="/contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book" target="_blank" rel="noopener" class="btn-gold" style="width: 100%; text-align: center;">
+      Book Now
+    </a>
+  </aside>
 
   <!-- FLOATING WHATSAPP -->
   <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escorts,%20I%20read%20your%20luxury%20guide%20article" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
@@ -645,7 +713,7 @@
           <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book" target="_blank" rel="noopener" class="btn-gold">
             Book Now
           </a>
-          <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <button class="mobile-nav-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
           </button>
         </div>
@@ -664,7 +732,7 @@
       <h1>Ultimate Guide to Luxury Companionship & VIP Dating in Karachi (2026)</h1>
       <div class="article-meta">
         <span>📅 September 1, 2026</span>
-        <span>⏱️ 8 Min Read (1,300+ Words)</span>
+        <span>⏱️ 8 Min Read (1,350+ Words)</span>
         <span>✍️ Karachi Fun Escorts Editorial Team</span>
       </div>
     </header>
@@ -861,8 +929,14 @@
 
   <!-- SCRIPT -->
   <script>
+    function toggleMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('overlay');
+      drawer.classList.toggle('open');
+      overlay.classList.toggle('active');
+    }
+
     document.addEventListener("DOMContentLoaded", function() {
-      // Header scroll shadow
       const header = document.getElementById('mainHeader');
       if (header) {
         window.addEventListener('scroll', () => {
@@ -872,15 +946,6 @@
             header.classList.remove('scrolled');
           }
         }, { passive: true });
-      }
-
-      // Mobile nav toggle
-      const navToggle = document.getElementById('navToggle');
-      const navLinks = document.getElementById('navLinks');
-      if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-          navLinks.classList.toggle('active');
-        });
       }
     });
   </script>
