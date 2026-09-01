@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E349H1TGKR"></script>
@@ -116,6 +116,7 @@
       color: var(--text-dark);
       line-height: 1.6;
       overflow-x: hidden;
+      width: 100%;
     }
 
     h1, h2, h3, h4 {
@@ -133,6 +134,7 @@
       max-width: 1180px;
       margin: 0 auto;
       padding: 0 20px;
+      width: 100%;
     }
 
     .sub-heading {
@@ -231,7 +233,7 @@
     }
 
     /* ==========================================
-       HEADER & NAVIGATION
+       HEADER & NAVIGATION (FIXED SOLID BG ON MOBILE)
        ========================================== */
     header {
       position: fixed;
@@ -239,16 +241,15 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background-color: transparent;
-      border-bottom: 1px solid transparent;
-      transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-      opacity: 0.98;
+      background-color: rgba(62, 42, 36, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     header.scrolled {
-      background-color: rgba(250, 246, 240, 0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background-color: rgba(250, 246, 240, 0.98);
       border-bottom: 1px solid var(--border-subtle);
       box-shadow: 0 4px 20px rgba(34, 24, 20, 0.08);
     }
@@ -257,17 +258,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
-      transition: padding 0.3s ease;
-    }
-
-    header.scrolled nav {
-      padding: 10px 0;
+      padding: 12px 0;
     }
 
     .logo {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
       font-weight: 700;
       letter-spacing: 0.5px;
       color: #FFF;
@@ -313,7 +309,7 @@
     .header-contact {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .header-phone {
@@ -330,10 +326,6 @@
       color: var(--text-dark);
     }
 
-    .header-phone:hover {
-      color: var(--gold-primary) !important;
-    }
-
     .mobile-toggle {
       display: none;
       background: none;
@@ -343,7 +335,6 @@
       cursor: pointer;
       z-index: 1001;
       padding: 4px;
-      transition: color 0.3s ease;
     }
 
     header.scrolled .mobile-toggle {
@@ -395,7 +386,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.5);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s;
@@ -413,13 +404,13 @@
     .hero {
       position: relative;
       min-height: 100vh;
-      background: linear-gradient(rgba(45, 30, 24, 0.65), rgba(45, 30, 24, 0.7)), 
+      background: linear-gradient(rgba(45, 30, 24, 0.7), rgba(45, 30, 24, 0.75)), 
                   url('https://i.postimg.cc/zv80jfwG/hero.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 0 60px;
+      padding: 130px 0 60px;
     }
 
     .hero-content {
@@ -437,9 +428,9 @@
     }
 
     .hero-content h1 {
-      font-size: clamp(2.1rem, 5vw, 3.8rem);
+      font-size: clamp(2rem, 5vw, 3.8rem);
       color: #FFF;
-      line-height: 1.15;
+      line-height: 1.18;
       margin-bottom: 20px;
       font-weight: 400;
     }
@@ -452,7 +443,7 @@
 
     .hero-content p {
       font-size: clamp(0.9rem, 2vw, 1rem);
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.9);
       margin: 0 auto 30px;
       max-width: 620px;
     }
@@ -465,34 +456,27 @@
       flex-wrap: wrap;
     }
 
-    /* Prevent CLS on Animated Elements */
-    .reveal, .reveal-left, .reveal-right {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-      will-change: opacity, transform;
-    }
-
-    .reveal.active, .reveal-left.active, .reveal-right.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* ==========================================
-       SECTIONS GENERAL
+       SECTIONS GENERAL (VISIBLE BY DEFAULT FOR MOBILE)
        ========================================== */
     section {
-      padding: clamp(50px, 8vw, 85px) 0;
+      padding: clamp(45px, 7vw, 85px) 0;
+      width: 100%;
+    }
+
+    /* Reveal animations removed from hiding content on mobile */
+    .reveal, .reveal-left, .reveal-right {
+      opacity: 1;
+      transform: none;
     }
 
     /* ==========================================
-       SERVICES SECTION & CLS ASPECT-RATIO FIX
+       SERVICES SECTION
        ========================================== */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
-      min-height: 380px;
     }
 
     .service-card {
@@ -500,14 +484,14 @@
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid var(--border-subtle);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
       position: relative;
     }
 
     .service-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       box-shadow: 0 14px 35px rgba(197, 160, 89, 0.15);
       border-color: var(--gold-primary);
     }
@@ -524,18 +508,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .service-card:hover .card-img-wrapper img {
-      transform: scale(1.08);
     }
 
     .badge-tag {
       position: absolute;
       top: 12px;
       right: 12px;
-      background: rgba(197, 160, 89, 0.9);
+      background: rgba(197, 160, 89, 0.95);
       color: #FFF;
       font-weight: 600;
       font-size: 0.72rem;
@@ -565,14 +544,13 @@
     }
 
     /* ==========================================
-       PACKAGES SECTION & CLS ASPECT-RATIO FIX
+       PACKAGES SECTION
        ========================================== */
     .packages-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
       align-items: stretch;
-      min-height: 420px;
     }
 
     .package-card {
@@ -580,16 +558,11 @@
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--border-subtle);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
       position: relative;
       text-align: left;
       display: flex;
       flex-direction: column;
-    }
-
-    .package-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
     }
 
     .package-card.recommended {
@@ -611,7 +584,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     .package-body {
@@ -628,7 +600,7 @@
 
     .package-card.recommended p,
     .package-card.recommended ul li {
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
     }
 
     .package-badge {
@@ -658,7 +630,7 @@
 
     .package-card ul {
       list-style: none;
-      margin: 22px 0 28px;
+      margin: 20px 0 26px;
       text-align: left;
       flex-grow: 1;
     }
@@ -684,8 +656,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
-      margin-bottom: 40px;
-      min-height: 300px;
+      margin-bottom: 35px;
     }
 
     .vip-card {
@@ -693,15 +664,8 @@
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--border-subtle);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       display: flex;
       flex-direction: column;
-    }
-
-    .vip-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-      border-color: var(--gold-primary);
     }
 
     .vip-card-img {
@@ -716,7 +680,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease;
     }
 
     .vip-badge {
@@ -763,23 +726,18 @@
       padding: 10px 18px;
       font-size: 0.85rem;
       font-weight: 500;
-      transition: all 0.3s ease;
       cursor: pointer;
     }
 
-    .vip-card:hover .btn-vip {
-      background-color: var(--text-dark);
-      color: #FFF;
-    }
-
     .text-container {
-      max-width: 2000px;
-      line-height: 1.6;
+      max-width: 100%;
+      line-height: 1.65;
       color: #333333;
     }
 
     .text-container p {
       margin-bottom: 15px; 
+      font-size: 0.92rem;
     }
 
     .gold-link {
@@ -793,18 +751,17 @@
        ========================================== */
     .locations-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
       gap: 12px;
-      min-height: 120px;
     }
 
     .location-box {
       background: var(--card-white);
-      padding: 12px;
+      padding: 14px 10px;
       border-radius: 8px;
       text-align: center;
       border: 1px solid var(--border-subtle);
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       cursor: pointer;
     }
 
@@ -823,7 +780,6 @@
     .location-box:hover {
       border-color: var(--gold-primary);
       background-color: var(--bg-soft-cream);
-      transform: translateY(-3px);
     }
 
     /* ==========================================
@@ -837,32 +793,32 @@
     .why-us-wrapper {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
-      gap: 40px;
+      gap: 35px;
       align-items: center;
     }
 
     .why-us-left h2 {
       color: #FFF;
-      font-size: clamp(2rem, 4vw, 2.9rem);
-      line-height: 1.15;
-      margin-bottom: 18px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 16px;
     }
 
     .why-us-left p {
       color: var(--text-light-muted);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       font-size: 0.92rem;
     }
 
     .stats-row {
       display: flex;
-      gap: 24px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     .stat-item h3 {
       color: var(--gold-light);
-      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
       line-height: 1;
     }
 
@@ -881,17 +837,10 @@
     }
 
     .why-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      padding: 20px;
-      transition: all 0.3s ease;
-    }
-
-    .why-card:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--gold-primary);
-      transform: translateY(-4px);
+      padding: 18px;
     }
 
     .why-icon {
@@ -936,7 +885,6 @@
       border-radius: 16px;
       text-align: center;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 4px 25px rgba(0,0,0,0.02);
     }
 
     .slide-card .quote-icon {
@@ -981,14 +929,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.3s;
       z-index: 10;
-    }
-
-    .slider-nav-btn:hover {
-      background: var(--gold-primary);
-      color: #FFF;
-      border-color: var(--gold-primary);
     }
 
     .slider-nav-btn.prev { left: 0; }
@@ -1003,54 +944,49 @@
       padding: clamp(35px, 6vw, 55px) 20px;
       text-align: center;
       color: #FFF;
-      margin-bottom: 40px;
     }
 
     .cta-banner h2 {
       color: var(--gold-light);
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
       margin-bottom: 12px;
     }
 
     .cta-banner p {
       color: var(--text-light-muted);
       max-width: 520px;
-      margin: 0 auto 28px;
+      margin: 0 auto 24px;
       font-size: clamp(0.85rem, 2vw, 0.92rem);
     }
 
     /* ==========================================
-       SEO CONTENT SECTION (NEW ADDITION)
+       SEO CONTENT SECTION (EDITORIAL & ACCORDIONS)
        ========================================== */
     .seo-content-section {
       background-color: var(--bg-cream);
       border-top: 1px solid var(--border-subtle);
+      display: block !important;
+      visibility: visible !important;
     }
 
     .editorial-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-bottom: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 35px;
     }
 
     .editorial-card {
       background: var(--card-white);
-      padding: 30px;
+      padding: 24px 20px;
       border-radius: 16px;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .editorial-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--gold-primary);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     }
 
     .editorial-card h3 {
-      font-size: 1.45rem;
-      margin-bottom: 14px;
+      font-size: 1.35rem;
+      margin-bottom: 12px;
       color: var(--text-dark);
       display: flex;
       align-items: center;
@@ -1075,8 +1011,8 @@
 
     .quality-list-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
       margin-top: 18px;
     }
 
@@ -1085,9 +1021,9 @@
       align-items: center;
       gap: 10px;
       background: var(--bg-soft-cream);
-      padding: 12px 16px;
-      border-radius: 10px;
-      font-size: 0.88rem;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--text-dark);
     }
@@ -1098,10 +1034,10 @@
 
     .faq-accordion {
       max-width: 900px;
-      margin: 0 auto 40px;
+      margin: 0 auto 35px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .faq-item {
@@ -1109,17 +1045,12 @@
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .faq-item:hover {
-      border-color: var(--gold-primary);
     }
 
     .faq-header {
-      padding: 18px 24px;
+      padding: 16px 20px;
       font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--text-dark);
       cursor: pointer;
@@ -1135,7 +1066,8 @@
     }
 
     .faq-body {
-      padding: 0 24px 18px;
+      display: none;
+      padding: 0 20px 16px;
       color: var(--text-muted);
       font-size: 0.9rem;
       line-height: 1.6;
@@ -1149,13 +1081,14 @@
       color: #FFF;
       padding: 50px 0 25px;
       border-top: 1px solid rgba(255,255,255,0.05);
+      width: 100%;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 30px;
-      margin-bottom: 40px;
+      margin-bottom: 35px;
     }
 
     .footer-col h3 {
@@ -1176,7 +1109,7 @@
     .footer-links a {
       color: var(--text-light-muted);
       font-size: 0.85rem;
-      transition: color 0.3s;
+      transition: color 0.2s;
     }
 
     .footer-links a:hover {
@@ -1192,7 +1125,7 @@
     }
 
     /* ==========================================
-       FLOATING ANIMATED WHATSAPP BUTTON
+       FLOATING WHATSAPP BUTTON
        ========================================== */
     .whatsapp-float {
       position: fixed;
@@ -1207,37 +1140,30 @@
       align-items: center;
       justify-content: center;
       font-size: 26px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
       z-index: 9999;
-      animation: pulse-ring 2s infinite;
-    }
-
-    @keyframes pulse-ring {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-      70% { transform: scale(1.08); box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
     /* ==========================================
-       MEDIA QUERIES FOR MOBILE OPTIMIZATION
+       MOBILE OPTIMIZATIONS
        ========================================== */
-    @media (max-width: 992px) {
-      .header-phone { display: none; }
-    }
-
     @media (max-width: 900px) {
-      .why-us-wrapper { grid-template-columns: 1fr; gap: 30px; }
+      .why-us-wrapper { grid-template-columns: 1fr; gap: 25px; }
       .why-us-right { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
+      .header-phone { display: none; }
     }
 
     @media (max-width: 576px) {
+      .container { padding: 0 16px; }
+      .hero { padding: 110px 0 50px; min-height: auto; }
       .locations-grid { grid-template-columns: repeat(2, 1fr); }
-      .header-contact .btn { padding: 7px 14px; font-size: 0.78rem; }
-      .hero-btns .btn { width: 100%; }
       .editorial-grid { grid-template-columns: 1fr; }
       .quality-list-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 25px; }
+      .header-contact .btn { padding: 6px 14px; font-size: 0.78rem; }
+      .hero-btns .btn { width: 100%; }
     }
   </style>
 </head>
@@ -1259,7 +1185,7 @@
     </a>
   </aside>
 
-  <!-- FLOATING ANIMATED WHATSAPP BUTTON -->
+  <!-- FLOATING WHATSAPP BUTTON -->
   <a href="https://wa.me/923350246669?text=Hello%20I%20want%20to%20book%20Escort/private%20massage%20Services" class="whatsapp-float" target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="Contact us on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
@@ -1311,18 +1237,18 @@
 
   <!-- SERVICES SECTION -->
   <section id="services">
-    <div class="container reveal">
+    <div class="container">
       <div class="section-title">
         <span class="sub-heading">OUR MODELS</span>
         <h2>Wide Range of Call Girls in Karachi</h2>
-        <p>Discover our carefully selected models in Karachi. Each profile showcases verified companions with professional presentation, available for private and discreet bookings. Click View Models through the selections below to find the experience that suits your preferences.</p>
+        <p>Discover our carefully selected models in Karachi. Each profile showcases verified companions with professional presentation, available for private and discreet bookings.</p>
       </div>
       
       <div class="services-grid" id="featured-services">
         <!-- Rendered dynamically -->
       </div>
 
-      <div style="text-align: center; margin-top: 38px;">
+      <div style="text-align: center; margin-top: 35px;">
         <a href="/services" class="btn btn-outline-dark">View All Models</a>
       </div>
     </div>
@@ -1330,11 +1256,11 @@
 
   <!-- PACKAGES SECTION -->
   <section id="packages" style="background-color: var(--bg-soft-cream);">
-    <div class="container reveal">
+    <div class="container">
       <div class="section-title">
         <span class="sub-heading">OUR PREMIUM PACKAGES</span>
         <h2>VIP Packages</h2>
-        <p>Choose from our premium escort packages. Each package is designed to provide exclusive, discreet, and high-class companionship for your preferred duration. Contact us directly to customize your experience.</p>
+        <p>Choose from our premium escort packages designed to provide exclusive, discreet, and high-class companionship.</p>
       </div>
 
       <div class="packages-grid" id="packages-container">
@@ -1347,46 +1273,35 @@
   <section id="locations">
     <div class="container">
       
-      <div class="section-title reveal">
+      <div class="section-title">
         <span class="sub-heading">EXCLUSIVE HOTEL ACCESS</span>
         <h2>Partner Hotels for VIP Members</h2>
-        <p>We provide elite-class services at the top hotels of Karachi. Experience luxury, privacy, and premium companionship in the finest locations.</p>
+        <p>We provide elite-class services at top hotels across Karachi. Experience luxury, privacy, and premium companionship.</p>
       </div>
 
-      <div class="vip-hotels-grid reveal" id="vip-hotels-container">
+      <div class="vip-hotels-grid" id="vip-hotels-container">
         <!-- Rendered dynamically -->
       </div>
 
-      <div class="text-container reveal">
-        <p>Karachi Fun Escorts partners with top hotels like Pearl Continental Hotel, Marriott Karachi, Beach Luxury Hotel, Hotel Ramada, and Mehran Hotel to ensure our clients experience the highest level of privacy, comfort, and elite companionship.
-          Every hotel provides discreet and professional settings for <a href="/packages" class="gold-link" target="_blank" rel="noopener">VIP Packages</a>.
-        </p>
-        <p>Our companions are trained to match the elegance and sophistication of each venue. Booking is simple and fast via <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" class="gold-link" target="_blank" rel="noopener">WhatsApp</a>
-          or our <a href="/contact" class="gold-link" target="_blank" rel="noopener">Contact Us</a>.
-
-        Explore our <a href="/services" class="gold-link" target="_blank" rel="noopener">escort models</a>
-        and choose a companion for your preferred hotel visit. Each hotel page contains detailed information and benefits to help you plan a premium experience in Karachi.</p>
+      <div class="text-container">
+        <p>Karachi Fun Escorts partners with top hotels like Pearl Continental Hotel, Marriott Karachi, Beach Luxury Hotel, Hotel Ramada, and Mehran Hotel to ensure our clients experience the highest level of privacy, comfort, and elite companionship. Every hotel provides discreet and professional settings for <a href="/packages" class="gold-link" target="_blank" rel="noopener">VIP Packages</a>.</p>
+        <p>Our companions are trained to match the elegance and sophistication of each venue. Booking is simple and fast via <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" class="gold-link" target="_blank" rel="noopener">WhatsApp</a> or our <a href="/contact" class="gold-link" target="_blank" rel="noopener">Contact Us</a> page.</p>
       </div>
 
-      <div class="section-title reveal" style="margin-top: 50px;">
+      <div class="section-title" style="margin-top: 50px;">
         <span class="sub-heading">COVERAGE AREAS</span>
         <h2>Serving All over Karachi</h2>
-        <p>Karachi Fun Escorts proudly offers premium, discreet, and luxury escort services across all major areas of Karachi. Our elite companionship services are available in the following locations.</p>
+        <p>Our elite companionship services are actively available across all major locations in Karachi.</p>
       </div>
 
-      <div class="locations-grid reveal" id="locations-container">
+      <div class="locations-grid" id="locations-container">
         <!-- Rendered dynamically -->
       </div>
 
       <p>&nbsp;</p>
 
-      <div class="text-container reveal">
-        <p>
-          Our escort services in Karachi are actively available in DHA Defence, Clifton, Bahria Town, Shahrah-e-Faisal, Teen Talwar, Nazimabad, Federal B Area, Gulshan-e-Iqbal and other premium residential and commercial locations.
-        </p>
-        <p>
-          Whether you are searching for luxury companions, discreet escort services or elite-class companionship in Karachi, our services cover all major areas with complete privacy and professionalism.
-        </p>
+      <div class="text-container">
+        <p>Our escort services in Karachi are available in DHA Defence, Clifton, Bahria Town, Shahrah-e-Faisal, Teen Talwar, Nazimabad, Federal B Area, Gulshan-e-Iqbal and other premium residential and commercial locations.</p>
       </div>
 
     </div>
@@ -1396,10 +1311,10 @@
   <section id="why-us" class="why-us-section">
     <div class="container">
       <div class="why-us-wrapper">
-        <div class="why-us-left reveal-left">
+        <div class="why-us-left">
           <span class="sub-heading" style="color: var(--gold-light);">Premium Escorts in Karachi</span>
-          <h2>Elite Call Girls,<br>VIP Escorts</h2>
-          <p>We bring you Karachi’s most elite and luxurious call girls, available 24/7 for premium companionship and discreet pleasure. Whether you are a local resident, traveler, businessman, or someone seeking passionate company for a private evening, our handpicked Karachi escorts ensure every moment is unforgettable.</p>
+          <h2>Elite Call Girls, VIP Escorts</h2>
+          <p>We bring you Karachi’s most elite call girls, available 24/7 for premium companionship and discreet pleasure across the city.</p>
           
           <div class="stats-row">
             <div class="stat-item">
@@ -1417,36 +1332,26 @@
           </div>
         </div>
 
-        <div class="why-us-right reveal-right">
+        <div class="why-us-right">
           <div class="why-card">
             <div class="why-icon"><i class="fas fa-trophy"></i></div>
-            <h3>Why We Are the Best Escort Agency in Karachi</h3>
-            <p>✅ 24/7 Availability<br>✅ Verified and Attractive Models.<br>✅ Discreet and Safe Services<br>✅ Tailored, Premium Experiences<br>✅ Easy Booking via WhatsApp or Call</p>
+            <h3>Why We Are the Best</h3>
+            <p>✅ 24/7 Availability<br>✅ Verified Models<br>✅ Discreet and Safe<br>✅ Easy WhatsApp Booking</p>
           </div>
           <div class="why-card">
             <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
             <h3>Absolute Privacy</h3>
-            <p>Your privacy is guaranteed. All bookings are 100% confidential, and client information is never shared. Whether for a few hours or an entire weekend, your identity and preferences remain secure.</p>
+            <p>Your privacy is guaranteed. All bookings are 100% confidential, and client information is never shared.</p>
           </div>
           <div class="why-card">
             <div class="why-icon"><i class="fas fa-user-friends"></i></div>
-            <h3>Fashion Model Escorts in Karachi</h3>
-            <p>Spend time with fashion model escorts in Karachi—stunning, stylish, and skilled in seduction. Available for travel, VIP parties, or exclusive events, they create unforgettable experiences.</p>
+            <h3>Fashion Models</h3>
+            <p>Stunning, stylish companions available for VIP parties, dining, or exclusive travel.</p>
           </div>
           <div class="why-card">
             <div class="why-icon"><i class="fas fa-moon"></i></div>
-            <h3>Full-Night Escorts in Karachi</h3>
-            <p>Enjoy company from dusk till dawn with our full-night escorts in Karachi. Ideal for travelers or anyone seeking undivided attention, these escorts provide conversation, cuddles, meals, and steamy fun throughout the night.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon"><i class="fas fa-clock"></i></div>
-            <h3>Punctual Delivery</h3>
-            <p>Timely arrival for all home and hotel service bookings.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-icon"><i class="fas fa-headset"></i></div>
-            <h3>Seamless Booking</h3>
-            <p>Instant confirmation directly via WhatsApp or call within minutes.</p>
+            <h3>Full-Night Sessions</h3>
+            <p>Enjoy company from dusk till dawn with our full-night escorts in Karachi.</p>
           </div>
         </div>
       </div>
@@ -1455,11 +1360,11 @@
 
   <!-- REVIEWS SECTION -->
   <section id="reviews">
-    <div class="container reveal">
+    <div class="container">
       <div class="section-title">
         <span class="sub-heading">Customer REVIEWS</span>
         <h2>What Our Customers Say</h2>
-        <p>We provide elite escort services in Karachi, offering luxury, privacy, and satisfaction with every encounter. Discreet, professional, and unforgettable experiences await.</p>
+        <p>Discreet, professional, and unforgettable experiences await.</p>
       </div>
 
       <div class="slider-container">
@@ -1492,11 +1397,11 @@
 
   <!-- CTA BANNER SECTION -->
   <section id="contact" style="background-color: var(--bg-soft-cream); padding-bottom: 60px;">
-    <div class="container reveal">
+    <div class="container">
       <div class="cta-banner">
         <div style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 12px;"><i class="fas fa-heart"></i></div>
         <h2>Still confused which package to choose?</h2>
-        <p>Discover why Karachi Fun Escorts stands out. Our elite, professional, and discreet services are designed to offer privacy, class, and unforgettable experiences. Choose the service that suits your preference and book with confidence.</p>
+        <p>Discover why Karachi Fun Escorts stands out. Choose the service that suits your preference and book with confidence.</p>
         <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20book" target="_blank" rel="noopener" class="btn btn-gold">
           Book on WhatsApp
         </a>
@@ -1505,15 +1410,15 @@
   </section>
 
   <!-- ==========================================
-       DETAILED COMPANIONSHIP & SEO GUIDE SECTION (NEW CONTENT)
+       DETAILED COMPANIONSHIP & SEO GUIDE SECTION
        ========================================== -->
   <section id="adult-companionship" class="seo-content-section">
-    <div class="container reveal">
+    <div class="container">
       
       <div class="section-title">
         <span class="sub-heading">PREMIUM ADULT COMPANIONSHIP</span>
         <h2>Discreet & Professional Companionship in Karachi</h2>
-        <p>Discover sophisticated social company, VIP event escorts, and confidential adult arrangements tailored with complete elegance and mutual discretion across Karachi.</p>
+        <p>Discover sophisticated social company, VIP event escorts, and confidential adult arrangements tailored with complete elegance across Karachi.</p>
       </div>
 
       <div class="editorial-grid">
@@ -1521,63 +1426,54 @@
           <h3><i class="fas fa-gem"></i> Premium Adult Companionship</h3>
           <p>Finding a professional and discreet adult companionship service in Karachi can be difficult when privacy, professionalism, and reliability matter. Our platform is designed to connect adults with independent companions for social occasions, private dinners, business events, travel companionship, and other mutually agreed adult social arrangements.</p>
           <p>We understand that every client has different expectations. Some people may be looking for a sophisticated companion for an evening event, while others may want company during a dinner, social gathering, or private occasion. Our goal is to make the process simple, discreet, and straightforward while respecting the privacy and personal boundaries of everyone involved.</p>
-          <p>Our coverage extends across major areas of Karachi, including DHA Defence, Clifton, Bahria Town, Gulshan-e-Iqbal, Shahrah-e-Faisal, Bahadurabad, Federal B Area, Nazimabad, Civil Lines, and Scheme 33. Availability can vary, so clients should contact us directly to discuss arrangements and confirm current options.</p>
+          <p>Our coverage extends across major areas of Karachi, including DHA Defence, Clifton, Bahria Town, Gulshan-e-Iqbal, Shahrah-e-Faisal, Bahadurabad, Federal B Area, Nazimabad, Civil Lines, and Scheme 33.</p>
         </div>
 
         <div class="editorial-card">
           <h3><i class="fas fa-user-shield"></i> Discreet Companionship Services</h3>
           <p>Privacy is one of the most important considerations when choosing a Karachi companionship service. We aim to provide a professional experience from initial communication through the completion of an agreed engagement.</p>
-          <p>Client information should always be handled responsibly. Personal details, conversations, preferences, and booking information should remain confidential and should not be shared unnecessarily. We encourage clients and companions to communicate clearly before making arrangements so that expectations, timing, location, and boundaries are understood by everyone.</p>
-          <p>Our approach focuses on respectful communication and professionalism. Whether you are visiting Karachi for business, attending an event, or simply looking for social company, you can discuss your requirements before confirming an arrangement.</p>
+          <p>Client information should always be handled responsibly. Personal details, conversations, preferences, and booking information remain confidential and are not shared unnecessarily.</p>
         </div>
 
         <div class="editorial-card">
           <h3><i class="fas fa-map-marked-alt"></i> Companionship Across Karachi</h3>
           <p>Karachi is a large metropolitan city with many residential, commercial, entertainment, and business districts. Because of this, choosing a convenient location can make a significant difference to your experience.</p>
           <p>Our service coverage includes popular areas such as DHA Karachi, Clifton Karachi, Bahria Town Karachi, Gulshan-e-Iqbal, Shahrah-e-Faisal, Civil Lines, Bahadurabad, Federal B Area, and Nazimabad.</p>
-          <p>If you are staying in Karachi temporarily, you can also discuss arrangements based on your preferred meeting location. Always confirm venue policies independently, particularly when arranging meetings at hotels or other commercial properties.</p>
         </div>
 
         <div class="editorial-card">
           <h3><i class="fas fa-glass-cheers"></i> Adult Companionship for Social Events</h3>
           <p>Professional companionship can be suitable for a variety of social occasions. Adults may seek a companion for a dinner, celebration, private event, networking occasion, or cultural outing.</p>
-          <p>A good companion should be comfortable communicating with different people and maintaining appropriate social etiquette. For event-based arrangements, it is useful to discuss the dress code, timing, venue, expected duration, and nature of the event beforehand.</p>
-          <p>Our platform emphasizes clear communication so that both parties understand the arrangement before meeting.</p>
+          <p>A good companion should be comfortable communicating with different people and maintaining appropriate social etiquette. For event-based arrangements, it is useful to discuss the dress code and timing beforehand.</p>
         </div>
 
         <div class="editorial-card">
           <h3><i class="fas fa-crown"></i> Luxury Companionship Experience</h3>
           <p>For clients interested in a more sophisticated experience, luxury companionship in Karachi can include formal dinners, high-end social events, travel companionship, and other adult social arrangements.</p>
-          <p>Luxury does not simply mean appearance or price. Professional behavior, punctuality, communication, respect, and discretion are equally important. These qualities can help create a comfortable experience for both the client and companion.</p>
-          <p>Before confirming an engagement, clients should discuss all relevant details and ensure that the arrangement is mutually agreed upon.</p>
+          <p>Professional behavior, punctuality, communication, respect, and discretion are key qualities that create a comfortable experience for both client and companion.</p>
         </div>
 
         <div class="editorial-card">
           <h3><i class="fas fa-city"></i> Companionship in DHA and Clifton</h3>
           <p>DHA Karachi and Clifton are among the city's best-known residential and commercial areas and are popular locations for restaurants, hotels, shopping destinations, and social events.</p>
-          <p>If you are searching for companionship in DHA Karachi or companionship in Clifton Karachi, you can contact us to discuss available companions and suitable arrangements. Availability may change depending on schedules, so advance communication is recommended.</p>
-          <p>Clients should also respect the rules and policies of any venue they choose for a meeting.</p>
+          <p>If you are searching for companionship in DHA Karachi or Clifton, contact us in advance to discuss available companions and suitable arrangements.</p>
         </div>
 
         <div class="editorial-card">
-          <h3><i class="fas fa-plane-arrival"></i> Companion Services for Visitors to Karachi</h3>
-          <p>Karachi welcomes visitors for business, tourism, family occasions, conferences, and other activities. Being in a new city can sometimes feel isolating, particularly during longer stays.</p>
-          <p>A professional companion can provide social company for dinners, sightseeing, events, or other mutually agreed activities. If you are visiting Karachi and searching for a Karachi adult companion, discuss your preferred schedule and location before making arrangements.</p>
-          <p>For travelers, clear communication is especially important. Confirm meeting details, transportation arrangements, timing, and expectations in advance.</p>
+          <h3><i class="fas fa-plane-arrival"></i> Services for Visitors to Karachi</h3>
+          <p>Karachi welcomes visitors for business, tourism, family occasions, conferences, and other activities. A professional companion can provide social company for dinners, sightseeing, or events.</p>
         </div>
 
         <div class="editorial-card">
           <h3><i class="fas fa-handshake"></i> Safe and Respectful Arrangements</h3>
-          <p>A responsible companionship service should prioritize mutual consent, respect, and personal safety. All adults involved should have the ability to freely agree to the arrangement, communicate boundaries, and withdraw consent at any point.</p>
-          <p>Clients should avoid sharing unnecessary sensitive information and should use appropriate precautions when meeting someone for the first time. Companions should likewise maintain their own safety standards and boundaries.</p>
-          <p>We encourage respectful communication between clients and companions and recommend confirming important details before any meeting.</p>
+          <p>A responsible companionship service prioritizes mutual consent, respect, and personal safety. All adults involved have the ability to freely agree to the arrangement and communicate boundaries.</p>
         </div>
       </div>
 
       <!-- Why Choose Standards Grid -->
-      <div class="editorial-card" style="margin-bottom: 45px;">
-        <h3 style="font-size: 1.6rem;"><i class="fas fa-award"></i> Why Choose a Professional Karachi Companionship Service?</h3>
-        <p>Choosing a professional platform can make communication and scheduling easier. Instead of relying on unclear advertisements or unreliable contacts, clients can review available options and communicate their requirements directly.</p>
+      <div class="editorial-card" style="margin-bottom: 35px;">
+        <h3 style="font-size: 1.5rem;"><i class="fas fa-award"></i> Why Choose a Professional Karachi Companionship Service?</h3>
+        <p>Choosing a professional platform makes communication and scheduling easier.</p>
         
         <div class="quality-list-grid">
           <div class="quality-item"><i class="fas fa-check-circle"></i> Professional communication</div>
@@ -1589,7 +1485,6 @@
           <div class="quality-item"><i class="fas fa-check-circle"></i> Respectful behavior</div>
           <div class="quality-item"><i class="fas fa-check-circle"></i> Convenient Karachi locations</div>
         </div>
-        <p style="margin-top: 18px; font-size: 0.88rem; color: var(--text-muted);">These factors can help adults make more informed decisions when arranging companionship.</p>
       </div>
 
       <!-- FAQ Section -->
@@ -1606,7 +1501,7 @@
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-body">
-            Our stated coverage includes DHA Defence, Clifton, Bahria Town, Gulshan-e-Iqbal, Shahrah-e-Faisal, Federal B Area, Nazimabad, Civil Lines, Bahadurabad, Korangi, Orangi Town, and Scheme 33. Availability depends on individual schedules.
+            Our stated coverage includes DHA Defence, Clifton, Bahria Town, Gulshan-e-Iqbal, Shahrah-e-Faisal, Federal B Area, Nazimabad, Civil Lines, Bahadurabad, Korangi, Orangi Town, and Scheme 33.
           </div>
         </div>
 
@@ -1616,7 +1511,7 @@
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-body">
-            Yes, adult companionship can be arranged for mutually agreed social activities such as dinners, events, and other appropriate occasions. Discuss the event details and expectations beforehand.
+            Yes, adult companionship can be arranged for mutually agreed social activities such as dinners, events, and other appropriate occasions.
           </div>
         </div>
 
@@ -1626,7 +1521,7 @@
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-body">
-            Yes. Privacy and respectful communication are important when arranging adult companionship. Avoid sharing unnecessary personal information and confirm arrangements directly.
+            Yes. Privacy and respectful communication are important. Avoid sharing unnecessary personal information and confirm arrangements directly.
           </div>
         </div>
 
@@ -1636,7 +1531,7 @@
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-body">
-            Adults visiting Karachi can inquire about available companionship options. It is recommended to communicate the preferred date, duration, and meeting area in advance.
+            Adults visiting Karachi can inquire about available companionship options. We recommend communicating your preferred date and duration in advance.
           </div>
         </div>
 
@@ -1646,16 +1541,15 @@
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-body">
-            Contact the service directly to discuss current availability, preferred location, timing, and the type of social companionship you are seeking.
+            Contact our desk directly via WhatsApp or call to discuss current availability, preferred location, and timing.
           </div>
         </div>
       </div>
 
       <!-- Contact Callout Box -->
       <div class="editorial-card" style="text-align: center; background-color: var(--bg-soft-cream); border: 2px solid var(--gold-primary);">
-        <h3 style="justify-content: center; font-size: 1.6rem;"><i class="fas fa-envelope-open-text"></i> Contact Karachi Companionship Services</h3>
-        <p style="max-width: 800px; margin: 0 auto 12px;">If you are searching for adult companionship in Karachi, Karachi companion services, or discreet social companionship in areas such as DHA, Clifton, and Bahria Town, contact us to discuss your requirements.</p>
-        <p style="max-width: 800px; margin: 0 auto 20px;">Our aim is to provide a straightforward and professional way for adults to communicate about companionship arrangements while maintaining respect, privacy, and clear expectations. Karachi companionship services are available across major areas of the city, subject to individual availability and applicable venue policies.</p>
+        <h3 style="justify-content: center; font-size: 1.5rem;"><i class="fas fa-envelope-open-text"></i> Contact Karachi Companionship Services</h3>
+        <p style="max-width: 800px; margin: 0 auto 15px;">If you are searching for adult companionship in Karachi or discreet social companions in areas such as DHA, Clifton, and Bahria Town, contact us to discuss your requirements.</p>
         <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20inquire%20about%20companionship" target="_blank" rel="noopener" class="btn btn-gold">
           Contact via WhatsApp
         </a>
@@ -1670,7 +1564,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <div class="logo" style="color: #FFF; margin-bottom: 12px;">Karachi <span>Escorts</span></div>
-          <p style="color: var(--text-light-muted); font-size: 0.85rem; line-height: 1.5;">If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice. We continuously strive to deliver premium quality services that exceed expectations.</p>
+          <p style="color: var(--text-light-muted); font-size: 0.85rem; line-height: 1.5;">If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice.</p>
         </div>
         <div class="footer-col">
           <h3>EXPLORE</h3>
@@ -1715,27 +1609,15 @@
 
   <!-- JAVASCRIPT -->
   <script>
-    // NAVBAR SCROLL REVEAL EFFECT (Passive Listener for Scroll Performance)
+    // HEADER SCROLL
     const header = document.getElementById('mainHeader');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
+      if (window.scrollY > 20) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
     }, { passive: true });
-
-    // SCROLL REVEAL ANIMATION OBSERVER
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    revealElements.forEach(el => revealObserver.observe(el));
 
     // MOBILE NAVIGATION TOGGLE
     function toggleMenu() {
@@ -1808,7 +1690,6 @@
       "Gulshan-e-Iqbal", "Bahadurabad", "Korangi", "Orangi Town", "Scheme 33"
     ];
 
-    // RENDER CARD HELPER (Explicit height, width, and decoding attributes to prevent CLS)
     function renderCard(item) {
       const encodedMsg = encodeURIComponent(`Hello Karachi Fun Escorts, I want to book ${item.name}`);
       return `
@@ -1828,68 +1709,77 @@
       `;
     }
 
-    // ON DOM LOAD
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Featured Services
-      document.getElementById('featured-services').innerHTML = servicesData.map(renderCard).join('');
+      // Render Services
+      const featuredServices = document.getElementById('featured-services');
+      if (featuredServices) featuredServices.innerHTML = servicesData.map(renderCard).join('');
 
-      // 2. Packages
-      document.getElementById('packages-container').innerHTML = packagesData.map(pkg => {
-        const encodedMsg = encodeURIComponent(`Hello Karachi Fun Escorts, I want to book ${pkg.title} Package`);
-        return `
-          <div class="package-card ${pkg.recommended ? 'recommended' : ''}">
-            <div class="package-img-wrapper">
-              ${pkg.recommended ? '<span class="package-badge">★ RECOMMENDED ★</span>' : ''}
-              <img src="${pkg.img}" alt="${pkg.alt}" width="400" height="225" loading="lazy" decoding="async">
+      // Render Packages
+      const packagesContainer = document.getElementById('packages-container');
+      if (packagesContainer) {
+        packagesContainer.innerHTML = packagesData.map(pkg => {
+          const encodedMsg = encodeURIComponent(`Hello Karachi Fun Escorts, I want to book ${pkg.title} Package`);
+          return `
+            <div class="package-card ${pkg.recommended ? 'recommended' : ''}">
+              <div class="package-img-wrapper">
+                ${pkg.recommended ? '<span class="package-badge">★ RECOMMENDED ★</span>' : ''}
+                <img src="${pkg.img}" alt="${pkg.alt}" width="400" height="225" loading="lazy" decoding="async">
+              </div>
+              <div class="package-body">
+                <h3>${pkg.title}</h3>
+                <div class="package-price">${pkg.price} <span style="font-size: 0.85rem; font-weight: normal;">/ package</span></div>
+                <p style="font-size: 0.85rem;">${pkg.desc}</p>
+                <ul>
+                  ${pkg.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
+                </ul>
+                <a href="https://wa.me/923350246669?text=${encodedMsg}" target="_blank" rel="noopener" class="btn ${pkg.recommended ? 'btn-gold' : 'btn-outline-dark'}" style="width: 100%;">
+                  Book This Package
+                </a>
+              </div>
             </div>
-            <div class="package-body">
-              <h3>${pkg.title}</h3>
-              <div class="package-price">${pkg.price} <span style="font-size: 0.85rem; font-weight: normal;">/ package</span></div>
-              <p style="font-size: 0.85rem;">${pkg.desc}</p>
-              <ul>
-                ${pkg.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('')}
-              </ul>
-              <a href="https://wa.me/923350246669?text=${encodedMsg}" target="_blank" rel="noopener" class="btn ${pkg.recommended ? 'btn-gold' : 'btn-outline-dark'}" style="width: 100%;">
-                Book This Package
-              </a>
+          `;
+        }).join('');
+      }
+
+      // Render VIP Hotels
+      const vipHotelsContainer = document.getElementById('vip-hotels-container');
+      if (vipHotelsContainer) {
+        vipHotelsContainer.innerHTML = vipHotelsData.map(hotel => {
+          const encodedMsg = encodeURIComponent(`Hello Karachi Fun Escorts, I want to book a VIP Session at ${hotel.name}`);
+          return `
+            <div class="vip-card">
+              <div class="vip-card-img">
+                <span class="vip-badge"><i class="fas fa-crown"></i> VIP PARTNER</span>
+                <img src="${hotel.img}" alt="${hotel.name}" width="400" height="225" loading="lazy" decoding="async">
+              </div>
+              <div class="vip-card-body">
+                <h3>${hotel.name}</h3>
+                <a href="https://wa.me/923350246669?text=${encodedMsg}" target="_blank" rel="noopener" class="btn-vip">
+                  Book Now
+                </a>
+              </div>
             </div>
+          `;
+        }).join('');
+      }
+
+      // Render Locations
+      const locationsContainer = document.getElementById('locations-container');
+      if (locationsContainer) {
+        locationsContainer.innerHTML = locations.map(loc => `
+          <div class="location-box">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>${loc}</h3>
           </div>
-        `;
-      }).join('');
+        `).join('');
+      }
 
-      // 3. VIP Hotels
-      document.getElementById('vip-hotels-container').innerHTML = vipHotelsData.map(hotel => {
-        const encodedMsg = encodeURIComponent(`Hello Karachi Fun Escorts, I want to book a VIP Session at ${hotel.name}`);
-        return `
-          <div class="vip-card">
-            <div class="vip-card-img">
-              <span class="vip-badge"><i class="fas fa-crown"></i> VIP PARTNER</span>
-              <img src="${hotel.img}" alt="${hotel.name}" width="400" height="225" loading="lazy" decoding="async">
-            </div>
-            <div class="vip-card-body">
-              <h3>${hotel.name}</h3>
-              <a href="https://wa.me/923350246669?text=${encodedMsg}" target="_blank" rel="noopener" class="btn-vip">
-                Book Now
-              </a>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      // 4. Locations
-      document.getElementById('locations-container').innerHTML = locations.map(loc => `
-        <div class="location-box">
-          <i class="fas fa-map-marker-alt"></i>
-          <h3>${loc}</h3>
-        </div>
-      `).join('');
-
-      // 5. FAQ Accordion Toggle Interaction
+      // FAQ Accordion
       const faqHeaders = document.querySelectorAll('.faq-header');
-      faqHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-          const body = header.nextElementSibling;
-          const icon = header.querySelector('i');
+      faqHeaders.forEach(headerEl => {
+        headerEl.addEventListener('click', () => {
+          const body = headerEl.nextElementSibling;
+          const icon = headerEl.querySelector('i');
           const isOpen = body.style.display === 'block';
           
           document.querySelectorAll('.faq-body').forEach(b => b.style.display = 'none');
@@ -1897,21 +1787,20 @@
           
           if (!isOpen) {
             body.style.display = 'block';
-            icon.style.transform = 'rotate(180deg)';
+            if (icon) icon.style.transform = 'rotate(180deg)';
           }
         });
       });
     });
 
-    // SLIDER FUNCTIONS
+    // Slider
     let currentSlide = 0;
     const totalSlides = 3;
-
     function moveSlide(direction) {
       currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-      document.getElementById('slider-track').style.transform = `translateX(-${currentSlide * 100}%)`;
+      const track = document.getElementById('slider-track');
+      if (track) track.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
-
     setInterval(() => moveSlide(1), 6000);
   </script>
 </body>
