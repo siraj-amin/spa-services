@@ -29,6 +29,7 @@
       --gold-hover: #B08D46;
       --text-dark: #221814;
       --text-muted: #7A6E67;
+      --text-light-muted: #BFAEA4;
       --card-white: #FFFFFF;
       --whatsapp-green: #25D366;
       --border-subtle: #EAE1D4;
@@ -43,7 +44,7 @@
       min-height: 100vh;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       font-family: Georgia, serif;
       font-weight: 600;
       color: var(--text-dark);
@@ -110,6 +111,11 @@
       border-radius: 25px;
       font-size: 0.85rem;
       font-weight: 600;
+      display: inline-block;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--gold-hover);
     }
 
     /* BLOG SECTION */
@@ -143,19 +149,21 @@
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--border-subtle);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
     }
 
     .blog-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     }
 
     .blog-img-wrapper {
       height: 200px;
       width: 100%;
       background: #EAE1D4;
+      overflow: hidden;
     }
 
     .blog-img-wrapper img {
@@ -206,22 +214,109 @@
       color: var(--text-muted);
     }
 
-    /* FOOTER */
+    /* FULL FOOTER MATCHING YOUR SITE */
     footer {
       background-color: var(--bg-dark-espresso);
       color: #FFF;
-      padding: 40px 0 20px;
-      text-align: center;
-      font-size: 0.85rem;
+      padding: 60px 0 20px;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr 1.8fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .logo {
+      color: #FFF;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .footer-brand p {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      line-height: 1.6;
+      max-width: 260px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col h4 {
+      color: var(--gold-primary);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #FFF;
+    }
+
+    .footer-contact-info {
+      list-style: none;
+    }
+
+    .footer-contact-info li {
+      color: var(--text-light-muted);
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .btn-whatsapp-footer {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--whatsapp-green);
+      color: #FFF;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-light-muted);
     }
 
     @media (max-width: 992px) {
       .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
     }
 
     @media (max-width: 600px) {
       .blog-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
     }
   </style>
 </head>
@@ -263,43 +358,73 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 Karachi Fun Escorts. All rights reserved.</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">Karachi Fun <span>Escort</span></a>
+          <p>If you are searching for trusted Karachi escort services that offer elite companions, luxury experiences, and complete discretion, Karachi Fun Escorts is your ideal choice.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/packages">Packages</a></li>
+            <li><a href="/locations">Locations</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>SERVICES</h4>
+          <ul class="footer-links">
+            <li><a href="/services">Elite Hot Model</a></li>
+            <li><a href="/services">Young Hot Model</a></li>
+            <li><a href="/services">VIP Escorts</a></li>
+            <li><a href="/services">Student Girls</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>GET IN TOUCH</h4>
+          <ul class="footer-contact-info">
+            <li>Multiple Locations Across Karachi, Pakistan</li>
+            <li>+92 335 0246669</li>
+            <li>info@karachifunescorts.online</li>
+          </ul>
+          <a href="https://wa.me/923350246669" target="_blank" class="btn-whatsapp-footer">Chat on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Karachi Fun Escorts. All rights reserved.</p>
+        <p>DHA Defence · Clifton · Teen Talwar · Shahrah-e-Faisal · Bahria Town</p>
+      </div>
     </div>
   </footer>
 
   <!-- SCRIPT -->
   <script>
+    // Blog items database list
     const myBlogList = [
-  {
-    title: "Ultimate Guide to Luxury Companionship in Karachi",
-    desc: "Explore top hotel outcall tips, dining etiquette, and discreet companionship in DHA and Clifton.",
-    date: "September 1, 2026",
-    img: "https://i.postimg.cc/zv80jfwG/hero.jpg",
-    link: "karachi-luxury-guide.html"
-  }
-];
-    // 👇 YAHAN AAP APNE NAYE BLOGS ADD KAREIN GAY 👇
-    const myBlogList = [
-      /* 
-      Example format jab aapko naya blog show karna ho:
       {
-        title: "Top 5 Places in Clifton Karachi",
-        desc: "Read our full guide about best spots in Clifton...",
+        title: "Ultimate Guide to Luxury Companionship in Karachi",
+        desc: "Explore top hotel outcall tips, dining etiquette, and discreet companionship in DHA and Clifton.",
         date: "September 1, 2026",
         img: "https://i.postimg.cc/zv80jfwG/hero.jpg",
-        link: "karachi-clifton-blog.html" 
-      },
-      */
+        link: "karachi-luxury-guide.html"
+      }
     ];
 
     function loadBlogs() {
       const grid = document.getElementById('blogGrid');
       
-      if (myBlogList.length === 0) {
+      if (!myBlogList || myBlogList.length === 0) {
         grid.innerHTML = `
           <div class="no-blogs-msg">
             <h3>No articles published yet</h3>
-            <p>Naye blogs create karke list mein add karein, woh automatically yahan display ho jayenge.</p>
+            <p>Naye blogs add karne ke baad yahan display honge.</p>
           </div>
         `;
         return;
