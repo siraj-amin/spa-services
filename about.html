@@ -28,7 +28,8 @@
     
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Girls For Sex in Karachi​ - Karachi Girls For Sex​</title>
+  <meta name="description" content="Learn about Karachi Fun Escorts. Discover our commitment to discreet, verified, and premium companionship services across DHA, Clifton, and all major areas in Karachi.">
+  <title>About Us | Elite Companionship & Escort Services in Karachi</title>
     
   <!-- Preconnect to CDN for faster image connection -->
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
@@ -59,6 +60,7 @@
       --text-light-muted: #BFAEA4;
       --card-white: #FFFFFF;
       --whatsapp-green: #25D366;
+      --border-subtle: #EAE1D4;
     }
 
     body {
@@ -97,6 +99,36 @@
       font-weight: 700;
       display: inline-block;
       margin-bottom: 14px;
+      position: relative;
+    }
+
+    .sub-heading::before,
+    .sub-heading::after {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 1px;
+      background-color: var(--gold-primary);
+      vertical-align: middle;
+      margin: 0 6px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 0.95rem;
     }
 
     .btn {
@@ -236,7 +268,7 @@
     }
 
     .story-section {
-      padding: 70px 0 100px;
+      padding: 70px 0 90px;
     }
 
     .story-grid {
@@ -284,7 +316,7 @@
        ========================================== */
     .values-section {
       background-color: var(--bg-soft-cream);
-      padding: 90px 0 110px;
+      padding: 80px 0 90px;
       text-align: center;
       content-visibility: auto;
       contain-intrinsic-size: 500px;
@@ -340,6 +372,132 @@
     .value-card p {
       color: var(--text-muted);
       font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* ==========================================
+       SEO CONTENT SECTION (EDITORIAL & FAQ)
+       ========================================== */
+    .seo-content-section {
+      background-color: var(--bg-cream);
+      padding: 70px 0 50px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .editorial-card {
+      background: var(--card-white);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .editorial-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-primary);
+    }
+
+    .editorial-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .editorial-card h3 svg {
+      fill: var(--gold-primary);
+      flex-shrink: 0;
+    }
+
+    .editorial-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .editorial-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .pillar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-soft-cream);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .pillar-item svg {
+      fill: var(--gold-primary);
+      flex-shrink: 0;
+    }
+
+    /* FAQ Accordion */
+    .faq-accordion {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--card-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--gold-primary);
+    }
+
+    .faq-header {
+      padding: 18px 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .faq-header svg {
+      fill: var(--gold-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-body {
+      display: none;
+      padding: 0 24px 18px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
       line-height: 1.6;
     }
 
@@ -563,6 +721,14 @@
       .story-image-wrapper img {
         height: 300px;
       }
+
+      .editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 576px) {
@@ -602,7 +768,7 @@
 <body>
 
   <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20know%20more%20about%20your%20services" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
@@ -626,7 +792,7 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.4-1.2-.6-2.4-.6-3.6 0-.6-.5-1-1-1H4c-.6 0-1 .5-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg>
             +92 335 0246669
           </a>
-          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa,%20I%20want%20to%20book" target="_blank" rel="noopener" class="btn btn-gold">
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book" target="_blank" rel="noopener" class="btn btn-gold">
             Book Now
           </a>
           <button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -645,12 +811,11 @@
           <div class="story-content">
             <span class="sub-heading">OUR STORY</span>
             <h1>Why Choose Karachi<br><span>Escort</span>.</h1>
-            <p>Welcome to Karachi Fun Escorts, the most trusted name in elite escort services across Karachi. We are proud to offer a premium experience with our carefully selected, high-profile call girls in Karachi, who are not only stunning in appearance but also intelligent, well-mannered, and discreet.
-                Whether you’re seeking companionship for a night out, a private date, or an exclusive event, our Karachi Fun Escort will turn every moment into an unforgettable memory.</p>
-            <p>We don’t just provide beautiful companions – we offer an experience that’s tailored to your desires. Our models know how to engage in meaningful conversation, adapt to your mood, and ensure your satisfaction, whether you’re looking for romance, fun, or intimacy.</p>
+            <p>Welcome to Karachi Fun Escorts, the premier platform for elite, discreet, and reliable adult companionship services in Karachi. We connect sophisticated clients with vetted independent companions for private dinners, social gatherings, business functions, and luxury lifestyle experiences.</p>
+            <p>Our philosophy is built around professionalism, transparency, and absolute client confidentiality. Whether you are a local executive or visiting Karachi on business, we provide refined social companions who match your schedule, venue, and personal expectations.</p>
           </div>
           <div class="story-image-wrapper">
-            <img src="https://i.postimg.cc/2SdXpXm4/banner.jpg" alt="Karachi Fun Escorts" width="540" height="380" fetchpriority="high" decoding="async">
+            <img src="https://i.postimg.cc/2SdXpXm4/banner.jpg" alt="Karachi Fun Escorts Elite Companions" width="540" height="380" fetchpriority="high" decoding="async">
           </div>
         </div>
       </div>
@@ -692,6 +857,142 @@
             <p>From DHA, Clifton, and Shahrah-e-Faisal to Bahria Town and Central Karachi, our services are available city-wide.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SEO CONTENT & EDITORIAL SECTION (ABOUT US)
+         ========================================== -->
+    <section class="seo-content-section">
+      <div class="container">
+
+        <div class="section-title">
+          <span class="sub-heading">OUR COMMITMENT</span>
+          <h2>Professional Standards & Elite Companionship in Karachi</h2>
+          <p>Learn how Karachi Fun Escorts provides a secure, discreet, and reliable environment for adult companionship and luxury social coordination.</p>
+        </div>
+
+        <!-- Editorial Grid -->
+        <div class="editorial-grid">
+          <div class="editorial-card">
+            <h3>
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Our Mission & Vision
+            </h3>
+            <p>Our mission is to offer clients in Karachi a trusted, respectful, and sophisticated companionship platform. We bridge the gap between discerning individuals and refined companions who understand social etiquette, punctuality, and the value of confidentiality.</p>
+            <p>We believe every client deserves a tailored experience, whether attending high-profile events, dining at Karachi's exclusive restaurants, or enjoying relaxed private company in upscale hotel suites.</p>
+          </div>
+
+          <div class="editorial-card">
+            <h3>
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+              Verified Standards & Discretion
+            </h3>
+            <p>Integrity and verification are central to everything we do. Profiles represented through our service are carefully vetted to ensure accurate representations, high personal grooming standards, and articulate communication.</p>
+            <p>We maintain rigorous privacy protocols. Your inquiries, personal details, and booking logs are strictly protected and never shared under any circumstances.</p>
+          </div>
+        </div>
+
+        <div class="editorial-grid">
+          <div class="editorial-card">
+            <h3>
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              Tailored for Business & Visitors
+            </h3>
+            <p>Karachi frequently hosts entrepreneurs, diplomats, corporate executives, and international travelers. Being in a bustling city alone can feel impersonal. Our companionship service offers charming, intelligent, and socially adept partners to accompany you during dinners, corporate retreats, and networking evenings.</p>
+            <p>From the corporate corridors of Shahrah-e-Faisal to the coastal retreats of Clifton and DHA, we coordinate seamlessly with your itinerary.</p>
+          </div>
+
+          <div class="editorial-card">
+            <h3>
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              Mutual Respect & Safety
+            </h3>
+            <p>A successful companionship engagement is founded on mutual consent, polite conduct, and safety for both clients and companions. We insist on open communication regarding scheduling, venue rules, and personal boundaries.</p>
+            <p>Our coordination team assists with every step of the reservation process to ensure expectations are aligned before any meeting takes place.</p>
+          </div>
+        </div>
+
+        <!-- Core Service Pillars Grid -->
+        <div class="editorial-card" style="margin-bottom: 40px;">
+          <h3 style="font-size: 1.5rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+            Our Core Service Pillars
+          </h3>
+          <p>When booking through Karachi Fun Escorts, you are assured of reliable quality, fast responses, and transparent coordination:</p>
+          
+          <div class="pillars-grid">
+            <div class="pillar-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 100% Confidential Bookings</div>
+            <div class="pillar-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Verified & Real Profiles</div>
+            <div class="pillar-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Punctual Outcall & Inquiries</div>
+            <div class="pillar-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> City-Wide Karachi Coverage</div>
+            <div class="pillar-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 24/7 WhatsApp Support</div>
+            <div class="pillar-item"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Flexible Packages (Short & Full Night)</div>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="section-title" style="margin-bottom: 25px;">
+          <span class="sub-heading">FAQ</span>
+          <h2>Frequently Asked Questions About Our Agency</h2>
+          <p>Get quick answers regarding our service ethics, verification methods, and booking procedures.</p>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <div class="faq-header">
+              <span>How are companions vetted and verified?</span>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-body">
+              All independent companions on our platform undergo a thorough screening process for authenticity, presentation, communication skills, and commitment to client confidentiality.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span>Is my personal information kept secure?</span>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-body">
+              Yes, absolute privacy is our highest priority. We do not store personal contact records or disclose client booking details to any third party.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span>What types of engagements can I book?</span>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-body">
+              Companions are available for private dinner dates, social events, formal business gatherings, travel companionship, and extended overnight stays across Karachi.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span>How can I make an appointment or reservation?</span>
+              <svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="faq-body">
+              You can contact our coordination desk directly via WhatsApp or phone. Simply specify your preferred date, duration, area in Karachi, and companion preferences for fast confirmation.
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Contact Box -->
+        <div class="editorial-card" style="text-align: center; background-color: var(--bg-soft-cream); border: 2px solid var(--gold-primary);">
+          <h3 style="justify-content: center; font-size: 1.6rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Connect With Karachi Fun Escorts Today
+          </h3>
+          <p style="max-width: 800px; margin: 0 auto 12px;">Experience elite companionship tailored to your lifestyle. Our coordinators are available 24/7 to answer questions, guide your package selection, and ensure an effortless booking experience.</p>
+          <p style="max-width: 800px; margin: 0 auto 22px;">Contact us on WhatsApp for prompt, polite, and completely discreet assistance.</p>
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book" target="_blank" rel="noopener" class="btn btn-gold">
+            Chat on WhatsApp
+          </a>
+        </div>
+
       </div>
     </section>
   </main>
@@ -750,7 +1051,7 @@
               <span>info@karachifunescorts.online</span>
             </li>
           </ul>
-          <a href="https://wa.me/923350246669?text=Hello%20Serenity%20Spa" target="_blank" rel="noopener" class="btn-whatsapp-footer">
+          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Escort,%20I%20want%20to%20book" target="_blank" rel="noopener" class="btn-whatsapp-footer">
             Chat on WhatsApp
           </a>
         </div>
@@ -793,6 +1094,24 @@
           }
         });
       }
+
+      // FAQ Accordion Toggle Interaction
+      const faqHeaders = document.querySelectorAll('.faq-header');
+      faqHeaders.forEach(headerEl => {
+        headerEl.addEventListener('click', () => {
+          const body = headerEl.nextElementSibling;
+          const svg = headerEl.querySelector('svg');
+          const isOpen = body.style.display === 'block';
+          
+          document.querySelectorAll('.faq-body').forEach(b => b.style.display = 'none');
+          document.querySelectorAll('.faq-header svg').forEach(s => s.style.transform = 'rotate(0deg)');
+          
+          if (!isOpen) {
+            body.style.display = 'block';
+            svg.style.transform = 'rotate(180deg)';
+          }
+        });
+      });
     });
   </script>
 
