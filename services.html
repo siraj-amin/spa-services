@@ -57,6 +57,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
     gtag('config', 'G-E349H1TGKR');
   </script>
 
@@ -90,6 +91,7 @@
       --gold-primary: #C5A059;
       --gold-hover: #B08D46;
       --gold-light: #E8D8B8;
+      --gold-badge: #C69214;
       --text-dark: #221814;
       --text-muted: #655B55;
       --text-light-muted: #D3C4BC;
@@ -195,14 +197,16 @@
     }
 
     /* ==========================================
-       HEADER & NAVIGATION (SOLID & RESPONSIVE)
+       HEADER & NAVIGATION (CLEAN RESPONSIVE FIX)
        ========================================== */
     header {
       position: sticky;
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #FAF6F0;
+      background-color: rgba(250, 246, 240, 0.98);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       z-index: 1000;
       border-bottom: 1px solid var(--border-subtle);
       transition: box-shadow 0.2s ease;
@@ -222,11 +226,14 @@
 
     .logo {
       font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      font-size: 1.6rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       color: var(--text-dark);
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .logo span {
@@ -278,10 +285,10 @@
       display: none;
       background: none;
       border: none;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: var(--text-dark);
       cursor: pointer;
-      padding: 4px;
+      padding: 6px;
       line-height: 1;
     }
 
@@ -344,18 +351,18 @@
     }
 
     /* ==========================================
-       HERO & SECTIONS
+       HERO HEADER SECTION
        ========================================== */
     .services-hero {
       text-align: center;
-      padding: 50px 0 35px;
+      padding: 45px 0 35px;
     }
 
     .services-hero h1 {
-      font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+      font-size: clamp(1.9rem, 4vw, 3rem);
       margin-bottom: 14px;
       font-weight: 600;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     .services-hero p {
@@ -366,6 +373,9 @@
       line-height: 1.7;
     }
 
+    /* ==========================================
+       SERVICES GRID SECTION
+       ========================================== */
     .services-section {
       padding-bottom: 60px;
       flex-grow: 1;
@@ -463,6 +473,9 @@
       gap: 8px;
     }
 
+    /* ==========================================
+       CTA BANNER
+       ========================================== */
     .cta-banner {
       background-color: var(--bg-dark-espresso);
       border-radius: 16px;
@@ -487,7 +500,9 @@
       line-height: 1.65;
     }
 
-    /* SEO EDITORIAL */
+    /* ==========================================
+       SEO EDITORIAL & KEYWORD-RICH SECTIONS
+       ========================================== */
     .seo-content-section {
       background-color: var(--bg-cream);
       padding: 70px 0 40px;
@@ -621,7 +636,9 @@
       line-height: 1.65;
     }
 
-    /* FOOTER */
+    /* ==========================================
+       FOOTER SECTION
+       ========================================== */
     footer {
       background: var(--bg-dark-espresso);
       color: #FFF;
@@ -741,7 +758,7 @@
       align-items: center;
     }
 
-    /* FLOATING WHATSAPP */
+    /* FLOATING WHATSAPP BUTTON */
     .whatsapp-float {
       position: fixed;
       bottom: 24px;
@@ -764,7 +781,7 @@
     }
 
     /* ==========================================
-       RESPONSIVE BREAKPOINTS (FIXES MENU OVERLAP)
+       RESPONSIVE BREAKPOINTS (FIXED HEADER & MENU)
        ========================================== */
     @media (max-width: 992px) {
       .services-grid {
@@ -784,32 +801,47 @@
       .header-phone {
         display: none;
       }
+      /* Hide "Book Now" from small mobile header to prevent overlapping logo */
+      .header-contact .btn-gold {
+        display: none;
+      }
     }
 
     @media (max-width: 600px) {
       .container {
         padding: 0 16px;
       }
+
+      .logo {
+        font-size: 1.45rem;
+      }
+
       .services-hero {
         padding: 35px 0 25px;
       }
+
       .services-grid {
         grid-template-columns: 1fr;
       }
+
       .editorial-grid {
         grid-template-columns: 1fr;
       }
+
       .standards-grid {
         grid-template-columns: 1fr;
       }
+
       .footer-grid {
         grid-template-columns: 1fr;
       }
+
       .footer-bottom {
         flex-direction: column;
         gap: 10px;
         text-align: center;
       }
+
       .whatsapp-float {
         width: 46px;
         height: 46px;
@@ -868,7 +900,7 @@
             Book Now
           </a>
           <button class="mobile-nav-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
           </button>
         </div>
       </nav>
