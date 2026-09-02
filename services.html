@@ -57,7 +57,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-E349H1TGKR');
   </script>
 
@@ -91,7 +90,6 @@
       --gold-primary: #C5A059;
       --gold-hover: #B08D46;
       --gold-light: #E8D8B8;
-      --gold-badge: #C69214;
       --text-dark: #221814;
       --text-muted: #655B55;
       --text-light-muted: #D3C4BC;
@@ -170,9 +168,7 @@
       line-height: 1.65;
     }
 
-    /* ==========================================
-       BUTTONS
-       ========================================== */
+    /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -199,16 +195,14 @@
     }
 
     /* ==========================================
-       HEADER & NAVIGATION
+       HEADER & NAVIGATION (SOLID & RESPONSIVE)
        ========================================== */
     header {
       position: sticky;
       top: 0;
       left: 0;
       width: 100%;
-      background-color: rgba(250, 246, 240, 0.98);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background-color: #FAF6F0;
       z-index: 1000;
       border-bottom: 1px solid var(--border-subtle);
       transition: box-shadow 0.2s ease;
@@ -284,10 +278,11 @@
       display: none;
       background: none;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: var(--text-dark);
       cursor: pointer;
       padding: 4px;
+      line-height: 1;
     }
 
     /* Mobile Drawer */
@@ -349,7 +344,7 @@
     }
 
     /* ==========================================
-       HERO HEADER SECTION
+       HERO & SECTIONS
        ========================================== */
     .services-hero {
       text-align: center;
@@ -371,9 +366,6 @@
       line-height: 1.7;
     }
 
-    /* ==========================================
-       SERVICES GRID SECTION
-       ========================================== */
     .services-section {
       padding-bottom: 60px;
       flex-grow: 1;
@@ -471,9 +463,6 @@
       gap: 8px;
     }
 
-    /* ==========================================
-       CTA BANNER
-       ========================================== */
     .cta-banner {
       background-color: var(--bg-dark-espresso);
       border-radius: 16px;
@@ -498,9 +487,7 @@
       line-height: 1.65;
     }
 
-    /* ==========================================
-       SEO EDITORIAL & KEYWORD-RICH SECTIONS
-       ========================================== */
+    /* SEO EDITORIAL */
     .seo-content-section {
       background-color: var(--bg-cream);
       padding: 70px 0 40px;
@@ -634,9 +621,7 @@
       line-height: 1.65;
     }
 
-    /* ==========================================
-       FOOTER SECTION
-       ========================================== */
+    /* FOOTER */
     footer {
       background: var(--bg-dark-espresso);
       color: #FFF;
@@ -756,7 +741,7 @@
       align-items: center;
     }
 
-    /* FLOATING WHATSAPP BUTTON */
+    /* FLOATING WHATSAPP */
     .whatsapp-float {
       position: fixed;
       bottom: 24px;
@@ -778,7 +763,9 @@
       transform: scale(1.08);
     }
 
-    /* RESPONSIVE BREAKPOINTS */
+    /* ==========================================
+       RESPONSIVE BREAKPOINTS (FIXES MENU OVERLAP)
+       ========================================== */
     @media (max-width: 992px) {
       .services-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -803,33 +790,26 @@
       .container {
         padding: 0 16px;
       }
-
       .services-hero {
         padding: 35px 0 25px;
       }
-
       .services-grid {
         grid-template-columns: 1fr;
       }
-
       .editorial-grid {
         grid-template-columns: 1fr;
       }
-
       .standards-grid {
         grid-template-columns: 1fr;
       }
-
       .footer-grid {
         grid-template-columns: 1fr;
       }
-
       .footer-bottom {
         flex-direction: column;
         gap: 10px;
         text-align: center;
       }
-
       .whatsapp-float {
         width: 46px;
         height: 46px;
@@ -841,7 +821,7 @@
 </head>
 <body>
 
-  <!-- MOBILE OVERLAY & DRAWER -->
+  <!-- MOBILE OVERLAY & DRAWER MENU -->
   <div class="overlay" id="overlay" onclick="toggleMenu()" aria-hidden="true"></div>
   <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
     <ul class="mobile-nav-links">
