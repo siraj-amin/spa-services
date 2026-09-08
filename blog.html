@@ -839,7 +839,7 @@
             <svg width="14" height="14" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <span>info@karachifunescorts.online</span>
           </div>
-          <a href="https://wa.me/923350246669?text=Hello%20Karachi%20Fun%20Escorts,%20I%20want%20to%20inquire" target="_blank" rel="noopener" class="btn-whatsapp-footer">
+          <a href="https://wa.me/923350246669" target="_blank" rel="noopener" class="btn-whatsapp-footer">
             Chat on WhatsApp
           </a>
         </div>
@@ -880,8 +880,26 @@
       overlay.classList.toggle('active');
     }
 
-    // CENTRAL BLOG DATABASE (UPDATED WITH BOTH BLOG POSTS)
+    // CENTRAL BLOG DATABASE (UPDATED WITH ALL 4 BLOG POSTS)
     const myBlogList = [
+      {
+        title: "Understanding Karachi Escort Packages & Rates: Complete Breakdown (2026)",
+        desc: "Transparent breakdown covering Karachi escort packages, escort rates Karachi, VIP prices, and inclusions for 5-star hotels and dinner dates.",
+        category: "tips",
+        categoryName: "Rates & Packages",
+        date: "September 8, 2026",
+        img: "https://i.ibb.co/sJsvMydK/Chat-GPT-Image-Sep-8-2026-04-38-02-PM.png",
+        link: "/karachi-escort-packages-rates"
+      },
+      {
+        title: "Luxury Companions in Clifton Karachi: What You Need to Know",
+        desc: "A gentleman's guide to booking verified clifton escorts karachi, waterfront dining near Sea View, luxury hotel visits, and discrete companionship.",
+        category: "lifestyle",
+        categoryName: "Clifton Dating",
+        date: "September 8, 2026",
+        img: "https://i.ibb.co/cKG2c1k3/Luxury-Evening-in-Clifton-Karachi.png",
+        link: "/luxury-companions-in-clifton-karachi"
+      },
       {
         title: "Call Girls in Karachi: The Comprehensive 2026 Authority Guide to Elite Outcalls & VIP Dating",
         desc: "In-depth guide covering verified call girls in Karachi, 5-star hotel outcall logistics, private VIP dating, and neighborhood booking advice.",
@@ -894,8 +912,8 @@
       {
         title: "Ultimate Guide to Luxury Companionship & VIP Dating in Karachi (2026)",
         desc: "Complete guide covering 5-star hotel visits, fine dining in DHA & Clifton, outcall etiquette, and discrete companion bookings.",
-        category: "lifestyle",
-        categoryName: "VIP Lifestyle",
+        category: "hotels",
+        categoryName: "VIP Hotels & Guide",
         date: "September 1, 2026",
         img: "https://i.postimg.cc/zv80jfwG/hero.jpg",
         link: "/karachi-luxury-guide"
@@ -939,7 +957,6 @@
     function setCategoryFilter(category) {
       currentCategory = category;
 
-      // Update button visual state
       document.querySelectorAll('.filter-pill').forEach(btn => btn.classList.remove('active'));
       const activeBtn = Array.from(document.querySelectorAll('.filter-pill')).find(b => 
         b.getAttribute('onclick').includes(`'${category}'`)
@@ -973,6 +990,5 @@
       renderBlogGrid(myBlogList);
     });
   </script>
-
 </body>
 </html>
